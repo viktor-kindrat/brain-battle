@@ -14,18 +14,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
   <style>
     .Loader {
-      height: 100vh;
-      width: 100vw;
-      background: #6A0572;
+      width: 300vw;
+      min-height: 100vh;
+      height: auto;
+      aspect-ratio: 1/1;
+      background: #4e0454;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       padding: 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      clip-path: circle(50% at 50% 50%);
     }
 
     .Loader__image-group {
@@ -155,7 +158,7 @@
         scale: 0,
         duration: 2,
         ease: "elastic.in(1, 0.3)",
-        delay: 0.3
+        delay: 0
       })
     })
   </script>
