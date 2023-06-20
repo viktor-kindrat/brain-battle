@@ -3,7 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const webp = require('gulp-webp');
 
 function compileStyles() {
-    return gulp.src(['./**/*.scss', '!./node_modules/**'])
+    return gulp.src(['./**/*.scss', '!./node_modules/**', "!./**/variable.scss", "!./**/mixin.scss"])
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./'));
 }

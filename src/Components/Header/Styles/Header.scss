@@ -1,0 +1,40 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.Header {
+    width: 100%;
+    @include flex(center, space-between, row, 25px);
+    padding: $pagePadding;
+
+    .Header__logo-group {
+        @include flex(center, flex-start, row, 15px);
+
+        .Header__logo-image {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .Header__logo-text {
+            font-family: 'Harms';
+            font-style: normal;
+            font-weight: 400;
+            font-size: calc(15px + .2vw);
+            line-height: 100%;
+            /* identical to box height */
+
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+
+            color: #FFFFFF;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Header {
+        padding: $pagePaddingMobile;
+    }
+}

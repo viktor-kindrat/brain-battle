@@ -1,11 +1,12 @@
 @import "reset";
 @import "../Fonts/Actay/Actay.css";
 @import "../Fonts/Harms/Harms.css";
+@import "../Components/variable.scss";
 
 * {
     color: #ffffff;
 }
 
 body {
-    background-color: #6A0572;
+    background-color: $primary;
 }
