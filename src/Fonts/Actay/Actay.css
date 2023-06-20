@@ -2,35 +2,41 @@
     font-family: "Actay";
     font-weight: 500;
     font-style: normal;
+    font-display: block;
     src: url("./Actay-Regular.otf");
 }
 @font-face {
     font-family: "Actay";
     font-weight: 500;
     font-style: italic;
+    font-display: block;
     src: url("./Actay-RegularItalic.otf");
 }
 @font-face {
     font-family: "Actay";
     font-weight: 300;
     font-style: normal;
+    font-display: block;
     src: url("./ActayCondensed-Thin.otf");
 }
 @font-face {
     font-family: "Actay";
     font-weight: 300;
     font-style: italic;
+    font-display: block;
     src: url("./ActayCondensed-ThinItalic.otf");
 }
 @font-face {
     font-family: "Actay";
     font-weight: 800;
     font-style: normal;
+    font-display: block;
     src: url("./ActayWide-Bold.otf");
 }
 @font-face {
     font-family: "Actay";
     font-weight: 800;
     font-style: italic;
+    font-display: block;
     src: url("./ActayWide-BoldItalic.otf");
 }
