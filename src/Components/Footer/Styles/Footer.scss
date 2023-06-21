@@ -1,0 +1,15 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.Footer {
+    @include flex(center, center, column, 25px);
+    width: 100%;
+    background: $primaryDark;
+    padding: $pagePadding;
+}
+
+@media screen and (max-width: 800px) {
+    .Footer {
+        padding: $pagePaddingMobile;
+    }
+}

@@ -1,0 +1,16 @@
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  background: #421345;
+  padding: 25px 150px;
+}
+
+@media screen and (max-width: 800px) {
+  .Footer {
+    padding: 25px;
+  }
+}
