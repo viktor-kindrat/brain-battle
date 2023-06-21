@@ -6,10 +6,11 @@
     gap: $gap
 }
 
-@mixin block($background, $borderRadius, $color){
+@mixin block($background, $borderRadius, $color, $padding){
     background: $background;
     border-radius: $borderRadius;
     color: $color;
+    padding: $padding;
     -webkit-border-radius: $borderRadius;
     -moz-border-radius: $borderRadius;
     -ms-border-radius: $borderRadius;

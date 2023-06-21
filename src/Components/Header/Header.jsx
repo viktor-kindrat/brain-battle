@@ -10,6 +10,10 @@ function Header (){
                     Brain <br /> Battle
                 </p>
             </div>
+            <nav className="Header__nav">
+                <button className="Header__nav-btn Header__nav-btn_filled">Sign up</button>
+                <button className="Header__nav-btn Header__nav-btn_transparent">Log in</button>
+            </nav>
         </header>
     )
 }
