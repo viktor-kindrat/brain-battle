@@ -1,7 +1,9 @@
+import Home from "../Home/Home"
+
 function Main(){
     return (
         <main className="Main">
-            main
+            <Home/>
         </main>
     )
 }

@@ -1,49 +1,37 @@
-.Header {
-  width: calc(100vw - 15px - 2px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 25px;
-  padding: 25px 150px;
-}
-.Header .Header__logo-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 15px;
-}
-.Header .Header__logo-group .Header__logo-image {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-  object-position: center;
-}
-.Header .Header__logo-group .Header__logo-text {
-  font-family: "Harms";
-  font-style: normal;
-  font-weight: 400;
-  font-size: calc(155x + 0.2vw);
-  line-height: 100%;
-  display: flex;
-  align-items: flex-start;
-  text-align: left;
-  color: #FFFFFF;
-}
-.Header .Header__nav {
+.Home {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 25px;
+  min-height: min(100vh, 750px);
+}
+.Home .Home__content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   gap: 25px;
 }
-.Header .Header__nav .Header__nav-btn {
+.Home .Home__content-container .Home__headline {
+  font-family: "Harms";
+  font-style: normal;
+  font-weight: 400;
+  font-size: calc(25px + 1.5vw);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 98%;
+  margin-bottom: 10px;
+}
+.Home .Home__content-container .Home__button-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.Home .Home__content-container .Home__button-container .Home__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +49,7 @@
   outline: none;
   cursor: pointer;
 }
-.Header .Header__nav .Header__nav-btn:hover {
+.Home .Home__content-container .Home__button-container .Home__button:hover {
   transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
   -moz-transform: translateY(-2px);
@@ -69,7 +57,7 @@
   -o-transform: translateY(-2px);
   box-shadow: 0 3px 5px rgba(20, 20, 20, 0.1882352941);
 }
-.Header .Header__nav .Header__nav-btn_filled {
+.Home .Home__content-container .Home__button-container .Home__button_filled {
   background: #FF8906;
   border-radius: 5px;
   color: #ffffff;
@@ -78,8 +66,9 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  margin-bottom: 10px;
 }
-.Header .Header__nav .Header__nav-btn_transparent {
+.Home .Home__content-container .Home__button-container .Home__button_transparent {
   background: transparent;
   border-radius: 5px;
   color: #FF8906;
@@ -89,10 +78,4 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border: 2px solid #FF8906;
-}
-
-@media screen and (max-width: 800px) {
-  .Header {
-    padding: 25px;
-  }
 }

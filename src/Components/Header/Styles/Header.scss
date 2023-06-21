@@ -2,7 +2,12 @@
 @import "../../mixin.scss";
 
 .Header {
-    width: 100%;
+    width: calc(100vw - $scrollbarWidth - 2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
 

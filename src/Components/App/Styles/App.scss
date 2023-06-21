@@ -1,6 +1,13 @@
+@import "../../variable.scss";
+
 .App {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    background-color: $primary;
+    background-size: 100px 58.8px;
+    background-position: center;
+    background-repeat: repeat;
 }
