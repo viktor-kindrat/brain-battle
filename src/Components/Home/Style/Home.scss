@@ -4,6 +4,7 @@
 .Home {
     @include flex(center, center, column, 25px);
     min-height: min(100vh, 750px);
+    padding: pagePadding;
 
     .Home__content-container {
         @include flex(center, center, column, 25px);
@@ -49,5 +50,11 @@
                 border: 2px solid $secondary;
             }
         }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Home {
+        padding: $pagePaddingMobile;
     }
 }

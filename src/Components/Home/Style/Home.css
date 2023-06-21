@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: 25px;
   min-height: min(100vh, 750px);
+  padding: pagePadding;
 }
 .Home .Home__content-container {
   display: flex;
@@ -78,4 +79,10 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border: 2px solid #FF8906;
+}
+
+@media screen and (max-width: 800px) {
+  .Home {
+    padding: 25px;
+  }
 }

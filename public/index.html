@@ -29,6 +29,7 @@
       align-items: center;
       justify-content: center;
       clip-path: circle(50% at 50% 50%);
+      z-index: 10000;
     }
 
     .Loader__image-group {
@@ -152,6 +153,7 @@
   </div>
   <div id="root"></div>
   <script>
+    document.body.style.overflow = "hidden"
     window.addEventListener("load", (e)=>{
       let tl = gsap.timeline()
       tl.to(".Loader", {
@@ -159,6 +161,9 @@
         duration: 1.5,
         ease: "elastic.in(1, 0.3)",
         delay: 0
+      })
+      tl.then(()=>{
+        document.body.removeAttribute("style")
       })
     })
   </script>
