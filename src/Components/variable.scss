@@ -2,9 +2,13 @@
 $pagePadding: 25px 150px;
 $pagePaddingMobile: 25px;
 $scrollbarWidth: 15px;
+$minHeight: min(100vh, 750px);
+$headlineFZ: calc(20px + 1vw);
 
 // colors
 $primary: #6A0572;
 $primaryDark: #421345;
 $secondary: #FF8906;
 $accent: #82D173;
+$dark: #141414;
+$shadowDark: #14141430;

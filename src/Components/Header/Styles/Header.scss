@@ -54,7 +54,7 @@
 
             &:hover {
                 @include transform(translateY(-2px));
-                box-shadow: 0 3px 5px #14141430
+                box-shadow: 0 3px 5px $shadowDark
             }
         }
 

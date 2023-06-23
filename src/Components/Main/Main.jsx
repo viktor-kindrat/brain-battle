@@ -9,8 +9,8 @@ function Main() {
         <main className="Main">
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/signUp" element={<Form type="register" />}></Route>
-                <Route path="/logIn" element={<Form type="login" />}></Route>
+                <Route path="/signUp" element={<Form type="reg" />}></Route>
+                <Route path="/logIn" element={<Form type="log" />}></Route>
             </Routes>
         </main>
     )

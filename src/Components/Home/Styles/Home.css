@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 25px;
   min-height: min(100vh, 750px);
-  padding: pagePadding;
+  padding: 25px 150px;
 }
 .Home .Home__content-container {
   display: flex;

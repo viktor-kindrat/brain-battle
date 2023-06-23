@@ -3,8 +3,8 @@
 
 .Home {
     @include flex(center, center, column, 25px);
-    min-height: min(100vh, 750px);
-    padding: pagePadding;
+    min-height: $minHeight;
+    padding: $pagePadding;
 
     .Home__content-container {
         @include flex(center, center, column, 25px);
@@ -36,7 +36,7 @@
 
                 &:hover {
                     @include transform(translateY(-2px));
-                    box-shadow: 0 3px 5px #14141430
+                    box-shadow: 0 3px 5px $shadowDark
                 }
             }
 
