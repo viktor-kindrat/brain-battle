@@ -154,13 +154,20 @@
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__input_file {
   display: none;
 }
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__warning {
+  color: rgb(198, 33, 0);
+  font-size: 15px;
+}
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 15px;
-  width: auto;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__info {
+  color: #333333;
+  font-size: 12px;
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__avatar-template {
   max-width: 150px;

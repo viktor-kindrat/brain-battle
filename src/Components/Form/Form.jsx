@@ -8,13 +8,16 @@ import imageUpload from "./Svg/addImage.svg"
 
 function Form({ type }) {
     let [imagePreview, setImagePreview] = useState("");
+    let [ warning, setWarning ] = useState({})
     let avatarChangeHandler = (e) => {
         if (e.target.files[0]) {
             if ((e.target.files[0].size * (10**(-6))) <= 1.5) {     
                 let url = URL.createObjectURL(e.target.files[0])
                 setImagePreview(url)
+                setWarning({...warning, image: ""})
             } else {
-                alert("Maximum file size is 1.5Mb. Compress your image and try again")
+                setImagePreview(avatarDef)
+                setWarning({...warning, image: "Your image size is too big. Maximum size is 1.5MB Please compress image and try again!"})
             }
         }
     }
@@ -58,7 +61,9 @@ function Form({ type }) {
                                     <div className="Form__avatar-template">
                                         <img src={imagePreview ? imagePreview : avatarDef} alt="avatar" className="Form__avatar-preview" />
                                     </div>
+                                    <div className="Form__info">Remember! Max size of your image must be 1.5MB</div>
                                     <label htmlFor="form-avatar" className="Form__label Form__label_file"><img height={25} width={25} src={imageUpload} alt="" />Set profile image</label>
+                                    {warning.image ? <p className="Form__warning">{warning.image}</p> : ""}
                                     <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
                                 <div className="Form__input-container">

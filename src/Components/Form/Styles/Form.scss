@@ -103,9 +103,18 @@
                         }
                     }
 
+                    .Form__warning {
+                        color: rgb(198, 33, 0);
+                        font-size: 15px;
+                    }
+
                     &_image {
                         @include flex(center, center, column, 15px);
-                        width: auto;
+
+                        .Form__info {
+                            color: #333333;
+                            font-size: 12px;
+                        }
 
                         .Form__avatar-template {
                             max-width: 150px;
