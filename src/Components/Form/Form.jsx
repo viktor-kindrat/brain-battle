@@ -7,9 +7,25 @@ import avatarDef from "./Svg/avatardef.svg"
 
 function Form({ type }) {
     let [imagePreview, setImagePreview] = useState("");
-    let avatarChangeHandler = (e)=>{
+    let avatarChangeHandler = (e) => {
         let url = URL.createObjectURL(e.target.files[0])
         setImagePreview(url)
+    }
+
+    let inputFocusHandler = (e) => {
+        let parent = e.target.parentElement;
+        let label = parent.querySelector(".Form__label");
+        label.style.top = "-3px";
+        label.style.fontSize = "10px";
+        label.style.fontWeight = "800"
+        label.style.color = "#333333"
+    }
+    let inputBlurHandler = (e) => {
+        if (e.target.value === "") {
+            let parent = e.target.parentElement;
+            let label = parent.querySelector(".Form__label")
+            label.removeAttribute("style")
+        }
     }
     return (
         <form action="" className="Form">
@@ -22,16 +38,16 @@ function Form({ type }) {
                             <div className="Form__fields-container">
                                 <div className="Form__input-container">
                                     <label htmlFor="form-email" className="Form__label">Input your email</label>
-                                    <input id="form-email" type="text" name="email" className="Form__input" />
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-email" type="text" name="email" className="Form__input" />
                                 </div>
                                 <div className="Form__input-container">
                                     <label htmlFor="form-password" className="Form__label">Enter password</label>
-                                    <input id="form-password" type="password" name="password" className="Form__input" />
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password" type="password" name="password" className="Form__input" />
                                 </div>
                             </div>
                         </> : <>
                             <div className="Form__fields-container">
-                                <div className="Form__input-container">
+                                <div className="Form__input-container Form__input-container_image">
                                     <div className="Form__avatar-template">
                                         <img src={imagePreview ? imagePreview : avatarDef} alt="avatar" className="Form__avatar-preview" />
                                     </div>
@@ -40,20 +56,20 @@ function Form({ type }) {
                                 </div>
                                 <div className="Form__input-container">
                                     <label htmlFor="form-email" className="Form__label">Input your email</label>
-                                    <input id="form-email" type="text" name="email" className="Form__input" />
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-email" type="text" name="email" className="Form__input" />
                                 </div>
                                 <div className="Form__input-container">
                                     <label htmlFor="form-password" className="Form__label">Enter password</label>
-                                    <input id="form-password" type="password" name="password" className="Form__input" />
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password" type="password" name="password" className="Form__input" />
                                 </div>
                                 <div className="Form__input-container">
                                     <label htmlFor="form-password-confirmation" className="Form__label">Confirm password</label>
-                                    <input id="form-password-confirmation" type="password" name="password" className="Form__input" />
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password-confirmation" type="password" name="password" className="Form__input" />
                                 </div>
                             </div>
                         </>
                     }
-                    <button type="submit">{(type === "reg" ? "Sign up" : "Sign in")}</button>
+                    <button className="Form__submit" type="submit">{(type === "reg" ? "Sign up" : "Sign in")}</button>
                 </div>
             </div>
         </form>

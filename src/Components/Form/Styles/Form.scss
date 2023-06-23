@@ -47,7 +47,47 @@
             }
 
             .Form__fields-container {
-                @include flex(flex-start, center, column, 25px)
+                @include flex(flex-start, center, column, 25px);
+                width: 100%;
+                .Form__input-container {
+                    @include flex(flex-start, flex-start, column, 0);
+                    width: 100%;
+                    position: relative;
+
+                    .Form__label {
+                        @include transform(translate(0, -50%));
+                        @include transition(0.3s);
+                        pointer-events: none;
+                        user-select: none;
+                        position: absolute;
+                        top: 50%;
+                        left: 15px;
+                        font-size: 15px;
+                        line-height: 100%;
+                    }
+
+                    .Form__input {
+                        @include borderRadius(5px);
+                        width: min(750px, 100%);
+                        box-shadow: 0 4px 5px $shadowDark;
+                        padding: 15px;
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+
+            .Form__submit {
+                @include borderRadius(5px);
+                background: $secondary;
+                color: #ffffff;
+                padding: 10px 25px;
+                border: none;
+                outline: none;
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: calc(10px + .5vw);
+                cursor: pointer;
             }
         }
 
