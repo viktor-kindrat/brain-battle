@@ -67,6 +67,10 @@ function Form({ type }) {
                                     <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
                                 <div className="Form__input-container">
+                                    <label htmlFor="form-name" className="Form__label">Enter your beautiful name</label>
+                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-name" type="text" name="name" className="Form__input" />
+                                </div>
+                                <div className="Form__input-container">
                                     <label htmlFor="form-email" className="Form__label">Input your email</label>
                                     <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-email" type="text" name="email" className="Form__input" />
                                 </div>
