@@ -1,8 +1,16 @@
 import "./Styles/Form.css"
 
+import { useState } from "react"
+
 import googleIcon from "./Svg/google.svg"
+import avatarDef from "./Svg/avatardef.svg"
 
 function Form({ type }) {
+    let [imagePreview, setImagePreview] = useState("");
+    let avatarChangeHandler = (e)=>{
+        let url = URL.createObjectURL(e.target.files[0])
+        setImagePreview(url)
+    }
     return (
         <form action="" className="Form">
             <div className="Form__content-container">
@@ -24,9 +32,11 @@ function Form({ type }) {
                         </> : <>
                             <div className="Form__fields-container">
                                 <div className="Form__input-container">
-                                    <div className="Form__avatar-template"></div>
-                                    <label htmlFor="form-avatar" className="Form__label">Set profile image</label>
-                                    <input id="form-avatar" type="file" name="avatar" className="Form__input" />
+                                    <div className="Form__avatar-template">
+                                        <img src={imagePreview ? imagePreview : avatarDef} alt="avatar" className="Form__avatar-preview" />
+                                    </div>
+                                    <label htmlFor="form-avatar" className="Form__label Form__label_file">Set profile image</label>
+                                    <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
                                 <div className="Form__input-container">
                                     <label htmlFor="form-email" className="Form__label">Input your email</label>

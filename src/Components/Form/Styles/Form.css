@@ -13,7 +13,7 @@
 }
 .Form .Form__content-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 25px;
@@ -28,12 +28,23 @@
   background: #ffffff;
 }
 .Form .Form__content-container .Form__headline {
+  width: 100%;
   font-family: "Harms";
   font-size: calc(20px + 1vw);
   line-height: 100%;
   font-weight: 600;
+  text-align: center;
 }
-.Form .Form__content-container .Form__button {
+.Form .Form__content-container .Form__fields {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+.Form .Form__content-container .Form__fields .Form__button {
+  width: min(100%, 500px);
   background: #eeeeee;
   border-radius: 5px;
   color: #141414;
@@ -48,12 +59,20 @@
   flex-direction: row;
   gap: 15px;
   text-decoration: none;
+  align-self: center;
 }
-.Form .Form__content-container .Form__button .Form__btn-icon {
+.Form .Form__content-container .Form__fields .Form__button .Form__btn-icon {
   height: 25px;
   width: 25px;
   object-fit: contain;
   object-position: center;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
 }
 
 @media screen and (max-width: 800px) {
