@@ -103,6 +103,42 @@
   font-size: 15px;
   line-height: 100%;
 }
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label_file {
+  transform: translate(0);
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+  transition: 0;
+  -webkit-transition: 0;
+  -moz-transition: 0;
+  -ms-transition: 0;
+  -o-transition: 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  pointer-events: all;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: calc(10px + 0.5vw);
+  line-height: 100%;
+  cursor: pointer;
+  box-shadow: 0 4px 5px rgba(20, 20, 20, 0.1882352941);
+  padding: 10px 25px;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label_file img {
+  height: 25px;
+  width: 25px;
+  object-fit: contain;
+}
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__input {
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -114,6 +150,32 @@
   padding: 15px;
   border: none;
   outline: none;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__input_file {
+  display: none;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  width: auto;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__avatar-template {
+  max-width: 150px;
+  aspect-ratio: 1/1;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__avatar-template .Form__avatar-preview {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  width: 150px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(20, 20, 20, 0.1882352941);
 }
 .Form .Form__content-container .Form__fields .Form__submit {
   border-radius: 5px;

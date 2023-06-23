@@ -4,12 +4,19 @@ import { useState } from "react"
 
 import googleIcon from "./Svg/google.svg"
 import avatarDef from "./Svg/avatardef.svg"
+import imageUpload from "./Svg/addImage.svg"
 
 function Form({ type }) {
     let [imagePreview, setImagePreview] = useState("");
     let avatarChangeHandler = (e) => {
-        let url = URL.createObjectURL(e.target.files[0])
-        setImagePreview(url)
+        if (e.target.files[0]) {
+            if ((e.target.files[0].size * (10**(-6))) <= 1.5) {     
+                let url = URL.createObjectURL(e.target.files[0])
+                setImagePreview(url)
+            } else {
+                alert("Maximum file size is 1.5Mb. Compress your image and try again")
+            }
+        }
     }
 
     let inputFocusHandler = (e) => {
@@ -51,7 +58,7 @@ function Form({ type }) {
                                     <div className="Form__avatar-template">
                                         <img src={imagePreview ? imagePreview : avatarDef} alt="avatar" className="Form__avatar-preview" />
                                     </div>
-                                    <label htmlFor="form-avatar" className="Form__label Form__label_file">Set profile image</label>
+                                    <label htmlFor="form-avatar" className="Form__label Form__label_file"><img height={25} width={25} src={imageUpload} alt="" />Set profile image</label>
                                     <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
                                 <div className="Form__input-container">

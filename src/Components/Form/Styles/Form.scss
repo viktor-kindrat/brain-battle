@@ -31,6 +31,7 @@
         .Form__fields {
             @include flex(flex-start, center, column, 25px);
             width: 100%;
+
             .Form__button {
                 width: min(100%, 500px);
                 @include block(#eeeeee, 5px, $dark, 10px 25px);
@@ -49,6 +50,7 @@
             .Form__fields-container {
                 @include flex(flex-start, center, column, 25px);
                 width: 100%;
+
                 .Form__input-container {
                     @include flex(flex-start, flex-start, column, 0);
                     width: 100%;
@@ -64,6 +66,28 @@
                         left: 15px;
                         font-size: 15px;
                         line-height: 100%;
+
+                        &_file {
+                            @include transform(translate(0));
+                            @include transition(0);
+                            @include borderRadius(5px);
+                            @include flex(center, center, row, 15px);
+                            pointer-events: all;
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            font-size: calc(10px + .5vw);
+                            line-height: 100%;
+                            cursor: pointer;
+                            box-shadow: 0 4px 5px $shadowDark;
+                            padding: 10px 25px;
+
+                            img {
+                                height: 25px;
+                                width: 25px;
+                                object-fit: contain;
+                            }
+                        }
                     }
 
                     .Form__input {
@@ -73,6 +97,28 @@
                         padding: 15px;
                         border: none;
                         outline: none;
+
+                        &_file {
+                            display: none
+                        }
+                    }
+
+                    &_image {
+                        @include flex(center, center, column, 15px);
+                        width: auto;
+
+                        .Form__avatar-template {
+                            max-width: 150px;
+                            aspect-ratio: 1/1;
+
+                            .Form__avatar-preview {
+                                @include borderRadius(50%);
+                                width: 150px;
+                                aspect-ratio: 1/1;
+                                object-fit: cover;
+                                box-shadow: 0 2px 4px $shadowDark;
+                            }
+                        }
                     }
                 }
             }
