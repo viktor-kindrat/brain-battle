@@ -11,6 +11,10 @@
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
 
+    a {
+        text-decoration: none;
+    }
+
     .Header__logo-group {
         @include flex(center, flex-start, row, 15px);
 
@@ -36,6 +40,7 @@
 
     .Header__nav {
         @include flex(center, center, row, 25px);
+
 
         .Header__nav-btn {
             @include flex(center, center, row, 10px);
