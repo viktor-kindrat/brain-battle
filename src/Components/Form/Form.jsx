@@ -11,11 +11,12 @@ import imageUpload from "./Svg/addImage.svg"
 function Form({ type }) {
     let [imagePreview, setImagePreview] = useState("");
 
-    let setWarning = useCallback((el, text) => {
-        el.parentElement.querySelector(".Form__warning").innerHTML = text
+    const setWarning = useCallback((el, text) => {
+        el.parentElement.querySelector(".Form__warning").innerText += text
+        return false
     }, [])
 
-    let avatarChangeHandler = useCallback((e) => {
+    const avatarChangeHandler = useCallback((e) => {
         if (e.target.files[0]) {
             if ((e.target.files[0].size * (10 ** (-6))) <= 1.5) {
                 let url = URL.createObjectURL(e.target.files[0])
@@ -28,7 +29,7 @@ function Form({ type }) {
         }
     }, [setWarning])
 
-    let inputFocusHandler = useCallback((e) => {
+    const inputFocusHandler = useCallback((e) => {
         let label = e.target.parentElement.querySelector(".Form__label");
         label.style.top = "-3px";
         label.style.fontSize = "10px";
@@ -36,11 +37,37 @@ function Form({ type }) {
         label.style.color = "#333333"
     }, [])
 
-    let inputBlurHandler = useCallback((e) => {
+    const inputBlurHandler = useCallback((e) => {
         if (e.target.value === "") e.target.parentElement.querySelector(".Form__label").removeAttribute("style")
     }, [])
 
-    let validateForm = useCallback((form) => {
+    const validatePassword = useCallback((password, element)=>{
+        const capitalLettersRegex = /[A-Z]+/gi;
+        const lowercaseLettersRegex = /[a-z]+/gi;
+        const numbersRegex = /[0-9]+/gi;
+        const specSymbolRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/gi;
+        const consecutiveSymbolsRegex = /(.)\1{2}/g;
+
+        const mathcLength = password.length >= 12 ? true : setWarning(element, "\n- Password must have at least 12 symbols")
+        const matchCapital = (capitalLettersRegex.test(password)) ? true : setWarning(element, "\n- Password must contain at least 1 capital letter");
+        const matchLower = (lowercaseLettersRegex.test(password)) ? true : setWarning(element, "\n- Password must contain at least 1 lowercase letter");
+        const matchNumber = (numbersRegex.test(password)) ? true : setWarning(element, "\n- Password must contain at least 1 number");
+        const matchSpecsymbol = (specSymbolRegex.test(password)) ? true : setWarning(element, "\n- Password must contain at least 1 special symbol");
+        const matchConsecutive = (!consecutiveSymbolsRegex.test(password)) ? true : setWarning(element, "\n- Password must not three or more consecutive symbols");
+        if (!matchCapital || !matchLower || !matchNumber || !matchSpecsymbol || !mathcLength || !matchConsecutive) {
+            element.parentElement.querySelector(".Form__warning").innerText = `Your password isn's strong enough. Check this requirements and try again: ${element.parentElement.querySelector(".Form__warning").innerText}`
+            return false
+        } else {
+            return true
+        }
+    }, [setWarning])
+
+    const validateEmail = useCallback((email, element)=>{
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/gi;
+        return emailRegex.test(email) ? true : setWarning(element, "Invalid email address")
+    }, [setWarning])
+
+    const validateForm = useCallback((form) => {
         let unFilledInputs = Array.from(form.elements).map(item => item.value ? item.value.length === 0 ? item : "" : item).filter(item => item !== "" && item.type !== "submit" && item.type !== "file")
         document.querySelectorAll(".Form__warning").forEach(el => el.innerHTML = "");
         if (unFilledInputs.length === 0) {
@@ -48,7 +75,21 @@ function Form({ type }) {
                 if (form.password.value !== form.passwordConfirm.value) {
                     setWarning(form.passwordConfirm, "Password does not match")
                     return false
+                } else {
+                    let passwordValidity = validatePassword(form.password.value, form.password);
+                    if (passwordValidity) {
+                        let emailValidity = validateEmail(form.email.value, form.email)
+                        if (emailValidity) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    } else {
+                        return false
+                    }
                 }
+            } else {
+                return true
             }
         } else {
             unFilledInputs.forEach(element => {
@@ -56,12 +97,12 @@ function Form({ type }) {
             })
             return false
         }
-    }, [setWarning, type])
+    }, [setWarning, type, validateEmail, validatePassword])
 
-    let submitHandler = useCallback((e) => {
+    const submitHandler = useCallback((e) => {
         e.preventDefault();
         let res = validateForm(e.target);
-        console.log(res)
+        console.log(`From validate result: ${res}`)
         return false
     }, [validateForm])
 
@@ -90,7 +131,7 @@ function Form({ type }) {
                                 </div>
                                 <FormInput label="Your beautiful name" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="name" />
                                 <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
-                                <FormInput label="Password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
+                                <FormInput label="Set strong password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
                                 <FormInput label="Confirm password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="passwordConfirm" />
                             </div>
                         </>
