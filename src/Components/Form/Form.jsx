@@ -41,7 +41,7 @@ function Form({ type }) {
         if (e.target.value === "") e.target.parentElement.querySelector(".Form__label").removeAttribute("style")
     }, [])
 
-    const validatePassword = useCallback((password, element)=>{
+    const validatePassword = useCallback((password, element) => {
         const capitalLettersRegex = /[A-Z]+/gi;
         const lowercaseLettersRegex = /[a-z]+/gi;
         const numbersRegex = /[0-9]+/gi;
@@ -62,7 +62,7 @@ function Form({ type }) {
         }
     }, [setWarning])
 
-    const validateEmail = useCallback((email, element)=>{
+    const validateEmail = useCallback((email, element) => {
         const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/gi;
         return emailRegex.test(email) ? true : setWarning(element, "Invalid email address")
     }, [setWarning])
@@ -89,7 +89,12 @@ function Form({ type }) {
                     }
                 }
             } else {
-                return true
+                let emailValidity = validateEmail(form.email.value, form.email)
+                if (emailValidity) {
+                    return true
+                } else {
+                    return false
+                }
             }
         } else {
             unFilledInputs.forEach(element => {
