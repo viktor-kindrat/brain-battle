@@ -26,7 +26,7 @@ function Form({ type }) {
                 setImagePreview(avatarDef)
             }
         }
-    }, [])
+    }, [setWarning])
 
     let inputFocusHandler = useCallback((e) => {
         let label = e.target.parentElement.querySelector(".Form__label");
@@ -56,14 +56,14 @@ function Form({ type }) {
             })
             return false
         }
-    }, [])
+    }, [setWarning, type])
 
     let submitHandler = useCallback((e) => {
         e.preventDefault();
         let res = validateForm(e.target);
         console.log(res)
         return false
-    }, [])
+    }, [validateForm])
 
     return (
         <form onSubmit={submitHandler} className="Form">
