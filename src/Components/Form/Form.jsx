@@ -108,13 +108,13 @@ function Form({ type }) {
         e.preventDefault();
         let res = validateForm(e.target);
         if (res) {
-            let formData = new FormData();
-            if (e.target.avatar.files[0]) formData.append("avatar", e.target.avatar.files[0], e.target.avatar.files[0].name);
-            formData.append("name", e.target.name.value);
-            formData.append("email", e.target.email.value);
-            formData.append("password", e.target.password.value);
-
+            
             if (type !== "log") {
+                let formData = new FormData();
+                if (e.target.avatar.files[0]) formData.append("avatar", e.target.avatar.files[0], e.target.avatar.files[0].name);
+                formData.append("name", e.target.name.value);
+                formData.append("email", e.target.email.value);
+                formData.append("password", e.target.password.value);
                 fetch(`https://brain-battle-server-wpcm.onrender.com/auth/register`, {
                     method: `POST`,
                     body: formData
@@ -138,9 +138,26 @@ function Form({ type }) {
                         }
                     })
                     .catch(error => {
-                        // Handle any errors
                         console.error('Error:', error);
                     });
+            } else {
+                let data = {
+                    email: e.target.email.value,
+                    password: e.target.email.value
+                }
+                fetch(`https://brain-battle-server-wpcm.onrender.com/auth/login`, {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    localStorage.setItem("userToken", data.token);
+                    alert("Logged in. Other functionality in development. Note that your account can be removed because of developing")
+                })
+                .catch(e=>console.log(e))
             }
         }
         return false
