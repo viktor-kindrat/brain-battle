@@ -48,8 +48,13 @@
             }
 
             .Form__fields-container {
-                @include flex(flex-start, center, column, 25px);
+                @include flex(flex-start, center, row, 25px);
                 width: 100%;
+
+                .Form__text-inputs {
+                    @include flex(flex-start, center, column, 15px);
+                    width: 100%;
+                }
 
                 .Form__input-container {
                     @include flex(center, flex-start, column, 10px);
@@ -64,9 +69,11 @@
                         position: absolute;
                         top: 45%;
                         left: 50%;
-                        font-size: 15px;
+                        font-size: 13px;
                         line-height: 100%;
                         text-align: center;
+                        color: $dark;
+                        opacity: 0.9;
 
                         &_file {
                             @include transform(translate(0));
@@ -80,8 +87,16 @@
                             font-size: calc(10px + .5vw);
                             line-height: 100%;
                             cursor: pointer;
-                            box-shadow: 0 4px 5px $shadowDark;
+                            box-shadow: 0 0 3px $shadowDark;
                             padding: 10px 25px;
+                            margin-top: 25px;
+                            background: $accent;
+                            color: #ffffff;
+                            opacity: 1;
+
+                            &:hover {
+                                @include transform(translate(0, -3px))
+                            }
 
                             img {
                                 height: 25px;
@@ -94,7 +109,7 @@
                     .Form__input {
                         @include borderRadius(5px);
                         width: min(750px, 100%);
-                        box-shadow: 0 4px 5px $shadowDark;
+                        box-shadow: 0 0 3px $shadowDark;
                         padding: 15px;
                         border: none;
                         outline: none;
@@ -110,11 +125,13 @@
                     }
 
                     &_image {
-                        @include flex(center, center, column, 15px);
+                        @include flex(center, center, column, 10px);
 
                         .Form__info {
-                            color: #333333;
-                            font-size: 12px;
+                            text-align: center;
+                            color: $dark;
+                            opacity: 1;
+                            font-size: 15px;
                         }
 
                         .Form__avatar-template {
@@ -154,5 +171,13 @@
     .Form {
         padding: 5px;
         margin: 50px 0;
+
+        .Form__content-container {
+            .Form__fields {
+                .Form__fields-container {
+                    flex-direction: column;
+                }
+            }
+        }
     }
 }

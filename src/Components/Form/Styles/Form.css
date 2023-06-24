@@ -71,8 +71,16 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 25px;
+  width: 100%;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__text-inputs {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
   width: 100%;
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container {
@@ -100,9 +108,11 @@
   position: absolute;
   top: 45%;
   left: 50%;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 100%;
   text-align: center;
+  color: #141414;
+  opacity: 0.9;
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label_file {
   transform: translate(0);
@@ -132,8 +142,19 @@
   font-size: calc(10px + 0.5vw);
   line-height: 100%;
   cursor: pointer;
-  box-shadow: 0 4px 5px rgba(20, 20, 20, 0.1882352941);
+  box-shadow: 0 0 3px rgba(20, 20, 20, 0.1882352941);
   padding: 10px 25px;
+  margin-top: 25px;
+  background: #82D173;
+  color: #ffffff;
+  opacity: 1;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label_file:hover {
+  transform: translate(0, -3px);
+  -webkit-transform: translate(0, -3px);
+  -moz-transform: translate(0, -3px);
+  -ms-transform: translate(0, -3px);
+  -o-transform: translate(0, -3px);
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label_file img {
   height: 25px;
@@ -147,7 +168,7 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   width: min(750px, 100%);
-  box-shadow: 0 4px 5px rgba(20, 20, 20, 0.1882352941);
+  box-shadow: 0 0 3px rgba(20, 20, 20, 0.1882352941);
   padding: 15px;
   border: none;
   outline: none;
@@ -164,11 +185,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__info {
-  color: #333333;
-  font-size: 12px;
+  text-align: center;
+  color: #141414;
+  opacity: 1;
+  font-size: 15px;
 }
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container_image .Form__avatar-template {
   max-width: 150px;
@@ -206,5 +229,8 @@
   .Form {
     padding: 5px;
     margin: 50px 0;
+  }
+  .Form .Form__content-container .Form__fields .Form__fields-container {
+    flex-direction: column;
   }
 }

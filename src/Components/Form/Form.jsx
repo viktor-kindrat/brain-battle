@@ -119,28 +119,28 @@ function Form({ type }) {
                     method: `POST`,
                     body: formData
                 })
-                .then(res => res.json())
-                .then(data => {
-                    e.target.reset()
-                    if (data.status === "ok") {
-                        localStorage.setItem("userToken", data.token)
-                        fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`,{
-                            headers: {"Authorization" : `Baerer ${data.token}`}
-                        })
-                        .then(res=>res.json())
-                        .then(data=>{
-                            console.log(data);
-                            alert("Successfully registered! Other functionality in development. Note that your account can be removed because of developing")
-                        })
-                        .catch(e=>console.log(e))
-                    } else if (data.exist) {
-                        setWarning(e.target.email, "User with the same email already exist")
-                    }
-                })
-                .catch(error => {
-                    // Handle any errors
-                    console.error('Error:', error);
-                });
+                    .then(res => res.json())
+                    .then(data => {
+                        e.target.reset()
+                        if (data.status === "ok") {
+                            localStorage.setItem("userToken", data.token)
+                            fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`, {
+                                headers: { "Authorization": `Baerer ${data.token}` }
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data);
+                                    alert("Successfully registered! Other functionality in development. Note that your account can be removed because of developing")
+                                })
+                                .catch(e => console.log(e))
+                        } else if (data.exist) {
+                            setWarning(e.target.email, "User with the same email already exist")
+                        }
+                    })
+                    .catch(error => {
+                        // Handle any errors
+                        console.error('Error:', error);
+                    });
             }
         }
         return false
@@ -155,8 +155,10 @@ function Form({ type }) {
                     {
                         (type === "log") ? <>
                             <div className="Form__fields-container">
-                                <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
-                                <FormInput label="Password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
+                                <div className="Form__text-inputs">
+                                    <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
+                                    <FormInput label="Password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
+                                </div>
                             </div>
                         </> : <>
                             <div className="Form__fields-container">
@@ -169,10 +171,12 @@ function Form({ type }) {
                                     <p className="Form__warning"></p>
                                     <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
-                                <FormInput label="Your beautiful name" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="name" />
-                                <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
-                                <FormInput label="Set strong password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
-                                <FormInput label="Confirm password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="passwordConfirm" />
+                                <div className="Form__text-inputs">
+                                    <FormInput label="Your beautiful name" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="name" />
+                                    <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
+                                    <FormInput label="Set strong password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
+                                    <FormInput label="Confirm password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="passwordConfirm" />
+                                </div>
                             </div>
                         </>
                     }
