@@ -80,7 +80,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 0;
+  gap: 10px;
   width: 100%;
   position: relative;
 }
@@ -98,7 +98,7 @@
   pointer-events: none;
   user-select: none;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 15px;
   font-size: 15px;
   line-height: 100%;

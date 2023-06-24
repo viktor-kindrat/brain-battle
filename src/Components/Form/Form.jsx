@@ -1,6 +1,8 @@
 import "./Styles/Form.css"
 
-import { useState } from "react"
+import FormInput from "./FormInput"
+
+import { useState, useCallback } from "react"
 
 import googleIcon from "./Svg/google.svg"
 import avatarDef from "./Svg/avatardef.svg"
@@ -8,37 +10,63 @@ import imageUpload from "./Svg/addImage.svg"
 
 function Form({ type }) {
     let [imagePreview, setImagePreview] = useState("");
-    let [ warning, setWarning ] = useState({})
-    let avatarChangeHandler = (e) => {
+
+    let setWarning = useCallback((el, text) => {
+        el.parentElement.querySelector(".Form__warning").innerHTML = text
+    }, [])
+
+    let avatarChangeHandler = useCallback((e) => {
         if (e.target.files[0]) {
-            if ((e.target.files[0].size * (10**(-6))) <= 1.5) {     
+            if ((e.target.files[0].size * (10 ** (-6))) <= 1.5) {
                 let url = URL.createObjectURL(e.target.files[0])
+                setWarning(e.target, "")
                 setImagePreview(url)
-                setWarning({...warning, image: ""})
             } else {
+                setWarning(e.target, "Your image size is too big. Maximum size is 1.5MB Please compress image and try again!")
                 setImagePreview(avatarDef)
-                setWarning({...warning, image: "Your image size is too big. Maximum size is 1.5MB Please compress image and try again!"})
             }
         }
-    }
+    }, [])
 
-    let inputFocusHandler = (e) => {
-        let parent = e.target.parentElement;
-        let label = parent.querySelector(".Form__label");
+    let inputFocusHandler = useCallback((e) => {
+        let label = e.target.parentElement.querySelector(".Form__label");
         label.style.top = "-3px";
         label.style.fontSize = "10px";
         label.style.fontWeight = "800"
         label.style.color = "#333333"
-    }
-    let inputBlurHandler = (e) => {
-        if (e.target.value === "") {
-            let parent = e.target.parentElement;
-            let label = parent.querySelector(".Form__label")
-            label.removeAttribute("style")
+    }, [])
+
+    let inputBlurHandler = useCallback((e) => {
+        if (e.target.value === "") e.target.parentElement.querySelector(".Form__label").removeAttribute("style")
+    }, [])
+
+    let validateForm = useCallback((form) => {
+        let unFilledInputs = Array.from(form.elements).map(item => item.value ? item.value.length === 0 ? item : "" : item).filter(item => item !== "" && item.type !== "submit" && item.type !== "file")
+        document.querySelectorAll(".Form__warning").forEach(el => el.innerHTML = "");
+        if (unFilledInputs.length === 0) {
+            if (type !== "log") {
+                if (form.password.value !== form.passwordConfirm.value) {
+                    setWarning(form.passwordConfirm, "Password does not match")
+                    return false
+                }
+            }
+        } else {
+            unFilledInputs.forEach(element => {
+                setWarning(element, "Fill this gap")
+            })
+            return false
         }
-    }
+    }, [])
+
+    let submitHandler = useCallback((e) => {
+        e.preventDefault();
+        let res = validateForm(e.target);
+        console.log(res)
+        return false
+    }, [])
+
     return (
-        <form action="" className="Form">
+        <form onSubmit={submitHandler} className="Form">
             <div className="Form__content-container">
                 <h2 className="Form__headline">{(type === "reg" ? "Create an account" : "Log in")}</h2>
                 <div className="Form__fields">
@@ -46,14 +74,8 @@ function Form({ type }) {
                     {
                         (type === "log") ? <>
                             <div className="Form__fields-container">
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-email" className="Form__label">Input your email</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-email" type="text" name="email" className="Form__input" />
-                                </div>
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-password" className="Form__label">Enter password</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password" type="password" name="password" className="Form__input" />
-                                </div>
+                                <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
+                                <FormInput label="Password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
                             </div>
                         </> : <>
                             <div className="Form__fields-container">
@@ -61,27 +83,15 @@ function Form({ type }) {
                                     <div className="Form__avatar-template">
                                         <img src={imagePreview ? imagePreview : avatarDef} alt="avatar" className="Form__avatar-preview" />
                                     </div>
-                                    <div className="Form__info">Remember! Max size of your image must be 1.5MB</div>
+                                    <div className="Form__info">Note, max size of your image must be 1.5MB</div>
                                     <label htmlFor="form-avatar" className="Form__label Form__label_file"><img height={25} width={25} src={imageUpload} alt="" />Set profile image</label>
-                                    {warning.image ? <p className="Form__warning">{warning.image}</p> : ""}
+                                    <p className="Form__warning"></p>
                                     <input onChange={avatarChangeHandler} id="form-avatar" type="file" name="avatar" className="Form__input Form__input_file" />
                                 </div>
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-name" className="Form__label">Enter your beautiful name</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-name" type="text" name="name" className="Form__input" />
-                                </div>
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-email" className="Form__label">Input your email</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-email" type="text" name="email" className="Form__input" />
-                                </div>
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-password" className="Form__label">Enter password</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password" type="password" name="password" className="Form__input" />
-                                </div>
-                                <div className="Form__input-container">
-                                    <label htmlFor="form-password-confirmation" className="Form__label">Confirm password</label>
-                                    <input onFocus={inputFocusHandler} onBlur={inputBlurHandler} id="form-password-confirmation" type="password" name="password" className="Form__input" />
-                                </div>
+                                <FormInput label="Your beautiful name" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="name" />
+                                <FormInput label="Email" {...{ inputFocusHandler, inputBlurHandler }} type="text" name="email" />
+                                <FormInput label="Password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="password" />
+                                <FormInput label="Confirm password" {...{ inputFocusHandler, inputBlurHandler }} type="password" name="passwordConfirm" />
                             </div>
                         </>
                     }
