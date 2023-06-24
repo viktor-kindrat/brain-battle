@@ -10,3 +10,15 @@
 body {
     background-color: #ffffff;
 }
+
+::-webkit-scrollbar {
+    width: $scrollbarWidth;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $accent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(23, 109, 23);
+}

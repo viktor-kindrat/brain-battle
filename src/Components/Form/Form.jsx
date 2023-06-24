@@ -107,9 +107,43 @@ function Form({ type }) {
     const submitHandler = useCallback((e) => {
         e.preventDefault();
         let res = validateForm(e.target);
-        console.log(`From validate result: ${res}`)
+        if (res) {
+            let formData = new FormData();
+            if (e.target.avatar.files[0]) formData.append("avatar", e.target.avatar.files[0], e.target.avatar.files[0].name);
+            formData.append("name", e.target.name.value);
+            formData.append("email", e.target.email.value);
+            formData.append("password", e.target.password.value);
+
+            if (type !== "log") {
+                fetch(`https://brain-battle-server-wpcm.onrender.com/auth/register`, {
+                    method: `POST`,
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "ok") {
+                        localStorage.setItem("userToken", data.token)
+                        fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`,{
+                            headers: {"Authorization" : `Baerer ${data.token}`}
+                        })
+                        .then(res=>res.json())
+                        .then(data=>{
+                            console.log(data);
+                            alert("Successfully registered! Other functionality in development. Note that your account can be removed because of developing")
+                        })
+                        .catch(e=>console.log(e))
+                    } else if (data.exist) {
+                        setWarning(e.target.email, "User with the same email already exist")
+                    }
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error('Error:', error);
+                });
+            }
+        }
         return false
-    }, [validateForm])
+    }, [validateForm, setWarning, type])
 
     return (
         <form onSubmit={submitHandler} className="Form">

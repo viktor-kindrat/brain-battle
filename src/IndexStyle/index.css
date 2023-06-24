@@ -64,3 +64,15 @@ table {
 body {
   background-color: #ffffff;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #82D173;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(23, 109, 23);
+}
