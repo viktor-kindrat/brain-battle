@@ -29,7 +29,7 @@
         }
 
         .Form__fields {
-            @include flex(flex-start, center, column, 25px);
+            @include flex(center, center, column, 25px);
             width: 100%;
 
             .Form__button {
@@ -52,20 +52,21 @@
                 width: 100%;
 
                 .Form__input-container {
-                    @include flex(flex-start, flex-start, column, 10px);
+                    @include flex(center, flex-start, column, 10px);
                     width: 100%;
                     position: relative;
 
                     .Form__label {
-                        @include transform(translate(0, -50%));
+                        @include transform(translate(-50%, -50%));
                         @include transition(0.3s);
                         pointer-events: none;
                         user-select: none;
                         position: absolute;
                         top: 45%;
-                        left: 15px;
+                        left: 50%;
                         font-size: 15px;
                         line-height: 100%;
+                        text-align: center;
 
                         &_file {
                             @include transform(translate(0));
@@ -136,7 +137,7 @@
                 @include borderRadius(5px);
                 background: $secondary;
                 color: #ffffff;
-                padding: 10px 25px;
+                padding: 10px 45px;
                 border: none;
                 outline: none;
                 text-transform: uppercase;

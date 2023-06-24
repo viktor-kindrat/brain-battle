@@ -121,6 +121,7 @@ function Form({ type }) {
                 })
                 .then(res => res.json())
                 .then(data => {
+                    e.target.reset()
                     if (data.status === "ok") {
                         localStorage.setItem("userToken", data.token)
                         fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`,{
