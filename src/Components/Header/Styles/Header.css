@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,6 +112,7 @@
   -moz-transition: color 0.3s, background 0.3s;
   -ms-transition: color 0.3s, background 0.3s;
   -o-transition: color 0.3s, background 0.3s;
+  position: relative;
   cursor: pointer;
 }
 .Header .Header__nav .Header__account-nav .Header__nav-img {
@@ -127,6 +128,55 @@
 }
 .Header .Header__nav .Header__account-nav .Header__nav-name {
   font-size: calc(14px + 0.5vw);
+}
+.Header .Header__nav .Header__account-nav .Header__menu {
+  background: #ffffff;
+  border-radius: 0 0 5px 5px;
+  color: #141414;
+  padding: 15px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: fit-content;
+  visibility: hidden;
+}
+.Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn {
+  background: transparent;
+  border-radius: 2px;
+  color: #141414;
+  padding: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 10px;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn:hover {
+  opacity: 0.7;
+}
+.Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn_logout {
+  background: rgb(231, 31, 0);
+  color: #ffffff;
+  padding: 5px 10px;
 }
 .Header .Header__nav .Header__account-nav:hover {
   background: rgba(255, 255, 255, 0.1882352941);

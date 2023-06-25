@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow: hidden;
+    overflow: visible;
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
 
@@ -71,14 +71,47 @@
             @include flex(center, center, row, 15px);
             @include block(transparent, 5px, #ffffff, 10px 15px);
             @include transition((color 0.3s, background 0.3s));
+            position: relative;
             cursor: pointer;
+
             .Header__nav-img {
                 @include block(#eeeeee, 50%, $dark, 0);
                 box-shadow: 0 0 4px $shadowDark;
             }
-            
+
             .Header__nav-name {
                 font-size: calc(14px + .5vw);
+            }
+
+            .Header__menu {
+                @include block(#ffffff, 0 0 5px 5px, $dark, 15px);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: fit-content;
+                visibility: hidden;
+
+                .Header__account-btn {
+                    @include block(transparent, 2px, $dark, 0);
+                    @include flex(center, flex-start, row, 10px);
+                    @include transition(opacity 0.3s);
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                    
+                    &_logout {
+                        background: rgb(231, 31, 0);
+                        color: #ffffff;
+                        padding: 5px 10px;
+                    }
+                }
             }
 
             &:hover {
