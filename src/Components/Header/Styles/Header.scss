@@ -66,6 +66,25 @@
             @include block(transparent, 5px, $secondary, 5px 25px);
             border: 2px solid $secondary;
         }
+
+        .Header__account-nav {
+            @include flex(center, center, row, 15px);
+            @include block(transparent, 5px, #ffffff, 10px 15px);
+            @include transition((color 0.3s, background 0.3s));
+            cursor: pointer;
+            .Header__nav-img {
+                @include block(#eeeeee, 50%, $dark, 0);
+                box-shadow: 0 0 4px $shadowDark;
+            }
+            
+            .Header__nav-name {
+                font-size: calc(14px + .5vw);
+            }
+
+            &:hover {
+                @include block(#ffffff30, 5px, $dark, 10px 15px);
+            }
+        }
     }
 }
 

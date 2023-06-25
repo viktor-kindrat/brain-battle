@@ -8,7 +8,7 @@ import googleIcon from "./Svg/google.svg"
 import avatarDef from "./Svg/avatardef.svg"
 import imageUpload from "./Svg/addImage.svg"
 
-function Form({ type }) {
+function Form({ type, setLogined }) {
     let [imagePreview, setImagePreview] = useState("");
 
     const setWarning = useCallback((el, text) => {
@@ -110,6 +110,7 @@ function Form({ type }) {
         if (res) {
             
             if (type !== "log") {
+                console.log("registration")
                 let formData = new FormData();
                 if (e.target.avatar.files[0]) formData.append("avatar", e.target.avatar.files[0], e.target.avatar.files[0].name);
                 formData.append("name", e.target.name.value);
@@ -130,6 +131,7 @@ function Form({ type }) {
                                 .then(res => res.json())
                                 .then(data => {
                                     console.log(data);
+                                    setLogined(true)
                                     alert("Successfully registered! Other functionality in development. Note that your account can be removed because of developing")
                                 })
                                 .catch(e => console.log(e))
@@ -155,13 +157,14 @@ function Form({ type }) {
                 .then(res=>res.json())
                 .then(data=>{
                     localStorage.setItem("userToken", data.token);
+                    setLogined(true)
                     alert("Logged in. Other functionality in development. Note that your account can be removed because of developing")
                 })
                 .catch(e=>console.log(e))
             }
         }
         return false
-    }, [validateForm, setWarning, type])
+    }, [validateForm, setWarning, type, setLogined])
 
     return (
         <form onSubmit={submitHandler} className="Form">
