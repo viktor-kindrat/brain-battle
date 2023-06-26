@@ -7,6 +7,9 @@
   min-height: min(100vh, 750px);
   padding: 25px 150px;
 }
+.Home a {
+  text-decoration: none;
+}
 .Home .Home__content-container {
   display: flex;
   align-items: center;

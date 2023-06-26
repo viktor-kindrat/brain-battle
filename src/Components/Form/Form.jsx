@@ -2,13 +2,21 @@ import "./Styles/Form.css"
 
 import FormInput from "./FormInput"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
 
 import googleIcon from "./Svg/google.svg"
 import avatarDef from "./Svg/avatardef.svg"
 import imageUpload from "./Svg/addImage.svg"
 
-function Form({ type, setLogined }) {
+function Form({ type, logined, setLogined }) {
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if (logined) {
+            navigate("/")
+        }
+    }, [logined, navigate])
+
     let [imagePreview, setImagePreview] = useState("");
 
     const setWarning = useCallback((el, text) => {

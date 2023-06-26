@@ -6,6 +6,10 @@
     min-height: $minHeight;
     padding: $pagePadding;
 
+    a {
+        text-decoration: none
+    }
+
     .Home__content-container {
         @include flex(center, center, column, 25px);
 
