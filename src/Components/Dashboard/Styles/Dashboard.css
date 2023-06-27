@@ -1,0 +1,8 @@
+.Dashboard {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px 150px;
+  background: #ffffff;
+  margin-top: 75px;
+  color: #141414;
+}

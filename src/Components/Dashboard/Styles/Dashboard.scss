@@ -1,0 +1,11 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.Dashboard {
+    width: 100%;
+    min-height: 100vh;
+    padding: $pagePadding;
+    background: #ffffff;
+    margin-top: 75px;
+    color: #141414;
+}

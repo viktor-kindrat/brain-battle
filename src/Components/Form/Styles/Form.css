@@ -7,6 +7,7 @@
   width: 100%;
   min-height: min(100vh, 750px);
   padding: 25px 150px;
+  margin-top: 7px;
 }
 .Form * {
   color: #141414;

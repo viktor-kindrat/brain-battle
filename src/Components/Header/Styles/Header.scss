@@ -11,6 +11,13 @@
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
 
+    &_onlight {
+        padding: 15px 25px;
+        background: linear-gradient(#ff950030, #ff950030),
+                    linear-gradient($primary, $primary);
+        background-color: $primary;
+    }
+
     a {
         text-decoration: none;
     }
@@ -92,6 +99,7 @@
                 width: 100%;
                 height: fit-content;
                 visibility: hidden;
+                box-shadow: 0 5px 5px $shadowDark;
 
                 .Header__account-btn {
                     @include block(transparent, 2px, $dark, 0);

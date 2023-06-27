@@ -12,6 +12,11 @@
   gap: 25px;
   padding: 25px 150px;
 }
+.Header_onlight {
+  padding: 15px 25px;
+  background: linear-gradient(rgba(255, 149, 0, 0.1882352941), rgba(255, 149, 0, 0.1882352941)), linear-gradient(#6A0572, #6A0572);
+  background-color: #6A0572;
+}
 .Header a {
   text-decoration: none;
 }
@@ -145,6 +150,7 @@
   width: 100%;
   height: fit-content;
   visibility: hidden;
+  box-shadow: 0 5px 5px rgba(20, 20, 20, 0.1882352941);
 }
 .Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn {
   background: transparent;

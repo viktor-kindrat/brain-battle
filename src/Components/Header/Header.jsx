@@ -2,11 +2,17 @@ import "./Styles/Header.css"
 import brainIcon from "./Svg/brain.svg"
 import HeaderAccount from "./HeaderAccount"
 
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { useEffect } from "react"
 
 function Header({ logined, setLogined }) {
+    let location = useLocation();
+
+    useEffect(()=>{
+        return
+    }, [location])
     return (
-        <header className="Header">
+        <header className={(window.location.href.includes("/dashboard") ? "Header Header_onlight" : "Header")}>
             <Link to="/">
                 <div className="Header__logo-group">
                     <img className="Header__logo-image" height={50} width={50} src={brainIcon} alt="logo" />
@@ -18,7 +24,7 @@ function Header({ logined, setLogined }) {
             <nav className="Header__nav">
                 {
                     logined ? <>
-                        <HeaderAccount {...{logined, setLogined}}/>
+                        <HeaderAccount {...{ logined, setLogined }} />
                     </> : <>
                         <Link to="/signUp"><button className="Header__nav-btn Header__nav-btn_filled">Sign up</button></Link>
                         <Link to="/logIn"><button className="Header__nav-btn Header__nav-btn_transparent">Log in</button></Link>

@@ -5,6 +5,7 @@
     @include flex(center, center, column, 25px);
     min-height: $minHeight;
     padding: $pagePadding;
+    margin-top: 75px;
 
     a {
         text-decoration: none
