@@ -13,7 +13,7 @@ function Form({ type, logined, setLogined }) {
     const navigate = useNavigate();
     useEffect(()=>{
         if (logined) {
-            navigate("/")
+            navigate("/dashboard")
         }
     }, [logined, navigate])
 
