@@ -5,7 +5,7 @@
     @include flex(center, center, column, 25px);
     min-height: $minHeight;
     padding: $pagePadding;
-    margin-top: 75px;
+    margin-top: 100px;
 
     a {
         text-decoration: none
@@ -15,7 +15,7 @@
         @include flex(center, center, column, 25px);
 
         .Home__headline {
-            font-family: 'Harms';
+            font-family: 'Harms', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: calc(25px + 1.5vw);

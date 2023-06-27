@@ -2,10 +2,78 @@
 @import "../../mixin.scss";
 
 .Dashboard {
+    @include flex(center, center, column, 25px);
     width: 100%;
     min-height: 100vh;
     padding: $pagePadding;
     background: #ffffff;
-    margin-top: 75px;
+    margin-top: 100px;
     color: #141414;
+
+    * {
+        color: #141414;
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    .Dashboard__error {
+        @include flex(center, center, column, 25px);
+        width: 100%;
+
+        .Dashboard__headline-group {
+            @include flex(center, center, column, 10px);
+            width: 100%;
+
+            .Dashboard__error-headline {
+                font-family: 'Harms', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: calc(25px + 1.5vw);
+                display: flex;
+                align-items: center;
+                text-align: center;
+                line-height: 125%;
+                margin-bottom: 10px;
+
+            }
+        }
+
+        .Dashboard__btn-group {
+            @include flex(center, center, row, 25px);
+            width: 100%;
+
+            .Dashboard__button {
+                @include flex(center, center, row, 10px);
+                @include transition((transform 0.3s, box-shadow 0.3s));
+                font-weight: 400;
+                font-size: calc(12px + .5vw);
+                line-height: 125%;
+                border: none;
+                outline: none;
+                cursor: pointer;
+
+                &:hover {
+                    @include transform(translateY(-2px));
+                    box-shadow: 0 3px 5px $shadowDark
+                }
+            }
+
+            .Dashboard__button_filled {
+                @include block($secondary, 5px, #ffffff, 5px 25px);
+            }
+
+            .Dashboard__button_transparent {
+                @include block(transparent, 5px, $secondary, 5px 25px);
+                border: 2px solid $secondary;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Dashboard {
+        padding: $pagePaddingMobile;
+    }
 }

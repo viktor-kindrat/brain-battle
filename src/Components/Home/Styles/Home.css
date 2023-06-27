@@ -6,7 +6,7 @@
   gap: 25px;
   min-height: min(100vh, 750px);
   padding: 25px 150px;
-  margin-top: 75px;
+  margin-top: 100px;
 }
 .Home a {
   text-decoration: none;
@@ -19,7 +19,7 @@
   gap: 25px;
 }
 .Home .Home__content-container .Home__headline {
-  font-family: "Harms";
+  font-family: "Harms", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: calc(25px + 1.5vw);
