@@ -45,8 +45,8 @@
   padding-bottom: 5px;
   text-align: center;
   font-family: "Harms", sans-serif;
-  font-weight: 900;
-  font-size: calc(18px + 0.3vw);
+  font-weight: 400;
+  font-size: calc(30px + 0.5vw);
   line-height: 100%;
   color: #6A0572;
   text-align: center;
@@ -63,6 +63,44 @@
   font-family: "Nunito Sans", sans-serif;
   font-size: calc(13px + 0.3vw);
   box-shadow: 0 5px 5px rgba(20, 20, 20, 0.1882352941);
+}
+.CreateTest .CreateTest__questions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+.CreateTest .CreateTest__questions .CreateTest__questions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+.CreateTest .CreateTest__questions .CreateTest__questions-button {
+  background: #6A0572;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 15px 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: calc(12px + 0.3vw);
+  line-height: 100%;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 800px) {

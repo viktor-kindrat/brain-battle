@@ -1,2 +1,56 @@
 @import "../../variable.scss";
 @import "../../mixin.scss";
+
+.QuestionField {
+    @include flex(center, center, column, 15px);
+    width: 100%;
+
+    .QuestionField__head {
+        @include flex(center, center, row, 5px);
+        width: 100%;
+
+        .QuestionField__input {
+            @include transition(border 0.3s);
+            width: 100%;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #14141450;
+            padding: 0 0 10px 5px;
+
+            &:focus {
+                border-bottom-color: $dark;
+            }
+        }
+
+        .QuestionField__delete {
+            @include flex(center, center, row, 15px);
+            @include borderRadius(3px);
+            background: $deleteColor;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 5px;
+
+            &-icon {
+                height: 25px;
+                width: 25px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .CreateTest__questions-variants {
+        @include flex(center, center, column, 5px);
+        width: 100%;
+    }
+
+    .CreateTest__questions-variants-button {
+        @include block($secondary, 5px, #ffffff, 10px 25px);
+        @include flex(center, center, row, 10px);
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: calc(13px + .3vw);
+        border: none;
+        outline: none;
+    }
+}

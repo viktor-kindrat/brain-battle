@@ -39,8 +39,8 @@
             padding-bottom: 5px;
             text-align: center;
             font-family: "Harms", sans-serif;
-            font-weight: 900;
-            font-size: calc(18px + .3vw);
+            font-weight: 400;
+            font-size: calc(30px + .5vw);
             line-height: 100%;
             color: $primary;
             text-align: center;
@@ -60,6 +60,27 @@
             font-size: calc(13px + .3vw);
             box-shadow: 0 5px 5px $shadowDark;
         }
+    }
+
+    .CreateTest__questions {
+        @include flex(center, center, column, 50px);
+        width: 100%;
+        .CreateTest__questions-container {
+            @include flex(center, center, column, 25px);
+            width: 100%;
+        }
+        .CreateTest__questions-button {
+            @include block($primary, 5px, #ffffff, 15px 35px);
+            @include flex(center, center, row, 10px);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: calc(12px + .3vw);
+            line-height: 100%;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
     }
 }
 
