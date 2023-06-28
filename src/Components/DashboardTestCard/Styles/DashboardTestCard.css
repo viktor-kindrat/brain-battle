@@ -1,0 +1,85 @@
+.DashboardTestCard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  width: 100%;
+}
+.DashboardTestCard .DashboardTestCard__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+}
+.DashboardTestCard .DashboardTestCard__row .DashboardTestCard__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 400;
+  font-size: calc(14px + 0.5vw);
+  line-height: 100%;
+  color: #FF8906;
+  text-align: center;
+}
+.DashboardTestCard .DashboardTestCard__row .DashboardTestCard__btn {
+  background: #FF8906;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: calc(12px + 0.5vw);
+}
+.DashboardTestCard .DashboardTestCard__description {
+  font-size: calc(12px + 0.3vw);
+  line-height: 100%;
+  font-weight: 400;
+}
+.DashboardTestCard .DashboardTestCard__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+}
+.DashboardTestCard .DashboardTestCard__info .DashboardTestCard__info-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.DashboardTestCard .DashboardTestCard__info .DashboardTestCard__info-item .DashboardTestCard__info-item-value {
+  font-weight: 900;
+  font-size: calc(12px + 0.5vw);
+  color: #333333;
+}
+.DashboardTestCard .DashboardTestCard__info .DashboardTestCard__info-item .DashboardTestCard__info-item-caption {
+  font-weight: 500;
+  font-size: calc(12px + 0.2vw);
+}
+.DashboardTestCard::before {
+  content: "";
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: -14px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #333333;
+  opacity: 0.4;
+}
+.DashboardTestCard:first-child::before {
+  display: none;
+}

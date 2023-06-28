@@ -1,0 +1,75 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.DashboardTestCard {
+    @include flex(flex-start, flex-start, column, 15px);
+    position: relative;
+    width: 100%;
+
+    .DashboardTestCard__row {
+        width: 100%;
+        @include flex(center, space-between, row, 25px);
+        .DashboardTestCard__headline {
+            font-family: "Harms", sans-serif;
+            font-weight: 400;
+            font-size: calc(14px + .5vw);
+            line-height: 100%;
+            color: $secondary;
+            text-align: center;
+        }
+        .DashboardTestCard__btn {
+            @include block($secondary, 5px, #ffffff, 5px 25px);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: calc(12px + .5vw);
+        }
+    }
+
+
+    .DashboardTestCard__description {
+        font-size: calc(12px + .3vw);
+        line-height: 100%;
+        font-weight: 400;
+    }
+
+    .DashboardTestCard__info {
+        @include flex(center, space-around, row, 15px);
+        width: 100%;
+
+        .DashboardTestCard__info-item {
+            @include flex(center, center, column, 5px);
+            .DashboardTestCard__info-item-value {
+                font-weight: 900;
+                font-size: calc(12px + .5vw);
+                color: #333333;
+            }
+            .DashboardTestCard__info-item-caption {
+                font-weight: 500;
+                font-size: calc(12px + .2vw);
+            }
+        }
+    }
+
+    
+    &::before {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: -14px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: #333333;
+        opacity: 0.4;
+    }
+
+    &:first-child {
+        &::before {
+            display: none;
+        }
+    }
+}

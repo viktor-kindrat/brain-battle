@@ -41,7 +41,7 @@ function Dashboard() {
                 </div>
                 <div className="Dashboard__test-container">
                     <DashboardTestCard name="Test n 1" description="The best test I have ever done" questions="20" countOfStudents="50" success="75%"/>
-                    <DashboardTestCard name="Test n 2" description="The second best test I have ever done" questions="200" countOfStudents="5000000" success="100%"/>
+                    <DashboardTestCard name="Test n 2" description="The second best test I have ever done" questions="200" countOfStudents="5k" success="100%"/>
                 </div>
             </section>
         </div>

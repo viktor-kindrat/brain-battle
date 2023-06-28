@@ -155,4 +155,5 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
