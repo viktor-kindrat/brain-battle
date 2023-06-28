@@ -1,5 +1,6 @@
 import "./Styles/Dashboard.css"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 
 import dafaultAvatar from "../../Media/avatardef.svg"
 import editIcon from "./Svg/edit.svg";
@@ -37,7 +38,9 @@ function Dashboard() {
             <section className="Dashboard__tests">
                 <div className="Dashboard__group">
                     <h2 className="Dashboard__headline">Your tests</h2>
-                    <button className="Dashboard__create-btn"><img src={addIcon} alt="create" />Create</button>
+                    <Link to="/create-test">
+                        <button className="Dashboard__create-btn"><img src={addIcon} alt="create" />Create</button>
+                    </Link>
                 </div>
                 <div className="Dashboard__test-container">
                     <DashboardTestCard name="Test n 1" description="The best test I have ever done" questions="20" countOfStudents="50" success="75%"/>

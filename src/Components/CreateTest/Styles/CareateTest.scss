@@ -1,0 +1,14 @@
+.CreateTest {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+    padding-top: 75px;
+    .CreateTest__headline {
+        font-family: "Harms", sans-serif;
+        font-weight: 900;
+        font-size: calc(20px + .5vw);
+        line-height: 100%;
+        color: #333333;
+        text-align: center;
+    }
+}

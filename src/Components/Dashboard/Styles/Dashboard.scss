@@ -5,6 +5,11 @@
     @include flex(stretch, space-between, row, 75px);
     margin-top: 75px;
     width: 100%;
+
+    a {
+        text-decoration: none
+    }
+
     .Dashboard__user-info {
         @include flex(center, flex-start, column, 25px);
         width: 30%;

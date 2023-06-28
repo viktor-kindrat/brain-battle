@@ -7,6 +7,9 @@
   margin-top: 75px;
   width: 100%;
 }
+.Dashboard a {
+  text-decoration: none;
+}
 .Dashboard .Dashboard__user-info {
   display: flex;
   align-items: center;
