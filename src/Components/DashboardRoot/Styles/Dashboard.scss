@@ -2,7 +2,7 @@
 @import "../../mixin.scss";
 
 .DashboardRoot {
-    @include flex(center, center, column, 25px);
+    @include flex(center, flex-start, column, 25px);
     width: 100%;
     min-height: 100vh;
     padding: $pagePadding;
