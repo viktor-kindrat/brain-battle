@@ -110,13 +110,44 @@
   gap: 25px;
   width: 70%;
 }
-.Dashboard .Dashboard__tests .Dashboard__headline {
+.Dashboard .Dashboard__tests .Dashboard__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
+}
+.Dashboard .Dashboard__tests .Dashboard__group .Dashboard__headline {
   font-family: "Harms", sans-serif;
   font-weight: 900;
   font-size: calc(20px + 0.5vw);
   line-height: 100%;
   color: #333333;
   text-align: center;
+}
+.Dashboard .Dashboard__tests .Dashboard__group .Dashboard__create-btn {
+  background: #6A0572;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  font-family: "Nunito Sans", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: calc(12px + 0.3vw);
+  line-height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 .Dashboard .Dashboard__tests .Dashboard__test-container {
   display: flex;

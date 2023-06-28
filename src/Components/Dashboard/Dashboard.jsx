@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 import dafaultAvatar from "../../Media/avatardef.svg"
 import editIcon from "./Svg/edit.svg";
+import addIcon from "./Svg/add.svg"
 
 import DashboardTestCard from "../DashboardTestCard/DashboardTestCard";
 import Loader from "../Loader/Loader"
@@ -34,7 +35,10 @@ function Dashboard() {
                 </div>
             </aside>
             <section className="Dashboard__tests">
-                <h2 className="Dashboard__headline">Your tests</h2>
+                <div className="Dashboard__group">
+                    <h2 className="Dashboard__headline">Your tests</h2>
+                    <button className="Dashboard__create-btn"><img src={addIcon} alt="create" />Create</button>
+                </div>
                 <div className="Dashboard__test-container">
                     <DashboardTestCard name="Test n 1" description="The best test I have ever done" questions="20" countOfStudents="50" success="75%"/>
                     <DashboardTestCard name="Test n 2" description="The second best test I have ever done" questions="200" countOfStudents="5000000" success="100%"/>
