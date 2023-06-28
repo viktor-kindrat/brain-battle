@@ -1,8 +1,17 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
 .CreateTest {
+    @include flex(center, flex-start, column, 25px);
     min-height: 100vh;
     width: 100%;
     background-color: #ffffff;
-    padding-top: 75px;
+    padding: $pagePadding;
+    padding-top: 100px;
+    * {
+        color: $dark;
+    }
+
     .CreateTest__headline {
         font-family: "Harms", sans-serif;
         font-weight: 900;
@@ -10,5 +19,16 @@
         line-height: 100%;
         color: #333333;
         text-align: center;
+        
+        &_3{
+            font-size: calc(18px + .3vw);
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .CreateTest {
+        padding: $pagePaddingMobile;
+        padding-top: 100px;
     }
 }

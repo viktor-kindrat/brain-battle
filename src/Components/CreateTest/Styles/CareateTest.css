@@ -1,8 +1,17 @@
 .CreateTest {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
   min-height: 100vh;
   width: 100%;
   background-color: #ffffff;
-  padding-top: 75px;
+  padding: 25px 150px;
+  padding-top: 100px;
+}
+.CreateTest * {
+  color: #141414;
 }
 .CreateTest .CreateTest__headline {
   font-family: "Harms", sans-serif;
@@ -11,4 +20,14 @@
   line-height: 100%;
   color: #333333;
   text-align: center;
+}
+.CreateTest .CreateTest__headline_3 {
+  font-size: calc(18px + 0.3vw);
+}
+
+@media screen and (max-width: 800px) {
+  .CreateTest {
+    padding: 25px;
+    padding-top: 100px;
+  }
 }
