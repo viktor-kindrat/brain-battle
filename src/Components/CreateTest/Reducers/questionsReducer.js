@@ -1,6 +1,18 @@
 const reducer = (state, action) => {
     switch(action.type) {
-        case "changeVariant": {
+        case "question/addQuestion": {
+            return [...state, {
+                text: `Question ${state.length}`,
+                variants: [{ text: "Variant 0", right: false }]
+            }]
+        }
+        case "question/change": {
+            return [...state].map((question, index)=>(index === parseInt(action.id)) ? {...question, text: action.value} : question)
+        }
+        case "question/remove": {
+            return [...state].filter((item, index)=> index !== parseInt(action.id))
+        }
+        case "variant/changeVariant": {
             let newState = [...state].map((item, index)=>{
                 if (index === parseInt(action.id)) {
                     let newVariants = item.variants.map((variant, index)=>{
@@ -13,7 +25,7 @@ const reducer = (state, action) => {
             })
             return newState
         }
-        case "setVariantTrue": {
+        case "variant/setVariantTrue": {
             let newState = [...state].map((item, index)=>{
                 if (index === parseInt(action.id)) {
                     let newVariants = item.variants.map((variant, index)=>{
@@ -26,7 +38,7 @@ const reducer = (state, action) => {
             })
             return newState
         }
-        case "deleteVariant": {
+        case "variant/deleteVariant": {
             let newState = [...state].map((item, index)=>{
                 if (index === parseInt(action.id)) {
                     let newVariants = item.variants.filter((item, index) => {
@@ -39,7 +51,7 @@ const reducer = (state, action) => {
             })
             return newState
         }
-        case "addVariant": {
+        case "variant/addVariant": {
             let newState = [...state].map((item, index)=>{
                 return (index === parseInt(action.id)) ? {...item, variants: [...item.variants, {text: `Variant ${item.variants.length}`, right: false}]} : item
             })
