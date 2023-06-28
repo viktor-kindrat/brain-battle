@@ -128,7 +128,7 @@
 
 <body>
   <noscript>Enable JavaScript to run this app.</noscript>
-  <div class="Loader">
+  <div class="Loader Loader_gsap">
     <div class="Loader__image-group">
       <div class="Loader__circle-group">
         <div class="Loader__circle Loader__circle_1"></div>
@@ -156,7 +156,7 @@
     document.body.style.overflow = "hidden"
     window.addEventListener("load", (e)=>{
       let tl = gsap.timeline()
-      tl.to(".Loader", {
+      tl.to(".Loader_gsap", {
         scale: 0,
         duration: 1.5,
         ease: "elastic.in(1, 0.3)",

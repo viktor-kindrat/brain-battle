@@ -1,0 +1,127 @@
+.Dashboard {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 75px;
+  margin-top: 75px;
+  width: 100%;
+}
+.Dashboard .Dashboard__user-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 30%;
+  position: relative;
+}
+.Dashboard .Dashboard__user-info::after {
+  content: "";
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  display: block;
+  width: 2px;
+  height: 95%;
+  background: #141414;
+  opacity: 0.4;
+  position: absolute;
+  right: -35px;
+  top: 50%;
+}
+.Dashboard .Dashboard__user-info .Dashboard__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(20px + 0.5vw);
+  line-height: 100%;
+  color: #333333;
+  text-align: center;
+}
+.Dashboard .Dashboard__user-info .Dashboard__headline_3 {
+  color: #6A0572;
+  font-size: calc(15px + 0.3vw);
+  font-weight: 400;
+}
+.Dashboard .Dashboard__user-info .Dashboard__personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+.Dashboard .Dashboard__user-info .Dashboard__personal-info .Dashboard__subheadline {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: calc(12px + 0.3vw);
+  line-height: 100%;
+  font-weight: 400;
+  color: #141414;
+  text-align: center;
+}
+.Dashboard .Dashboard__user-info .Dashboard__personal-info .Dashboard__edit-info-btn {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: background 0.3s, box-shadow 0.3s;
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+  -moz-transition: background 0.3s, box-shadow 0.3s;
+  -ms-transition: background 0.3s, box-shadow 0.3s;
+  -o-transition: background 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.Dashboard .Dashboard__user-info .Dashboard__personal-info .Dashboard__edit-info-btn-icon {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+.Dashboard .Dashboard__user-info .Dashboard__personal-info .Dashboard__edit-info-btn:hover {
+  background: #ffeaea;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3137254902);
+}
+.Dashboard .Dashboard__tests {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 70%;
+}
+.Dashboard .Dashboard__tests .Dashboard__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(20px + 0.5vw);
+  line-height: 100%;
+  color: #333333;
+  text-align: center;
+}
+.Dashboard .Dashboard__tests .Dashboard__test-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+}

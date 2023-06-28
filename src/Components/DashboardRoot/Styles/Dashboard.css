@@ -101,7 +101,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .Dashboard {
+  .DashboardRoot {
     padding: 25px;
   }
 }
