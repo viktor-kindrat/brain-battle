@@ -1,5 +1,6 @@
 @import "../Fonts/Actay/Actay.css";
 @import "../Fonts/Harms/Harms.css";
+@import "../Fonts/NunitoSans/NunitoSans.css";
 * {
   margin: 0;
   padding: 0;
@@ -24,7 +25,7 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  font-family: "Actay", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Nunito Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   vertical-align: baseline;
 }
 

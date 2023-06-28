@@ -11,13 +11,6 @@
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
 
-    &_onlight {
-        padding: 15px 25px;
-        background: linear-gradient(#ff950030, #ff950030),
-                    linear-gradient($primary, $primary);
-        background-color: $primary;
-    }
-
     a {
         text-decoration: none;
     }
@@ -66,11 +59,11 @@
         }
 
         .Header__nav-btn_filled {
-            @include block($secondary, 5px, #ffffff, 5px 25px);
+            @include block($secondary, 3px, #ffffff, 5px 25px);
         }
 
         .Header__nav-btn_transparent {
-            @include block(transparent, 5px, $secondary, 5px 25px);
+            @include block(transparent, 3px, $secondary, 5px 25px);
             border: 2px solid $secondary;
         }
 
@@ -124,6 +117,20 @@
 
             &:hover {
                 @include block(#ffffff30, 5px, $dark, 10px 15px);
+            }
+        }
+    }
+    &_onlight {
+        padding: 15px 25px;
+        background: transparent;
+
+        * {
+            color: $dark;
+        }
+
+        .Header__logo-group {
+            .Header__logo-text {
+                color: $dark;
             }
         }
     }

@@ -1,5 +1,6 @@
 import "./Styles/Header.css"
 import brainIcon from "./Svg/brain.svg"
+import brainIconDark from "./Svg/brainDark.svg"
 import HeaderAccount from "./HeaderAccount"
 
 import { Link, useLocation } from "react-router-dom"
@@ -15,7 +16,7 @@ function Header({ logined, setLogined }) {
         <header className={(window.location.href.includes("/dashboard") ? "Header Header_onlight" : "Header")}>
             <Link to="/">
                 <div className="Header__logo-group">
-                    <img className="Header__logo-image" height={50} width={50} src={brainIcon} alt="logo" />
+                    <img className="Header__logo-image" height={50} width={50} src={(window.location.href.includes("/dashboard") ? brainIconDark : brainIcon)} alt="logo" />
                     <p className="Header__logo-text">
                         Brain <br /> Battle
                     </p>

@@ -12,11 +12,6 @@
   gap: 25px;
   padding: 25px 150px;
 }
-.Header_onlight {
-  padding: 15px 25px;
-  background: linear-gradient(rgba(255, 149, 0, 0.1882352941), rgba(255, 149, 0, 0.1882352941)), linear-gradient(#6A0572, #6A0572);
-  background-color: #6A0572;
-}
 .Header a {
   text-decoration: none;
 }
@@ -79,23 +74,23 @@
 }
 .Header .Header__nav .Header__nav-btn_filled {
   background: #FF8906;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #ffffff;
   padding: 5px 25px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 .Header .Header__nav .Header__nav-btn_transparent {
   background: transparent;
-  border-radius: 5px;
+  border-radius: 3px;
   color: #FF8906;
   padding: 5px 25px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
   border: 2px solid #FF8906;
 }
 .Header .Header__nav .Header__account-nav {
@@ -193,6 +188,16 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+.Header_onlight {
+  padding: 15px 25px;
+  background: transparent;
+}
+.Header_onlight * {
+  color: #141414;
+}
+.Header_onlight .Header__logo-group .Header__logo-text {
+  color: #141414;
 }
 
 @media screen and (max-width: 800px) {

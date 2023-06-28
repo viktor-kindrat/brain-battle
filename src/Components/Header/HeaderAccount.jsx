@@ -72,7 +72,7 @@ function HeaderAccount({ logined, setLogined }) {
                 ease: "power2.inOut"
             })
             tl.to(".Header__nav-name", {
-                color: "#ffffff", duration: 0.1, delay: -0.2
+                color: "", duration: 0.1, delay: -0.2
             })
             tl.to(".Header__account-nav", {
                 background: "",

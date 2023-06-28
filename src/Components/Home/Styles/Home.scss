@@ -46,12 +46,12 @@
             }
 
             .Home__button_filled {
-                @include block($secondary, 5px, #ffffff, 5px 25px);
+                @include block($secondary, 3px, #ffffff, 5px 25px);
                 margin-bottom: 10px;
             }
 
             .Home__button_transparent {
-                @include block(transparent, 5px, $secondary, 5px 25px);
+                @include block(transparent, 3px, $secondary, 5px 25px);
                 border: 2px solid $secondary;
             }
         }

@@ -1,24 +1,39 @@
-.Home {
+.DashboardRoot {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 25px;
-  min-height: min(100vh, 750px);
+  width: 100%;
+  min-height: 100vh;
   padding: 25px 150px;
-  margin-top: 100px;
+  background: #ffffff;
+  margin-top: 0;
+  color: #141414;
 }
-.Home a {
+.DashboardRoot * {
+  color: #141414;
+}
+.DashboardRoot a {
   text-decoration: none;
 }
-.Home .Home__content-container {
+.DashboardRoot .Dashboard__error {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
-.Home .Home__content-container .Home__headline {
+.DashboardRoot .Dashboard__error .Dashboard__headline-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.DashboardRoot .Dashboard__error .Dashboard__headline-group .Dashboard__error-headline {
   font-family: "Harms", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -29,14 +44,15 @@
   line-height: 125%;
   margin-bottom: 10px;
 }
-.Home .Home__content-container .Home__button-container {
+.DashboardRoot .Dashboard__error .Dashboard__btn-group {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
 }
-.Home .Home__content-container .Home__button-container .Home__button {
+.DashboardRoot .Dashboard__error .Dashboard__btn-group .Dashboard__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +70,7 @@
   outline: none;
   cursor: pointer;
 }
-.Home .Home__content-container .Home__button-container .Home__button:hover {
+.DashboardRoot .Dashboard__error .Dashboard__btn-group .Dashboard__button:hover {
   transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
   -moz-transform: translateY(-2px);
@@ -62,31 +78,30 @@
   -o-transform: translateY(-2px);
   box-shadow: 0 3px 5px rgba(20, 20, 20, 0.1882352941);
 }
-.Home .Home__content-container .Home__button-container .Home__button_filled {
+.DashboardRoot .Dashboard__error .Dashboard__btn-group .Dashboard__button_filled {
   background: #FF8906;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #ffffff;
   padding: 5px 25px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  margin-bottom: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
-.Home .Home__content-container .Home__button-container .Home__button_transparent {
+.DashboardRoot .Dashboard__error .Dashboard__btn-group .Dashboard__button_transparent {
   background: transparent;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #FF8906;
   padding: 5px 25px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
   border: 2px solid #FF8906;
 }
 
 @media screen and (max-width: 800px) {
-  .Home {
+  .Dashboard {
     padding: 25px;
   }
 }

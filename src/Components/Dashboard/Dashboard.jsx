@@ -1,14 +1,10 @@
 import "./Styles/Dashboard.css"
-import DashboardError from "./DashboardError"
 
-function Dashboard ({logined, setLogined}){
+function Dashboard(){
     return (
-        <section className="Dashboard">
-            {
-                !logined ? <DashboardError/>
-                : "The page are currently in development"
-            }
-        </section>
+        <div className="Dashboard">
+            Dashboard
+        </div>
     )
 }
 

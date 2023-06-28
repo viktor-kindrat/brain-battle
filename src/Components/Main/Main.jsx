@@ -2,7 +2,7 @@ import "./Styles/Main.css"
 
 import Home from "../Home/Home"
 import Form from "../Form/Form";
-import Dashboard from "../Dashboard/Dashboard";
+import DashboardRoot from "../DashboardRoot/DashboardRoot";
 import { Routes, Route, } from "react-router-dom";
 
 function Main({logined, setLogined}) {
@@ -12,7 +12,7 @@ function Main({logined, setLogined}) {
                 <Route path="/" element={<Home {...{logined}} />}></Route>
                 <Route path="/signUp" element={<Form {...{logined, setLogined}} type="reg" />}></Route>
                 <Route path="/logIn" element={<Form {...{logined, setLogined}} type="log" />}></Route>
-                <Route path="/dashboard" element={<Dashboard {...{logined, setLogined}} />}></Route>
+                <Route path="/dashboard" element={<DashboardRoot {...{logined, setLogined}} />}></Route>
             </Routes>
         </main>
     )

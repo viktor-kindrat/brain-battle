@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    src: url("./NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf");
+}
+@font-face {
+    font-family: "Nunito Sans";
+    font-style: italic;
+    src: url("./NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf");
+}

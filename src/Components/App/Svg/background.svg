@@ -1,10 +1,1 @@
-<svg width="100" height="59" viewBox="0 0 100 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_40_17)">
-<path d="M71.138 -34.746L45.918 8.93603L20.698 -34.746H71.138ZM71.138 24.138L45.918 67.818L20.698 24.138H71.138ZM121.138 -5.30397L95.918 38.378L70.698 -5.30397H121.138ZM121.138 53.578L95.918 97.262L70.698 53.578H121.138ZM54.182 53.578L79.4 9.90002L104.62 53.58L54.182 53.578ZM21.138 -5.30397L-4.08199 38.378L-29.302 -5.30397H21.138ZM21.138 53.578L-4.08199 97.262L-29.302 53.578H21.138ZM-45.818 53.578L-20.6 9.90002L4.62001 53.58L-45.818 53.578ZM4.18201 24.138L29.4 -19.546L54.62 24.138H4.18201ZM4.18201 83.02L29.4 39.34L54.62 83.022L4.18201 83.02Z" stroke="white" stroke-opacity="0.05" stroke-width="2"/>
-</g>
-<defs>
-<clipPath id="clip0_40_17">
-<rect width="100" height="58.884" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' transform='scale(2)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(291, 64%, 42%, 0)'/><path d='M10-6V6M10 14v12M26 10H14M6 10H-6'  stroke-linecap='square' stroke-width='0.5' stroke='#00000050' fill='none'/></svg>
