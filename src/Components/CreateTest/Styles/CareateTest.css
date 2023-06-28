@@ -24,6 +24,46 @@
 .CreateTest .CreateTest__headline_3 {
   font-size: calc(18px + 0.3vw);
 }
+.CreateTest .CreateTest__group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.CreateTest .CreateTest__group .CreateTest__name {
+  transition: border 0.3s;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -ms-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  width: 100%;
+  border: none;
+  outline: none;
+  position: relative;
+  padding-bottom: 5px;
+  text-align: center;
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(18px + 0.3vw);
+  line-height: 100%;
+  color: #6A0572;
+  text-align: center;
+}
+.CreateTest .CreateTest__group .CreateTest__name:focus {
+  border-bottom: 2px solid #141414;
+}
+.CreateTest .CreateTest__group .CreateTest__decription {
+  width: 100%;
+  resize: vertical;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: calc(13px + 0.3vw);
+  box-shadow: 0 5px 5px rgba(20, 20, 20, 0.1882352941);
+}
 
 @media screen and (max-width: 800px) {
   .CreateTest {

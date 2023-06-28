@@ -8,6 +8,7 @@
     background-color: #ffffff;
     padding: $pagePadding;
     padding-top: 100px;
+
     * {
         color: $dark;
     }
@@ -19,9 +20,45 @@
         line-height: 100%;
         color: #333333;
         text-align: center;
-        
-        &_3{
+
+        &_3 {
             font-size: calc(18px + .3vw);
+        }
+    }
+
+    .CreateTest__group {
+        width: 100%;
+        @include flex(center, center, column, 10px);
+
+        .CreateTest__name {
+            @include transition(border 0.3s);
+            width: 100%;
+            border: none;
+            outline: none;
+            position: relative;
+            padding-bottom: 5px;
+            text-align: center;
+            font-family: "Harms", sans-serif;
+            font-weight: 900;
+            font-size: calc(18px + .3vw);
+            line-height: 100%;
+            color: $primary;
+            text-align: center;
+
+            &:focus {
+                border-bottom: 2px solid $dark;
+            }
+        }
+
+        .CreateTest__decription {
+            width: 100%;
+            resize: vertical;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            font-family: "Nunito Sans", sans-serif;
+            font-size: calc(13px + .3vw);
+            box-shadow: 0 5px 5px $shadowDark;
         }
     }
 }
