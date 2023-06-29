@@ -1,7 +1,9 @@
 import logoutIcon from "./Svg/logout.svg"
 import defAvatar from "../../Media/avatardef.svg"
+import dashboardIcon from "./Svg/dashboard.svg"
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { gsap } from "gsap";
 
@@ -59,6 +61,9 @@ function HeaderAccount({ userData, setUserData, setInvokeStatus, logined, setLog
             <img className="Header__nav-img" width={50} height={50} src={(Object.keys(userData.photoFile || {}).length !== 0 || userData.photo) ? (userData.photoFile) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : defAvatar} alt="user avatar" />
             <div className="Header__nav-name">{userData.name}</div>
             <div className="Header__menu">
+                <Link to="/dashboard">
+                    <button className="Header__account-btn"><img height={25} src={dashboardIcon} alt="dashboard" className="Header__account-icon" />Dashboard</button>
+                </Link>
                 <button onClick={logoutHandler} className="Header__account-btn Header__account-btn_logout"><img height={25} src={logoutIcon} alt="logout" className="Header__account-icon" />Log out</button>
             </div>
         </div>

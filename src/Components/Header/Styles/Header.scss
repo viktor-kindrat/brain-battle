@@ -10,6 +10,7 @@
     overflow: visible;
     @include flex(center, space-between, row, 25px);
     padding: $pagePadding;
+    z-index: 5000;
 
     a {
         text-decoration: none;
@@ -84,7 +85,8 @@
             }
 
             .Header__menu {
-                @include block(#ffffff, 0 0 5px 5px, $dark, 15px);
+                @include block(#ffffff, 0 0 5px 5px, $dark, 0 15px 15px 15px);
+                @include flex(flex-start, flex-start, column, 10px);
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -102,15 +104,24 @@
                     border: none;
                     outline: none;
                     cursor: pointer;
+                    padding: 5px 0;
+                    margin-bottom: 5px;
+                    
+                    .Header__account-icon {
+                        height: 25px;
+                        aspect-ratio: 1/1;
+                        object-fit: contain;
+                    }
 
                     &:hover {
                         opacity: 0.7;
                     }
                     
                     &_logout {
+                        padding: 5px 10px;
                         background: rgb(231, 31, 0);
                         color: #ffffff;
-                        padding: 5px 10px;
+                        margin-bottom: 0;
                     }
                 }
             }

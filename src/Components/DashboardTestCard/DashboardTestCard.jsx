@@ -1,8 +1,8 @@
 import "./Styles/DashboardTestCard.css";
 
-function DashboardTestCard({name, description, questions, countOfStudents, success}) {
+function DashboardTestCard({name, id, description, questions, countOfStudents, success}) {
     return (
-        <article className="DashboardTestCard">
+        <article className="DashboardTestCard" data-id={id}>
             <div className="DashboardTestCard__row">
                 <h3 className="DashboardTestCard__headline">{name}</h3>
                 <button className="DashboardTestCard__btn">Play</button>

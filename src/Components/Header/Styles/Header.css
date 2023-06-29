@@ -11,6 +11,7 @@
   flex-direction: row;
   gap: 25px;
   padding: 25px 150px;
+  z-index: 5000;
 }
 .Header a {
   text-decoration: none;
@@ -133,11 +134,16 @@
   background: #ffffff;
   border-radius: 0 0 5px 5px;
   color: #141414;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   -webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
   -ms-border-radius: 0 0 5px 5px;
   -o-border-radius: 0 0 5px 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
   position: absolute;
   top: 100%;
   left: 0;
@@ -170,14 +176,22 @@
   border: none;
   outline: none;
   cursor: pointer;
+  padding: 5px 0;
+  margin-bottom: 5px;
+}
+.Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn .Header__account-icon {
+  height: 25px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 .Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn:hover {
   opacity: 0.7;
 }
 .Header .Header__nav .Header__account-nav .Header__menu .Header__account-btn_logout {
+  padding: 5px 10px;
   background: rgb(231, 31, 0);
   color: #ffffff;
-  padding: 5px 10px;
+  margin-bottom: 0;
 }
 .Header .Header__nav .Header__account-nav:hover {
   background: rgba(255, 255, 255, 0.1882352941);

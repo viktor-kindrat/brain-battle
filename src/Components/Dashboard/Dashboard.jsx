@@ -32,7 +32,7 @@ function Dashboard({logined, setLogined, userData, setInvokeStatus}) {
                     {
                         userData.tests && userData.tests.length > 0 ? 
                         userData.tests.map((test, index)=>
-                                <DashboardTestCard key={index} name={test.name} description={test.description} questions={test.questions.length} countOfStudents="soon" success="soon"/>
+                                <DashboardTestCard key={index} id={test.id} name={test.name} description={test.description} questions={test.questions.length} countOfStudents="soon" success="soon"/>
                             )
                         : <p className="Dashboard__error">You haven't any tests yet</p>
                     }
