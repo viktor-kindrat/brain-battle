@@ -13,14 +13,11 @@ function HeaderAccount({ logined, setLogined }) {
         let token = localStorage.getItem("userToken") || "";
         if (logined) {
             if (token) {
-                console.log(userData)
                 if (Object.keys(userData).length === 0) {
-                    console.log("here")
                     fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`, {
                         headers: { "Authorization": `Baerer ${token}` }
                     }).then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             const newUserData = (data.data.UserClone.photoFile) ? {
                                 ...data.data.UserClone._doc,
                                 photoFile: {

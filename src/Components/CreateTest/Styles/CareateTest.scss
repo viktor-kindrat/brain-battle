@@ -12,7 +12,21 @@
     * {
         color: $dark;
     }
+    .CreateTest__headline-group {
+        width: 100%;
+        @include flex(center, space-between, row, 25px);
+        flex-wrap: wrap;
 
+        .CreateTest__save-btn {
+            @include block($accent, 5px, #ffffff, 10px 35px);
+            @include flex(center, center, row, 5px);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: calc(13px + .3vw);
+        }
+    }
     .CreateTest__headline {
         font-family: "Harms", sans-serif;
         font-weight: 900;

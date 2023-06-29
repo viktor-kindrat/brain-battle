@@ -1,4 +1,5 @@
 const reducer = (state, action) => {
+    sessionStorage.setItem("questions", JSON.stringify([...state]));
     switch(action.type) {
         case "question/addQuestion": {
             return [...state, {

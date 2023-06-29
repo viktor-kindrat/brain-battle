@@ -13,6 +13,35 @@
 .CreateTest * {
   color: #141414;
 }
+.CreateTest .CreateTest__headline-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+.CreateTest .CreateTest__headline-group .CreateTest__save-btn {
+  background: #82D173;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: calc(13px + 0.3vw);
+}
 .CreateTest .CreateTest__headline {
   font-family: "Harms", sans-serif;
   font-weight: 900;

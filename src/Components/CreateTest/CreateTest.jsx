@@ -1,6 +1,7 @@
 import "./Styles/CareateTest.css"
 
 import addIcon from "./Svg/add.svg"
+import saveIcon from "./Svg/save.svg";
 
 import { useReducer } from "react"
 import quesReducer from "./Reducers/questionsReducer";
@@ -22,7 +23,10 @@ function CreateTest({ logined, setLogined }) {
 
     return (
         <section className="CreateTest">
-            <h2 className="CreateTest__headline">Create new test</h2>
+            <div className="CreateTest__headline-group">
+                <h2 className="CreateTest__headline">Create new test</h2>
+                <button className="CreateTest__save-btn"><img src={saveIcon} alt="save" />Save</button>
+            </div>
             <div className="CreateTest__group">
                 <input className="CreateTest__name" type="text" placeholder="Name of the test here*"  defaultValue="Untitled" />
                 <textarea className="CreateTest__decription" placeholder="Description*" defaultValue="My best test"></textarea>
