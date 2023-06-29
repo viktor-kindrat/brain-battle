@@ -24,6 +24,8 @@
   flex-direction: column;
   gap: 25px;
   width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 .DashboardRoot .Dashboard__error .Dashboard__headline-group {
   display: flex;

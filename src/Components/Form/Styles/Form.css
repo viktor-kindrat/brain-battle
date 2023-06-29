@@ -93,6 +93,34 @@
   width: 100%;
   position: relative;
 }
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .From__show-password {
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  height: auto;
+  width: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  right: 15px;
+  padding: 0;
+}
+.Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .From__show-password img {
+  height: 25px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  pointer-events: none;
+}
 .Form .Form__content-container .Form__fields .Form__fields-container .Form__input-container .Form__label {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);

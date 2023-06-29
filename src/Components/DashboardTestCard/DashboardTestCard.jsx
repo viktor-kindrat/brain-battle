@@ -1,11 +1,17 @@
 import "./Styles/DashboardTestCard.css";
 
-function DashboardTestCard({name, id, description, questions, countOfStudents, success}) {
+import { useNavigate } from "react-router-dom";
+
+function DashboardTestCard({ name, id, description, questions, countOfStudents, success }) {
+    let navigate = useNavigate()
+    const playHandler = () => {
+        navigate(`/stream/#${id}`)
+    }
     return (
         <article className="DashboardTestCard" data-id={id}>
             <div className="DashboardTestCard__row">
                 <h3 className="DashboardTestCard__headline">{name}</h3>
-                <button className="DashboardTestCard__btn">Play</button>
+                <button onClick={playHandler} className="DashboardTestCard__btn">Play</button>
             </div>
             <p className="DashboardTestCard__description">
                 {description}

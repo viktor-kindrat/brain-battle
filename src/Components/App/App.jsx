@@ -21,6 +21,7 @@ function App() {
           headers: { "Authorization": `Baerer ${token}` }
         }).then(res => res.json())
           .then(data => {
+            console.log(data)
             const newUserData = (data.data.UserClone.photoFile) ? {
               ...data.data.UserClone._doc,
               photoFile: {

@@ -21,6 +21,8 @@
     .Dashboard__error {
         @include flex(center, center, column, 25px);
         width: 100%;
+        margin-top: 100px;
+        margin-bottom: 100px;
 
         .Dashboard__headline-group {
             @include flex(center, center, column, 10px);

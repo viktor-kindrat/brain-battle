@@ -6,11 +6,26 @@ import HeaderAccount from "./HeaderAccount"
 import { Link, useLocation } from "react-router-dom"
 import { useEffect } from "react"
 
+import { gsap } from "gsap"
+
 function Header({ userData, setUserData, setInvokeStatus, logined, setLogined }) {
     let location = useLocation();
 
     useEffect(()=>{
-        return
+        if(location.pathname.includes("stream")) {
+            gsap.to(`.Header`, {
+                y: "-200px",
+                duration: 0.8,
+                ease: "elastic.in(1, 0.3)"
+            })
+        } else {
+            gsap.to(`.Header`, {
+                y: "0",
+                duration: 0.8,
+                delay: 0.5,
+                ease: "elastic.in(1, 0.3)"
+            })
+        }
     }, [location])
     return (
         <header className={(window.location.href.includes("/dashboard") || window.location.href.includes("/create-test") ? "Header Header_onlight" : "Header")}>

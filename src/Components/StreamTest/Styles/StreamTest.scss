@@ -1,0 +1,15 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.StreamTest {
+    @include flex(center, flex-start, column, 25px);
+    min-height: 100vh;
+    width: 100%;
+    padding: $pagePadding;
+}
+
+@media screen and (max-width: 800px) {
+    .StreamTest {
+        padding: $pagePaddingMobile;
+    }
+}

@@ -9,7 +9,7 @@ import googleIcon from "./Svg/google.svg"
 import avatarDef from "./Svg/avatardef.svg"
 import imageUpload from "./Svg/addImage.svg"
 
-function Form({ type, logined, setLogined }) {
+function Form({ type, logined, setLogined, setInvokeStatus, invokeStatus }) {
     const navigate = useNavigate();
     useEffect(()=>{
         if (logined) {
@@ -76,7 +76,7 @@ function Form({ type, logined, setLogined }) {
     }, [setWarning])
 
     const validateForm = useCallback((form) => {
-        let unFilledInputs = Array.from(form.elements).map(item => item.value ? item.value.length === 0 ? item : "" : item).filter(item => item !== "" && item.type !== "submit" && item.type !== "file")
+        let unFilledInputs = Array.from(form.elements).map(item => item.value ? item.value.length === 0 ? item : "" : item).filter(item => item !== "" && item.type !== "submit" && item.type !== "file" && item.type !== "button")
         document.querySelectorAll(".Form__warning").forEach(el => el.innerHTML = "");
         if (unFilledInputs.length === 0) {
             if (type !== "log") {
@@ -118,7 +118,6 @@ function Form({ type, logined, setLogined }) {
         if (res) {
             
             if (type !== "log") {
-                console.log("registration")
                 let formData = new FormData();
                 if (e.target.avatar.files[0]) formData.append("avatar", e.target.avatar.files[0], e.target.avatar.files[0].name);
                 formData.append("name", e.target.name.value);
@@ -140,6 +139,7 @@ function Form({ type, logined, setLogined }) {
                                 .then(data => {
                                     console.log(data);
                                     setLogined(true)
+                                    setInvokeStatus(!invokeStatus)
                                     alert("Successfully registered! Other functionality in development. Note that your account can be removed because of developing")
                                 })
                                 .catch(e => console.log(e))
@@ -166,13 +166,14 @@ function Form({ type, logined, setLogined }) {
                 .then(data=>{
                     localStorage.setItem("userToken", data.token);
                     setLogined(true)
+                    setInvokeStatus(!invokeStatus)
                     alert("Logged in. Other functionality in development. Note that your account can be removed because of developing")
                 })
                 .catch(e=>console.log(e))
             }
         }
         return false
-    }, [validateForm, setWarning, type, setLogined])
+    }, [validateForm, setWarning, type, setLogined, invokeStatus, setInvokeStatus])
 
     return (
         <form onSubmit={submitHandler} className="Form">
