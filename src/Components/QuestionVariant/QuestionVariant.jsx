@@ -1,5 +1,7 @@
 import "./Styles/QuestionVariant.css"
 
+import removeIcon from "./Svg/minus.svg"
+
 function QuestionVariant({questionsDispatch, index, item, id}) {
     const changeVariantHandler = (e) => {
         questionsDispatch({
@@ -26,10 +28,11 @@ function QuestionVariant({questionsDispatch, index, item, id}) {
         })
     }
     return (
-        <div key={index} className="CreateTest__questions-variant" data-index={index}>
-            <input onChange={setTrueHanler} className="CreateTest__variant-checkbox" value={item.right} type="radio" name={`rightAnswer${id}`} />
-            <input onChange={changeVariantHandler} className="CreateTest__variant-field" type="text" value={item.text} placeholder="Enter the value" />
-            <button onClick={deleteVariantHandler} className="CreateTest__remove-variant-btn">Remove</button>
+        <div className="QuestionVariant" data-index={index}>
+            <input id={`idrightAnswer${index}withId${id}`} onChange={setTrueHanler} className="QuestionVariant__radio-input" value={item.right} type="radio" name={`rightAnswer${id}`} />
+            <label aria-label="radio button" className="QuestionVariant__radio" htmlFor={`idrightAnswer${index}withId${id}`}></label>
+            <input onChange={changeVariantHandler} className="QuestionVariant__field" type="text" value={item.text} placeholder="Enter the value" />
+            <button onClick={deleteVariantHandler} className="QuestionVariant__remove-variant-btn"><img className="QuestionVariant__remove-variant-btn-icon" height={20} src={removeIcon} alt="remove" /></button>
         </div>
     )
 }

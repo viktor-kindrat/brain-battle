@@ -32,7 +32,7 @@ function CreateTest({ logined, setLogined }) {
                 <div className="CreateTest__questions-container">
                     {
                         questions.map((question, id) =>
-                            <QuestionField {...{id, question, questionsDispatch}} />
+                            <QuestionField  key={id} {...{id, question, questionsDispatch}} />
                         )
                     }
                 </div>

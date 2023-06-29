@@ -1,2 +1,53 @@
 @import "../../variable.scss";
 @import "../../mixin.scss";
+
+
+.QuestionVariant {
+    @include flex(center, center, row, 15px);
+    width: 100%;
+
+    .QuestionVariant__radio-input {
+        display: none;
+    }
+
+    .QuestionVariant__radio {
+        @include transition(outline 0.3s);
+        @include borderRadius(5px);
+        height: 20px;
+        width: 20px;
+        border: 2px solid $accent;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .QuestionVariant__radio-input:checked + .QuestionVariant__radio  {
+        outline: 7.1px solid $accent;
+        outline-offset: -16px;
+    }
+
+    .QuestionVariant__field {
+        @include borderRadius(3px);
+        width: 100%;
+        width: 100%;
+        padding: 5px 15px;
+        border: 1px solid $shadowDark;
+        outline: none;
+        font-size: calc(11px + .3vw);
+    }
+
+    .QuestionVariant__remove-variant-btn {
+        @include flex(center, center, row, 10px);
+        @include borderRadius(5px);
+        cursor: pointer;
+        background: $deleteColor;
+        border: none;
+        outline: none;
+        padding: 2px 5px;
+
+        .QuestionVariant__remove-variant-btn-icon {
+            height: 20px;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+        }
+    }
+}

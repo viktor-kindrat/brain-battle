@@ -1,0 +1,67 @@
+.QuestionVariant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%;
+}
+.QuestionVariant .QuestionVariant__radio-input {
+  display: none;
+}
+.QuestionVariant .QuestionVariant__radio {
+  transition: outline 0.3s;
+  -webkit-transition: outline 0.3s;
+  -moz-transition: outline 0.3s;
+  -ms-transition: outline 0.3s;
+  -o-transition: outline 0.3s;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #82D173;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.QuestionVariant .QuestionVariant__radio-input:checked + .QuestionVariant__radio {
+  outline: 7.1px solid #82D173;
+  outline-offset: -16px;
+}
+.QuestionVariant .QuestionVariant__field {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  width: 100%;
+  width: 100%;
+  padding: 5px 15px;
+  border: 1px solid rgba(20, 20, 20, 0.1882352941);
+  outline: none;
+  font-size: calc(11px + 0.3vw);
+}
+.QuestionVariant .QuestionVariant__remove-variant-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+  background: rgb(237, 47, 0);
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+}
+.QuestionVariant .QuestionVariant__remove-variant-btn .QuestionVariant__remove-variant-btn-icon {
+  height: 20px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
