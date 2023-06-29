@@ -1,44 +1,17 @@
 import logoutIcon from "./Svg/logout.svg"
 import defAvatar from "../../Media/avatardef.svg"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { gsap } from "gsap";
 
-function HeaderAccount({ logined, setLogined }) {
-    let [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userInfo")) || {});
+function HeaderAccount({ userData, setUserData, setInvokeStatus, logined, setLogined }) {
     let [openMenu, setOpenMenu] = useState(false)
     const navigate = useNavigate();
-    useEffect(() => {
-        let token = localStorage.getItem("userToken") || "";
-        if (logined) {
-            if (token) {
-                if (Object.keys(userData).length === 0) {
-                    fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`, {
-                        headers: { "Authorization": `Baerer ${token}` }
-                    }).then(res => res.json())
-                        .then(data => {
-                            const newUserData = (data.data.UserClone.photoFile) ? {
-                                ...data.data.UserClone._doc,
-                                photoFile: {
-                                    ...data.data.UserClone.photoFile
-                                }
-                            } : { ...data.data.UserClone._doc }
-                            sessionStorage.setItem("userInfo", JSON.stringify(newUserData))
-                            setUserData(newUserData)
-                        })
-                        .catch(e => console.log(e))
-                }
-            } else {
-                setLogined(false)
-            }
-        }
-        // eslint-disable-next-line
-    }, [logined, setLogined])
 
     let logoutHandler = () => {
         localStorage.removeItem("userToken");
-        sessionStorage.removeItem("userInfo");
+        sessionStorage.removeItem("userData");
         setLogined(false);
         setUserData({});
         navigate("/")

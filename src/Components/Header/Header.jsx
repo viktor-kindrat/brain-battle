@@ -6,7 +6,7 @@ import HeaderAccount from "./HeaderAccount"
 import { Link, useLocation } from "react-router-dom"
 import { useEffect } from "react"
 
-function Header({ logined, setLogined }) {
+function Header({ userData, setUserData, setInvokeStatus, logined, setLogined }) {
     let location = useLocation();
 
     useEffect(()=>{
@@ -25,7 +25,7 @@ function Header({ logined, setLogined }) {
             <nav className="Header__nav">
                 {
                     logined ? <>
-                        <HeaderAccount {...{ logined, setLogined }} />
+                        <HeaderAccount {...{ userData, setUserData, setInvokeStatus, logined, setLogined }} />
                     </> : <>
                         <Link to="/signUp"><button className="Header__nav-btn Header__nav-btn_filled">Sign up</button></Link>
                         <Link to="/logIn"><button className="Header__nav-btn Header__nav-btn_transparent">Log in</button></Link>

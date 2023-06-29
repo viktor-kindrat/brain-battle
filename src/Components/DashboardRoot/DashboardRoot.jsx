@@ -2,12 +2,12 @@ import "./Styles/Dashboard.css"
 import DashboardError from "./DashboardError"
 import Dasboard from "../Dashboard/Dashboard"
 
-function DashboardRoot ({logined, setLogined}){
+function DashboardRoot ({logined, setLogined, userData, setInvokeStatus}){
     return (
         <section className="DashboardRoot">
             {
                 !logined ? <DashboardError/>
-                : <Dasboard />
+                : <Dasboard {...{logined, setLogined, userData, setInvokeStatus}} />
             }
         </section>
     )
