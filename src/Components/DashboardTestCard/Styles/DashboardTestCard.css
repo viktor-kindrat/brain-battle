@@ -68,7 +68,7 @@
   font-weight: 500;
   font-size: calc(12px + 0.2vw);
 }
-.DashboardTestCard::before {
+.DashboardTestCard::after {
   content: "";
   width: 100%;
   display: block;
@@ -80,6 +80,6 @@
   background: #333333;
   opacity: 0.4;
 }
-.DashboardTestCard:first-child::before {
+.DashboardTestCard:last-child::after {
   display: none;
 }

@@ -54,7 +54,7 @@
     }
 
     
-    &::before {
+    &::after {
         content: "";
         width: 100%;
         display: block;
@@ -67,8 +67,8 @@
         opacity: 0.4;
     }
 
-    &:first-child {
-        &::before {
+    &:last-child {
+        &::after {
             display: none;
         }
     }
