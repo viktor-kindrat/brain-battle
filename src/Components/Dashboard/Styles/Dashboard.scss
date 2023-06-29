@@ -120,6 +120,13 @@
         .Dashboard__test-container {
             @include flex(flex-start, flex-start, column, 25px );
             width: 100%;
+
+            .Dashboard__error {
+                text-align: center;
+                font-size: calc(15px + .5vw);
+                color: $dark;
+                opacity: 0.7;
+            }
         }
 
     }

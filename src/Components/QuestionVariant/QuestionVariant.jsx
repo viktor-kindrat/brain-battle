@@ -29,7 +29,7 @@ function QuestionVariant({questionsDispatch, index, item, id}) {
     }
     return (
         <div className="QuestionVariant" data-index={index}>
-            <input id={`idrightAnswer${index}withId${id}`} onChange={setTrueHanler} className="QuestionVariant__radio-input" value={item.right} type="radio" name={`rightAnswer${id}`} />
+            <input id={`idrightAnswer${index}withId${id}`} onChange={setTrueHanler} className="QuestionVariant__radio-input" value={item.right} checked={item.right} type="radio" name={`rightAnswer${id}`} />
             <label aria-label="radio button" className="QuestionVariant__radio" htmlFor={`idrightAnswer${index}withId${id}`}></label>
             <input onChange={changeVariantHandler} className="QuestionVariant__field" type="text" value={item.text} placeholder="Enter the value" />
             <button onClick={deleteVariantHandler} className="QuestionVariant__remove-variant-btn"><img className="QuestionVariant__remove-variant-btn-icon" height={20} src={removeIcon} alt="remove" /></button>

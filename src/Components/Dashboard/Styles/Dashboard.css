@@ -160,3 +160,9 @@
   gap: 25px;
   width: 100%;
 }
+.Dashboard .Dashboard__tests .Dashboard__test-container .Dashboard__error {
+  text-align: center;
+  font-size: calc(15px + 0.5vw);
+  color: #141414;
+  opacity: 0.7;
+}

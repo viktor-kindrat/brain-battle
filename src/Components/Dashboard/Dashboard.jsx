@@ -43,8 +43,13 @@ function Dashboard() {
                     </Link>
                 </div>
                 <div className="Dashboard__test-container">
-                    <DashboardTestCard name="Test n 1" description="The best test I have ever done" questions="20" countOfStudents="50" success="75%"/>
-                    <DashboardTestCard name="Test n 2" description="The second best test I have ever done" questions="200" countOfStudents="5k" success="100%"/>
+                    {
+                        userInfo.tests && userInfo.tests.length > 0 ? 
+                        userInfo.tests.map(test=>{
+                                <DashboardTestCard name={test.name} description={test.description} questions={test.questions.length} countOfStudents="soon" success="soon"/>
+                            })
+                        : <p className="Dashboard__error">You haven't any tests yet</p>
+                    }
                 </div>
             </section>
         </div>

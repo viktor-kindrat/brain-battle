@@ -9,7 +9,7 @@ import QuestionField from "../QuestionField/QuestionField";
 
 
 function CreateTest({ logined, setLogined }) {
-    let [questions, questionsDispatch] = useReducer(quesReducer, [{
+    let [questions, questionsDispatch] = useReducer(quesReducer, JSON.parse(sessionStorage.getItem("questions")) || [{
         text: "Question 0",
         variants: [{ text: "Variant 0", right: false }]
     }])
