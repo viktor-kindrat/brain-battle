@@ -14,14 +14,12 @@ function App() {
   let [invokeStatus, setInvokeStatus] = useState(false);
 
   useEffect(() => {
-    console.log("ok")
     if (token) {
       if (Object.keys(userData).length === 0) {
         fetch(`https://brain-battle-server-wpcm.onrender.com/db/getUserInfo`, {
           headers: { "Authorization": `Baerer ${token}` }
         }).then(res => res.json())
           .then(data => {
-            console.log(data)
             const newUserData = (data.data.UserClone.photoFile) ? {
               ...data.data.UserClone._doc,
               photoFile: {

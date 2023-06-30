@@ -6,10 +6,56 @@
     min-height: 100vh;
     width: 100%;
     padding: $pagePadding;
+    
+    .StreamTest__head {
+        @include flex(center, space-between, row, 25px);
+        width: 100vw;
+        padding: $pagePadding;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: $primaryDark;
+
+        .StreamTest__name {
+            font-family: "Harms", sans-serif;
+            font-size: calc(20px + .3vw);
+            font-weight: 900;
+        }
+
+        .StreamTest__code {
+            @include flex(center, center, row, 25px); 
+            @include borderRadius(3px);
+            font-weight: 600;
+            font-size: calc(13px + .3vw);
+            background: $secondary;
+            padding: 10px;
+
+            .StreamTest__code-val {
+                @include flex(center, center, row, 5px);
+                font-weight: 900;
+                font-size: calc(20px + .3vw);
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    .StreamTest__waiting-hall {
+        margin-top: 75px;
+        padding: 25px 0;
+
+        .StreamTest__headline {
+            font-family: "Harms", sans-serif;
+            font-size: calc(25px + .5vw);
+            font-weight: 900;
+        }
+    }
 }
 
 @media screen and (max-width: 800px) {
     .StreamTest {
         padding: $pagePaddingMobile;
+        .StreamTest__head {
+            padding: $pagePaddingMobile;
+        }
     }
 }

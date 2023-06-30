@@ -16,7 +16,7 @@ function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, s
                 <Route path="/logIn" element={<Form {...{logined, setLogined, setInvokeStatus, invokeStatus}} type="log" />}></Route>
                 <Route path="/dashboard" element={<DashboardRoot {...{logined, setLogined, userData, setInvokeStatus}} />}></Route>
                 <Route path="/create-test" element={<CreateTest {...{logined, setLogined, invokeStatus, setUserData, setInvokeStatus}}/>}></Route>
-                <Route path="/stream" element={<StreamTest {...{logined, setLogined, invokeStatus, setUserData, setInvokeStatus}}/>}></Route>
+                <Route path="/stream" element={<StreamTest {...{logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus}}/>}></Route>
             </Routes>
         </main>
     )
