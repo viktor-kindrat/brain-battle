@@ -5,6 +5,9 @@ import Form from "../Form/Form";
 import DashboardRoot from "../DashboardRoot/DashboardRoot";
 import CreateTest from "../CreateTest/CreateTest"
 import StreamTest from "../StreamTest/StreamTest";
+import JoinTest from "../JoinTest/JoinTest";
+import TestingArea from "../TestingArea/TestingArea";
+
 import { Routes, Route, } from "react-router-dom";
 
 function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, setLogined }) {
@@ -17,6 +20,8 @@ function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, s
                 <Route path="/dashboard" element={<DashboardRoot {...{logined, setLogined, userData, setInvokeStatus}} />}></Route>
                 <Route path="/create-test" element={<CreateTest {...{logined, setLogined, invokeStatus, setUserData, setInvokeStatus}}/>}></Route>
                 <Route path="/stream" element={<StreamTest {...{logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus}}/>}></Route>
+                <Route path="/join" element={<JoinTest />}></Route>
+                <Route path="/testing" element={<TestingArea />}></Route>
             </Routes>
         </main>
     )

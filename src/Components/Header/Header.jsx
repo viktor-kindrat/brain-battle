@@ -11,8 +11,8 @@ import { gsap } from "gsap"
 function Header({ userData, setUserData, setInvokeStatus, logined, setLogined }) {
     let location = useLocation();
 
-    useEffect(()=>{
-        if(location.pathname.includes("stream")) {
+    useEffect(() => {
+        if (location.pathname.includes("stream") || location.pathname.includes("join") || location.pathname.includes("testing")) {
             gsap.to(`.Header`, {
                 y: "-200px",
                 duration: 0.8,

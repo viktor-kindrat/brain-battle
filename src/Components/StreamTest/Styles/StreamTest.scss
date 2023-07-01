@@ -40,13 +40,44 @@
     }
 
     .StreamTest__waiting-hall {
+        @include flex(center, center, column, 25px);
         margin-top: 75px;
         padding: 25px 0;
 
         .StreamTest__headline {
             font-family: "Harms", sans-serif;
+            text-align: center;
             font-size: calc(25px + .5vw);
             font-weight: 900;
+        }
+
+        .StreamTest__play-btn {
+            @include block($secondary, 50%, #ffffff, 15px);
+            @include flex(center, center, row, 5px);
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+
+            .StreamTest__play-btn-image {
+                height: 35px;
+                width: 35px;
+                object-fit: contain;
+            }
+        }
+
+        .StreamTest__users {
+            @include flex(center, center, row, 15px);
+            flex-wrap: wrap;
+
+            .StreamTest__user {
+                @include borderRadius(3px);
+                padding: 5px 10px;
+                background: $primaryDark;
+                box-shadow: 0 0 5px $shadowDark;
+            }
         }
     }
 }

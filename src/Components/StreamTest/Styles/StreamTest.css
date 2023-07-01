@@ -53,13 +53,63 @@
   letter-spacing: 2px;
 }
 .StreamTest .StreamTest__waiting-hall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
   margin-top: 75px;
   padding: 25px 0;
 }
 .StreamTest .StreamTest__waiting-hall .StreamTest__headline {
   font-family: "Harms", sans-serif;
+  text-align: center;
   font-size: calc(25px + 0.5vw);
   font-weight: 900;
+}
+.StreamTest .StreamTest__waiting-hall .StreamTest__play-btn {
+  background: #FF8906;
+  border-radius: 50%;
+  color: #ffffff;
+  padding: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+}
+.StreamTest .StreamTest__waiting-hall .StreamTest__play-btn .StreamTest__play-btn-image {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
+.StreamTest .StreamTest__waiting-hall .StreamTest__users {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.StreamTest .StreamTest__waiting-hall .StreamTest__users .StreamTest__user {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  padding: 5px 10px;
+  background: #421345;
+  box-shadow: 0 0 5px rgba(20, 20, 20, 0.1882352941);
 }
 
 @media screen and (max-width: 800px) {

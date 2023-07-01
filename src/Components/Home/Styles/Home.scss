@@ -8,7 +8,7 @@
     margin-top: 100px;
 
     a {
-        text-decoration: none
+        text-decoration: none;
     }
 
     .Home__content-container {
@@ -38,6 +38,7 @@
                 border: none;
                 outline: none;
                 cursor: pointer;
+                width: 100%;
 
                 &:hover {
                     @include transform(translateY(-2px));
