@@ -49,6 +49,13 @@
             position: relative;
             width: 100%;
 
+            .Dashboard__avatar {
+                @include borderRadius(50%);
+                height: 125px;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+
             .Dashboard__subheadline {
                 font-family: "Nunito Sans", sans-serif;
                 font-size: calc(12px + .3vw);

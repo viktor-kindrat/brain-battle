@@ -15,7 +15,7 @@ function Dashboard({logined, setLogined, userData, setInvokeStatus}) {
             <aside className="Dashboard__user-info">
                 <h2 className="Dashboard__headline">Account information</h2>
                 <div className="Dashboard__personal-info">
-                    <img className="Dashboard__avatar" height={125} src={(Object.keys(userData.photoFile || {}).length !== 0 || userData.photo) ? (userData.photoFile) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : dafaultAvatar} alt={`Avatar of ${userData.name}`} />
+                    <img className="Dashboard__avatar" height={125} src={(userData.photoFile.contentType || userData.photo) ? (userData.photoFile.contentType) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : dafaultAvatar} alt={`Avatar of ${userData.name}`} />
                     <h3 className="Dashboard__headline Dashboard__headline_3">{userData.name}</h3>
                     <p className="Dashboard__subheadline">{userData.email}</p>
                     <button className="Dashboard__edit-info-btn"><img className="Dashboard__edit-info-btn-icon" height={20} src={editIcon} alt="edit" /></button>
