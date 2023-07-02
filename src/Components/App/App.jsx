@@ -8,7 +8,7 @@ import Footer from '../Footer/Footer';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const token = localStorage.getItem("userToken") || "";
+  const token = (localStorage.getItem("userToken") || window.location.href.split("?token=")[1]) || false;
   let [logined, setLogined] = useState(token ? true : false)
   let [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userInfo")) || {});
   let [invokeStatus, setInvokeStatus] = useState(false);

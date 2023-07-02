@@ -8,9 +8,17 @@ import StreamTest from "../StreamTest/StreamTest";
 import JoinTest from "../JoinTest/JoinTest";
 import TestingArea from "../TestingArea/TestingArea";
 
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route, useNavigate} from "react-router-dom";
+
+import { useEffect } from "react";
 
 function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, setLogined }) {
+    let navigate = useNavigate();
+    useEffect(()=>{
+        if (logined && !userData.password && userData.name) {
+            console.log("pasword unset")
+        }
+    }, [logined, userData])
     return (
         <main className="Main">
             <Routes>
