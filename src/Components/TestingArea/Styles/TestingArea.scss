@@ -7,6 +7,10 @@
     min-height: 100vh;
     padding: $pagePadding;
 
+    a {
+        text-decoration: none;
+    }
+
     .TestingArea__headline {
         font-family: "Harms", sans-serif;
         font-size: calc(20px + .5vw);
@@ -49,6 +53,82 @@
         }
 
     }
+
+    .TestingArea__variants {
+        @include flex(center, center, column, 25px);
+        width: calc(100vw - $scrollbarWidth);
+        height: 100vh;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px;
+        .TestingArea__variants-container {
+            @include flex(center, center, row, 25px);
+            width: 100%;
+            flex-wrap: wrap;
+            .TetstingArea__variant {
+                @include flex(center, center, row, 25px);
+                @include borderRadius(5px);
+                width: calc(50% - 13px);
+                background: $secondary;
+                padding: 25px;
+                font-size: calc(25px + .5vw);
+                font-weight: 900;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .TestingArea__broken {
+        @include flex(center, center, column, 25px);
+        min-height: 100vh;
+        width: 100%;
+        
+        .TestingArea__broken-btn {
+            @include block($secondary, 5px, #ffffff, 5px 25px);
+            border: none;
+            outline: none;
+            font-family: "Nunito Sans", sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: calc(15px + .3vw);
+            line-height: 100%;
+        }
+    }
+    
+    .TestingArea__result {
+        @include flex(center, center, column, 25px);
+        min-height: 100vh;
+        width: 100%;
+
+        .TestingArea__result-medal {
+            position: relative;
+            height: 250px;
+            object-fit: contain;
+            width: auto;
+
+            .TestingArea__result-place {
+                @include transform(translate(-50%, -50%));
+                position: absolute;
+                top: 65%;
+                left: 50%;
+                font-size: calc(45px + .5vw);
+                font-weight: 900;
+                color: #ffffff90;
+            }
+        }
+
+        .TestingArea__result-block {
+            font-size: calc(16px + .3vw);
+            font-weight: 400;
+
+            &_wide {
+                font-weight: 900;
+            }
+        }
+    }
+    
 }
 
 

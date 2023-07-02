@@ -30,6 +30,7 @@ function CreateTest({ logined, setLogined, setInvokeStatus, setUserData, invokeS
             id: parseInt(new Date().getTime() + Math.floor(Math.random() * 20000).toString()).toString("32"),
             name: createTestFrom.querySelector("#CreateTest-name-field").value,
             description: createTestFrom.querySelector("#CreateTest-description-field").value,
+            testings: [],
             questions: questions
         }
         if (data.name.length >= 3 && data.name.length <= 100) {

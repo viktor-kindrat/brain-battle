@@ -52,6 +52,12 @@
   font-size: calc(20px + 0.3vw);
   letter-spacing: 2px;
 }
+.StreamTest .StreamTest__headline {
+  font-family: "Harms", sans-serif;
+  text-align: center;
+  font-size: calc(25px + 0.5vw);
+  font-weight: 900;
+}
 .StreamTest .StreamTest__waiting-hall {
   display: flex;
   align-items: center;
@@ -60,12 +66,6 @@
   gap: 25px;
   margin-top: 75px;
   padding: 25px 0;
-}
-.StreamTest .StreamTest__waiting-hall .StreamTest__headline {
-  font-family: "Harms", sans-serif;
-  text-align: center;
-  font-size: calc(25px + 0.5vw);
-  font-weight: 900;
 }
 .StreamTest .StreamTest__waiting-hall .StreamTest__play-btn {
   background: #FF8906;
@@ -110,6 +110,188 @@
   padding: 5px 10px;
   background: #421345;
   box-shadow: 0 0 5px rgba(20, 20, 20, 0.1882352941);
+}
+.StreamTest .StreamTest__question-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: calc(100vw - 5px);
+  height: min(40vh, 360px);
+  background: #421345;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+}
+.StreamTest .StreamTest__question-head .StreamTest__question {
+  font-weight: 900;
+  font-size: calc(25px + 0.5vw);
+}
+.StreamTest .StreamTest__question-head .StreamTest__question-head-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  background: #421345;
+}
+.StreamTest .StreamTest__question-head .StreamTest__question-head-info .StreamTest__count-answers {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.StreamTest .StreamTest__question-head .StreamTest__question-head-info .StreamTest__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  background: #FF8906;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: calc(15px + 0.3vw);
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 100%;
+}
+.StreamTest .StreamTest__question-head .StreamTest__question-head-info .StreamTest__button .StreamTest__button-icon {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+.StreamTest .StreamTest__variants {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  height: 60vh;
+  width: 100%;
+  position: absolute;
+  top: min(40vh, 360px);
+  left: 0;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+.StreamTest .StreamTest__variants .StreamTest__variant {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: max-content;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3137254902);
+}
+.StreamTest .StreamTest__variants .StreamTest__variant .StreamTest__variant-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  text-align: center;
+  height: 50px;
+  aspect-ratio: 1/1;
+  padding: 5px;
+  background: #FF8906;
+  font-size: calc(25px + 0.5vw);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.StreamTest .StreamTest__leaderboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  min-height: 100vh;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container .StreamTest__leader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
+  padding: 10px;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container .StreamTest__leader:nth-child(2n) {
+  background: rgba(0, 0, 0, 0.3137254902);
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container .StreamTest__leader:nth-child(2n+1) {
+  background: rgba(255, 255, 255, 0.3137254902);
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container .StreamTest__leader .StreamTest__leader-name {
+  font-size: calc(15px + 0.3vw);
+  font-weight: 900;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__leaders-container .StreamTest__leader .StreamTest__leader-result {
+  font-size: calc(15px + 0.3vw);
+  font-weight: 400;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__next-btn {
+  transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  background: #FF8906;
+  border-radius: 50%;
+  color: #ffffff;
+  padding: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__next-btn:hover {
+  transform: translate(0, -2px);
+  -webkit-transform: translate(0, -2px);
+  -moz-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  -o-transform: translate(0, -2px);
+}
+.StreamTest .StreamTest__leaderboard .StreamTest__next-btn img {
+  height: 25px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 800px) {

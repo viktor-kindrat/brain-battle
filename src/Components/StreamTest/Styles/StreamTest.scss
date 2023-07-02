@@ -39,17 +39,17 @@
         }
     }
 
+    .StreamTest__headline {
+        font-family: "Harms", sans-serif;
+        text-align: center;
+        font-size: calc(25px + .5vw);
+        font-weight: 900;
+    }
     .StreamTest__waiting-hall {
         @include flex(center, center, column, 25px);
         margin-top: 75px;
         padding: 25px 0;
 
-        .StreamTest__headline {
-            font-family: "Harms", sans-serif;
-            text-align: center;
-            font-size: calc(25px + .5vw);
-            font-weight: 900;
-        }
 
         .StreamTest__play-btn {
             @include block($secondary, 50%, #ffffff, 15px);
@@ -77,6 +77,140 @@
                 padding: 5px 10px;
                 background: $primaryDark;
                 box-shadow: 0 0 5px $shadowDark;
+            }
+        }
+    }
+
+    .StreamTest__question-head {
+        @include flex(center, center, column, 25px); 
+        width: calc(100vw - $scrollbarWidth);
+        height: min(40vh, 360px);
+        background: $primaryDark;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px;
+
+        .StreamTest__question {
+            font-weight: 900;
+            font-size: calc(25px + .5vw);
+        }
+
+        .StreamTest__question-head-info {
+            @include flex(center, space-between, row, 25px);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 25px;
+            background: $primaryDark;
+
+            .StreamTest__count-answers {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .StreamTest__button {
+                @include flex(center, center, row, 10px);
+                @include block($secondary, 5px, #ffffff, 5px 25px);
+                border: none;
+                outline: none;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-size: calc(15px + .3vw);
+                font-family: "Nunito Sans", sans-serif;
+                line-height: 100%;
+
+                .StreamTest__button-icon {
+                    height: 20px;
+                    width: 20px;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+    .StreamTest__variants {
+        @include flex(center, center, row, 15px);
+        height: 60vh;
+        width: 100%;
+        position: absolute;
+        top: min(40vh, 360px);
+        left: 0;
+        flex-wrap: wrap;
+        padding: 25px;
+        
+        .StreamTest__variant {
+            @include flex(center, center, row, 15px);
+            @include borderRadius(5px);
+            width: max-content;
+            padding: 15px;
+            background: #00000050;
+            
+            .StreamTest__variant-index {
+                @include flex(center, center, row, 15px);
+                @include borderRadius(50%);
+                text-align: center;
+                height: 50px;
+                aspect-ratio: 1/1;
+                padding: 5px;
+                background: $secondary;
+                font-size: calc(25px + .5vw);
+                font-weight: 900;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .StreamTest__leaderboard {
+        @include flex(center, center, column, 25px);
+        width: 100%;
+        min-height: 100vh;
+        
+        .StreamTest__leaders-container {
+            @include flex(center, center, column, 0);
+            width: 100%;
+            
+            .StreamTest__leader {
+                @include flex(center, space-between, row, 25px);
+                width: 100%;
+                padding: 10px;
+
+                &:nth-child(2n) {
+                    background: #00000050;
+                }
+
+                &:nth-child(2n + 1) {
+                    background: #ffffff50;
+                }
+
+                .StreamTest__leader-name {
+                    font-size: calc(15px + .3vw);
+                    font-weight: 900;
+                }
+
+                .StreamTest__leader-result {
+                    font-size: calc(15px + .3vw);
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .StreamTest__next-btn {
+            @include transition(transform 0.3s);
+            @include block($secondary, 50%, #ffffff, 15px);
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover {
+                @include transform(translate(0, -2px));
+            }
+            img {
+                height: 25px;
+                aspect-ratio: 1/1;
+                object-fit: contain;
+                pointer-events: none;
             }
         }
     }
