@@ -2,7 +2,7 @@ import "./Styles/DashboardTestCard.css";
 
 import { useNavigate } from "react-router-dom";
 
-function DashboardTestCard({ name, id, description, questions, countOfStudents, success }) {
+function DashboardTestCard({ test, name, id, description, questions, countOfStudents, success }) {
     let navigate = useNavigate()
     const playHandler = () => {
         navigate(`/stream/#${id}`)

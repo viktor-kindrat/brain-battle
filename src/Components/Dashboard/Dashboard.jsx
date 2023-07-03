@@ -31,8 +31,27 @@ function Dashboard({logined, setLogined, userData, setInvokeStatus}) {
                 <div className="Dashboard__test-container">
                     {
                         userData.tests && userData.tests.length > 0 ? 
-                        userData.tests.map((test, index)=>
-                                <DashboardTestCard key={index} id={test.id} name={test.name} description={test.description} questions={test.questions.length} countOfStudents="soon" success="soon"/>
+                        userData.tests.map((test, index)=>{
+                            console.log(test)
+                            let success = Math.round(
+                                test.testings.map((item) => {
+                                  return (
+                                    item.respondents
+                                      .map((resp) => {
+                                        return (
+                                          Math.round(
+                                            (resp.answers.reduce((acc, value) => value === "true" ? acc += 1 : acc, 0) / resp.answers.length) * 100
+                                          )
+                                        );
+                                      })
+                                      .reduce((acc, value) => acc += value, 0) / item.respondents.length
+                                  );
+                                }).reduce((acc, value) => acc += value, 0) / test.testings.length
+                              );
+                              
+                            let countOfResps = test.testings.reduce((acc, value)=>acc += value.respondents.length, 0);
+                            return <DashboardTestCard key={index} test={test} id={test.id} name={test.name} description={test.description} questions={test.questions.length} countOfStudents={countOfResps === 0 ? "soon" : countOfResps} success={success !== 0 ? success + "%" : "soon"}/>
+                        }
                             )
                         : <p className="Dashboard__error">You haven't any tests yet</p>
                     }
