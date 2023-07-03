@@ -2,7 +2,28 @@ import "./Styles/Home.css"
 
 import { Link } from "react-router-dom"
 
+import { gsap } from "gsap";
+
+import { useEffect } from "react";
+
 function Home ({logined}){
+    useEffect(()=>{
+        let tl = gsap.timeline();
+        tl.set(".Home__content-container", {
+            scale: 0,
+            rotate: 5
+        })
+        tl.fromTo(".Home__content-container", {
+            scale: 0,
+            rotate: 30
+        }, {
+            scale: 1,
+            rotate: 0,
+            duration: 0.8,
+            ease: "elastic.out"
+        })
+    })
+
     return (
         <section className="Home">
             <div className="Home__content-container">

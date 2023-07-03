@@ -11,6 +11,21 @@ import { gsap } from "gsap"
 function Header({ userData, setUserData, setInvokeStatus, logined, setLogined }) {
     let location = useLocation();
 
+    useEffect(()=>{
+        let tl = gsap.timeline();
+        tl.set(".Header__logo-group", {
+            scale: 0
+        })
+        tl.fromTo(".Header__logo-group", {
+            scale: 0,
+        }, {
+            scale: 1,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "elastic.out"
+        })
+    }, [])
+
     useEffect(() => {
         if (location.pathname.includes("stream") || location.pathname.includes("join") || location.pathname.includes("testing")) {
             gsap.to(`.Header`, {
@@ -22,7 +37,7 @@ function Header({ userData, setUserData, setInvokeStatus, logined, setLogined })
             gsap.to(`.Header`, {
                 y: "0",
                 duration: 0.8,
-                delay: 0.5,
+                delay: 0.2,
                 ease: "elastic.in(1, 0.3)"
             })
         }
