@@ -13,7 +13,8 @@ function App() {
   let [userData, setUserData] = useState(JSON.parse(sessionStorage.getItem("userInfo")) || {});
   let [invokeStatus, setInvokeStatus] = useState(false);
   if (window.location.href.split("?token=")[1]){
-    localStorage.setItem("userToken", window.location.href.split("?token=")[1])
+    localStorage.setItem("userToken", window.location.href.split("?token=")[1]);
+    setUserData({})
   }
 
   useEffect(() => {
