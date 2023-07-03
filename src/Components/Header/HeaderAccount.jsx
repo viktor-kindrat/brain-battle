@@ -58,7 +58,7 @@ function HeaderAccount({ userData, setUserData, setInvokeStatus, logined, setLog
     }
     return (
         <div className="Header__account-nav" onClick={toggleMenu}>
-            <img className="Header__nav-img" width={50} height={50} src={(userData.photoFile.contentType || userData.photo) ? (userData.photoFile.contentType) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : defAvatar} alt="user avatar" />
+            <img className="Header__nav-img" width={50} height={50} src={(userData.photoFile?.contentType || userData.photo) ? (userData.photoFile?.contentType) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : defAvatar} alt="user avatar" />
             <div className="Header__nav-name">{userData.name}</div>
             <div className="Header__menu">
                 <Link to="/dashboard">
