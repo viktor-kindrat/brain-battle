@@ -15,7 +15,7 @@
             font-size: calc(14px + .5vw);
             line-height: 100%;
             color: $secondary;
-            text-align: center;
+            text-align: left;
         }
         .DashboardTestCard__btn {
             @include block($secondary, 5px, #ffffff, 5px 25px);

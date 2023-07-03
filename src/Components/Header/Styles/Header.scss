@@ -42,7 +42,6 @@
     .Header__nav {
         @include flex(center, center, row, 25px);
 
-
         .Header__nav-btn {
             @include flex(center, center, row, 10px);
             @include transition((transform 0.3s, box-shadow 0.3s));
@@ -150,5 +149,38 @@
 @media screen and (max-width: 800px) {
     .Header {
         padding: $pagePaddingMobile;
+
+        .Header__logo-group {
+            .Header__logo-text {
+                display: none;
+            }
+        }
+
+        .Header__nav {
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: flex-end;
+            align-items: stretch;
+
+            .Header__nav-btn {
+                padding: 3px 15px;
+            }
+
+            .Header__account-nav {
+                width: min(150px, 100%);
+                
+                .Header__nav-name {
+                    display: none;
+                }
+
+                .Header__menu {
+                    @include borderRadius(5px 0 5px 5px);
+                    width: calc(100vw - $scrollbarWidth - 52px);
+                    left: 25px;
+                    top:  calc(100% - 26px);
+                    position: fixed;
+                }
+            }
+        }
     }
 }

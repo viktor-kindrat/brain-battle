@@ -218,4 +218,33 @@
   .Header {
     padding: 25px;
   }
+  .Header .Header__logo-group .Header__logo-text {
+    display: none;
+  }
+  .Header .Header__nav {
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: stretch;
+  }
+  .Header .Header__nav .Header__nav-btn {
+    padding: 3px 15px;
+  }
+  .Header .Header__nav .Header__account-nav {
+    width: min(150px, 100%);
+  }
+  .Header .Header__nav .Header__account-nav .Header__nav-name {
+    display: none;
+  }
+  .Header .Header__nav .Header__account-nav .Header__menu {
+    border-radius: 5px 0 5px 5px;
+    -webkit-border-radius: 5px 0 5px 5px;
+    -moz-border-radius: 5px 0 5px 5px;
+    -ms-border-radius: 5px 0 5px 5px;
+    -o-border-radius: 5px 0 5px 5px;
+    width: calc(100vw - 5px - 52px);
+    left: 25px;
+    top: calc(100% - 26px);
+    position: fixed;
+  }
 }

@@ -27,6 +27,8 @@
   width: 100%;
   height: 100%;
   background: #ffffff;
+  position: relative;
+  top: 55px;
 }
 .Form .Form__content-container .Form__headline {
   width: 100%;

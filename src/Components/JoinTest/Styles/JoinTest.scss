@@ -20,10 +20,10 @@
         .JoinTest__headline-group {
             @include flex(center, center, column, 10px);
             width: 100%;
-
+            
             .JoinTest__headline-container {
                 @include flex(center, center, column, 10px);
-                height: 125px;
+                height: auto;
                 position: relative;
 
                 .JoinTest__logo {
@@ -35,7 +35,9 @@
                     z-index: 1;
                     font-family: "Harms", sans-serif;
                     font-size: calc(35px + .5vw);
+                    line-height: 100%;
                     font-weight: 900;
+                    text-align: center;
                     color: $primaryDark;
                 }
             }
@@ -45,6 +47,7 @@
                 font-weight: 500;
                 margin-top: 10px;
                 color: $dark;
+                text-align: center
             }
         }
 
@@ -97,6 +100,14 @@
 
         .JoinTest__container {
             padding: 50px 25px;
+
+            .JoinTest__input-group {
+                flex-wrap: wrap;
+
+                .JoinTest__input {
+                    width: 100%;
+                }
+            }
         }
     }
 }

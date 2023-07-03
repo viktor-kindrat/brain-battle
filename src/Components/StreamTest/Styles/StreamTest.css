@@ -299,6 +299,15 @@
     padding: 25px;
   }
   .StreamTest .StreamTest__head {
+    flex-wrap: wrap;
+    position: relative;
+    top: -25px;
+    padding: 25px;
+  }
+  .StreamTest .StreamTest__waiting-hall {
+    position: relative;
+    top: -25px;
+    margin-top: 0;
     padding: 25px;
   }
 }

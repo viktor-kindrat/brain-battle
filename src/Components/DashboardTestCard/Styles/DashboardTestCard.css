@@ -21,7 +21,7 @@
   font-size: calc(14px + 0.5vw);
   line-height: 100%;
   color: #FF8906;
-  text-align: center;
+  text-align: left;
 }
 .DashboardTestCard .DashboardTestCard__row .DashboardTestCard__btn {
   background: #FF8906;

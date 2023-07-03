@@ -6,6 +6,7 @@
   gap: 75px;
   margin-top: 75px;
   width: 100%;
+  padding: 25px 0;
 }
 .Dashboard a {
   text-decoration: none;
@@ -175,4 +176,23 @@
   font-size: calc(15px + 0.5vw);
   color: #141414;
   opacity: 0.7;
+}
+
+@media screen and (max-width: 800px) {
+  .Dashboard {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .Dashboard .Dashboard__user-info {
+    width: 100%;
+  }
+  .Dashboard .Dashboard__user-info::after {
+    display: none;
+  }
+  .Dashboard .Dashboard__tests {
+    width: 100%;
+  }
 }

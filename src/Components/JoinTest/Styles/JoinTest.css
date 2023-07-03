@@ -42,7 +42,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  height: 125px;
+  height: auto;
   position: relative;
 }
 .JoinTest .JoinTest__container .JoinTest__headline-group .JoinTest__headline-container .JoinTest__logo {
@@ -53,7 +53,9 @@
   z-index: 1;
   font-family: "Harms", sans-serif;
   font-size: calc(35px + 0.5vw);
+  line-height: 100%;
   font-weight: 900;
+  text-align: center;
   color: #421345;
 }
 .JoinTest .JoinTest__container .JoinTest__headline-group .JoinTest__subheadline {
@@ -62,6 +64,7 @@
   font-weight: 500;
   margin-top: 10px;
   color: #141414;
+  text-align: center;
 }
 .JoinTest .JoinTest__container .JoinTest__input-group {
   display: flex;
@@ -128,5 +131,11 @@
   }
   .JoinTest .JoinTest__container {
     padding: 50px 25px;
+  }
+  .JoinTest .JoinTest__container .JoinTest__input-group {
+    flex-wrap: wrap;
+  }
+  .JoinTest .JoinTest__container .JoinTest__input-group .JoinTest__input {
+    width: 100%;
   }
 }

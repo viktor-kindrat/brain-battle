@@ -5,6 +5,7 @@
     @include flex(stretch, space-between, row, 75px);
     margin-top: 75px;
     width: 100%;
+    padding: 25px 0;
 
     a {
         text-decoration: none
@@ -136,5 +137,22 @@
             }
         }
 
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Dashboard {
+        @include flex(stretch, space-between, column, 50px);
+
+        .Dashboard__user-info  {
+            width: 100%;
+
+            &::after {
+                display: none;
+            }
+        }
+        .Dashboard__tests {
+            width: 100%;
+        }
     }
 }
