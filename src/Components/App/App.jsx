@@ -15,7 +15,8 @@ function App() {
   useEffect(()=>{
     if (window.location.href.split("?token=")[1]){
       localStorage.setItem("userToken", window.location.href.split("?token=")[1]);
-      setUserData({})
+      setUserData({});
+      sessionStorage.clear()
     }
   }, [setUserData])
 
