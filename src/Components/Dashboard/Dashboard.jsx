@@ -8,7 +8,21 @@ import addIcon from "./Svg/add.svg"
 import DashboardTestCard from "../DashboardTestCard/DashboardTestCard";
 import Loader from "../Loader/Loader"
 
+import { useEffect } from "react";
+import { gsap } from "gsap";
+
 function Dashboard({ logined, setLogined, userData, setInvokeStatus }) {
+    useEffect(()=>{
+        let tl = gsap.timeline();
+        tl.fromTo(".Dashboard__user-info", {
+            scale: 0
+        }, {
+            scale: 1,
+            delay: 3,
+            duration: 0.7,
+            ease: "elastic.out"
+        })
+    }, [userData])
     return (
         <div className="Dashboard">
             <Loader visibility={Object.keys(userData).length === 0} />
@@ -32,7 +46,6 @@ function Dashboard({ logined, setLogined, userData, setInvokeStatus }) {
                     {
                         userData.tests && userData.tests.length > 0 ?
                             userData.tests.map((test, index) => {
-                                console.log(test)
                                 let success = Math.round(
                                     test.testings.map((item) => {
                                         return (
@@ -49,7 +62,7 @@ function Dashboard({ logined, setLogined, userData, setInvokeStatus }) {
                                     }).reduce((acc, value) => acc += value, 0) / test.testings.length
                                 );
                                 let countOfResps = test.testings.reduce((acc, value) => acc += value.respondents.length, 0);
-                                return <DashboardTestCard key={index} test={test} id={test.id} name={test.name} description={test.description} questions={test.questions.length} countOfStudents={countOfResps === 0 ? "soon" : countOfResps} success={success !== 0 ? success + "%" : "soon"} />
+                                return <DashboardTestCard key={index} userData={userData} test={test} id={test.id} name={test.name} description={test.description} questions={test.questions.length} countOfStudents={countOfResps === 0 ? "soon" : countOfResps} success={test.testings.length > 0 ? success + "%" : "soon"} />
                             }
                             )
                             : <p className="Dashboard__error">You haven't any tests yet</p>

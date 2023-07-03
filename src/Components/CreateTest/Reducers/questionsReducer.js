@@ -56,7 +56,6 @@ const reducer = (state, action) => {
             let newState = [...state].map((item, index)=>{
                 return (index === parseInt(action.id)) ? {...item, variants: [...item.variants, {text: `Variant ${item.variants.length}`, right: false}]} : item
             })
-            console.log(newState)
             return newState
         }
         default: {

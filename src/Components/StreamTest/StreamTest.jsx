@@ -7,6 +7,8 @@ import { useCallback, useEffect, useState } from "react"
 
 import socket from "../../Socket"
 
+import { gsap } from "gsap"
+
 function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus }) {
     let navigate = useNavigate();
 
@@ -22,6 +24,17 @@ function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, 
     let [showLeaderboard, setShowLeaderboard] = useState(false);
     let [leaderboardPending, setLeaderboardPending] = useState(true);
     let [testPending, setTestPending] = useState(true)
+
+    useEffect(()=>{
+        gsap.fromTo(".StreamTest__user", {
+            scale: 0,
+        }, {
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "elastic.out"
+        })
+    }, [testData.respondents])
 
     let getFullTestingInfo = useCallback((testingCode) => {
         fetch("https://brain-battle-server-wpcm.onrender.com/tester/getFullTestingData", { method: "POST", headers: { "Content-type": "application/json", "Authorization": `Baerer ${localStorage.getItem("userToken")}` }, body: JSON.stringify({ code: testingCode }) })

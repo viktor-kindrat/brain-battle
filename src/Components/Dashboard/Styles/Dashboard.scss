@@ -11,6 +11,13 @@
         text-decoration: none
     }
 
+    button {
+        @include transition(transform 0.3s);
+        &:hover {
+            @include transform(translate(0, -1px))
+        }
+    }
+
     .Dashboard__user-info {
         @include flex(center, flex-start, column, 25px);
         width: 30%;

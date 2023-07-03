@@ -4,9 +4,10 @@ import addIcon from "./Svg/add.svg"
 import saveIcon from "./Svg/save.svg";
 
 import { useNavigate } from "react-router-dom";
-import { useReducer } from "react"
+import { useReducer, useEffect } from "react"
 import quesReducer from "./Reducers/questionsReducer";
 
+import { gsap } from "gsap";
 import QuestionField from "../QuestionField/QuestionField";
 
 
@@ -18,9 +19,19 @@ function CreateTest({ logined, setLogined, setInvokeStatus, setUserData, invokeS
         variants: [{ text: "Variant 0", right: false }]
     }])
 
-    const addQuestionHandler = (e) => {
-        questionsDispatch({
+    const addQuestionHandler = async (e) => {
+        await questionsDispatch({
             type: "question/addQuestion"
+        })
+        
+        gsap.fromTo(".QuestionField_anime", {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "elastic.out"
         })
     }
 
@@ -78,26 +89,39 @@ function CreateTest({ logined, setLogined, setInvokeStatus, setUserData, invokeS
         }
     }
 
+    useEffect(()=>{
+        gsap.fromTo(".CreateTest__move", {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: "elastic.out",
+            stagger: 0.1
+        })
+    }, [])
+
     return (
         <section className="CreateTest">
-            <div className="CreateTest__headline-group">
+            <div className="CreateTest__headline-group CreateTest__move">
                 <h2 className="CreateTest__headline">Create new test</h2>
                 <button onClick={saveTestHandler} className="CreateTest__save-btn"><img src={saveIcon} alt="save" />Save</button>
             </div>
-            <div className="CreateTest__group">
+            <div className="CreateTest__group CreateTest__move">
                 <input id="CreateTest-name-field" className="CreateTest__name" type="text" placeholder="Name of the test here*" defaultValue="Untitled" />
                 <textarea id="CreateTest-description-field" className="CreateTest__decription" placeholder="Description*" defaultValue="My best test"></textarea>
             </div>
-            <div className="CreateTest__questions">
+            <div className="CreateTest__questions CreateTest__move">
                 <h3 className="CreateTest__headline CreateTest__headline_3">Questions</h3>
                 <div className="CreateTest__questions-container">
                     {
                         questions.map((question, id) =>
-                            <QuestionField key={id} {...{ id, question, questionsDispatch }} />
+                            <QuestionField key={id} {...{ id, question, questions, questionsDispatch }} />
                         )
                     }
                 </div>
-                <button onClick={addQuestionHandler} className="CreateTest__questions-button"><img height={20} src={addIcon} alt="add" />Add more question</button>
+                <button onClick={addQuestionHandler} className="CreateTest__questions-button CreateTest__move"><img height={20} src={addIcon} alt="add" />Add more question</button>
             </div>
         </section>
     )

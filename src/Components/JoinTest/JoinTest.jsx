@@ -3,7 +3,8 @@ import "./Styles/JoinTest.css"
 import joinIcon from "./Svg/join.svg"
 import brainIcon from "../../Media/brain.svg"
 
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useRef, useState, useEffect } from "react"
+import { gsap } from "gsap"
 
 import { useNavigate } from "react-router-dom"
 
@@ -11,6 +12,19 @@ function JoinTest() {
     const navigate = useNavigate();
     const testingCode = useRef(null)
     let [status, setStatus] = useState(false);
+
+    useEffect(() => {
+        let tl = gsap.timeline()
+        tl.fromTo(".JoinTest__container", {
+            scale: 0,
+            rotate: 30
+        }, {
+            scale: 1,
+            rotate: 0,
+            duration: 0.7,
+            ease: "elastic.out"
+        })
+    }, [status])
 
     const handleJoin = useCallback((e) => {
         let value = e.target.parentElement.querySelector(".JoinTest__input").value;
@@ -30,6 +44,7 @@ function JoinTest() {
                     if (data.data) {
                         setStatus(true)
                         testingCode.current = value;
+                        e.target.parentElement.querySelector(".JoinTest__input").value = ""
                     } else {
                         console.log("Test does not exist")
                     }
@@ -61,7 +76,16 @@ function JoinTest() {
                             code: testingCode.current,
                             name: value
                         }))
-                        navigate("/testing");
+                        let tl = gsap.timeline();
+                        tl.to(".JoinTest__container", {
+                            scale: 0,
+                            rotate: 45,
+                            duration: 0.7,
+                            ease: "elastic.in"
+                        })
+                        .then(()=>{
+                            navigate("/testing");
+                        })
                     }
                 })
                 .catch(e => console.log(e))

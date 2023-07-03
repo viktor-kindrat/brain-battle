@@ -5,6 +5,7 @@ import medalIcon from "./Svg/medalIcon.svg"
 import { useEffect, useState, useCallback } from "react"
 
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 import socket from "../../Socket"
 
@@ -12,7 +13,20 @@ function TestingArea() {
     let [variantsCount, setVariantsCount] = useState([]);
     let [testStarted, setTestStarted] = useState(false);
     let [broken, setBroken] = useState(false);
-    let [result, setResult] = useState({})
+    let [result, setResult] = useState({});
+
+    useEffect(()=>{
+        let tl = gsap.timeline();
+        tl.fromTo(".TestingArea__wait", {
+            scale: 0,
+            opacity: 0
+        }, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: "elastic.out"
+        })
+    }, [])
 
     useEffect(() => {
         const testInfo = JSON.parse(sessionStorage.getItem("testing")) || false;

@@ -2,7 +2,24 @@ import "./Styles/DashboardTestCard.css";
 
 import { useNavigate } from "react-router-dom";
 
-function DashboardTestCard({ test, name, id, description, questions, countOfStudents, success }) {
+import { useEffect } from "react";
+import { gsap } from "gsap";
+
+function DashboardTestCard({ userData, name, id, description, questions, countOfStudents, success }) {
+    useEffect(()=>{
+        let tl = gsap.timeline();
+        tl.fromTo(".DashboardTestCard", {
+            x: -50,
+            opacity: 0
+        }, {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: -0.1,
+            delay: 3.1,
+            ease: "elastic.out"
+        })
+    }, [userData.tests])
     let navigate = useNavigate()
     const playHandler = () => {
         navigate(`/stream/#${id}`)
