@@ -13,7 +13,7 @@ function HeaderAccount({ userData, setUserData, setInvokeStatus, logined, setLog
 
     let logoutHandler = () => {
         localStorage.removeItem("userToken");
-        sessionStorage.removeItem("userData");
+        sessionStorage.clear();
         setLogined(false);
         setUserData({});
         navigate("/")
