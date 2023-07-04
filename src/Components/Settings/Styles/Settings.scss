@@ -2,13 +2,18 @@
 @import "../../mixin.scss";
 
 .Settings {
-    @include flex(center, center, column, 25px);
+    @include flex(center, flex-start, column, 50px);
     min-height: 100vh;
     width: 100%;
     background: #ffffff;
+    padding: $pagePadding;
 
     * {
         color: $dark;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     .Settings__headline {
@@ -18,10 +23,70 @@
         line-height: 100%;
         color: #333333;
         text-align: center;
+        margin-top: 75px;
+
         &_3 {
             color: $primary;
             font-size: calc(15px + .3vw);
             font-weight: 400;
         }
+    }
+
+    .Settings__content {
+        @include flex(center, space-between, row, 25px);
+        width: 100%;
+
+        .Settings__menu {
+            @include flex(flex-start, center, column, 0);
+            width: 30%;
+
+            a {
+                width: 100%;
+
+                &:first-child {
+                    .Settings__menu-btn {
+                        @include borderRadius(5px 5px 0 0)
+                    }
+                }
+
+                &:last-child {
+                    .Settings__menu-btn {
+                        @include borderRadius(0 0 5px 5px);
+                        border-bottom: 1px solid $shadowDark;
+                        border-left: 1px solid $shadowDark;
+                        border-right: 1px solid $shadowDark;
+                    }
+                }
+            }
+
+            .Settings__menu-btn {
+                @include transition(font-weight 0.3s);
+                @include flex(center, flex-start, row, 15px);
+                @include block(#ffffff, auto, $dark, 5px 25px);
+                width: 100%;
+                cursor: pointer;
+                border: none;
+                outline: none;
+                font-size: calc(13px + .3vw);
+                border-top: 1px solid $shadowDark;
+                border-left: 1px solid $shadowDark;
+                border-right: 1px solid $shadowDark;
+
+                &:hover {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .Settings__detail {
+            @include flex(center, flex-start, column, 25px);
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Settings {
+        padding: $pagePaddingMobile;
     }
 }
