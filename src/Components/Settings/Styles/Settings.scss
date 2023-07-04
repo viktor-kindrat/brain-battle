@@ -33,7 +33,7 @@
     }
 
     .Settings__content {
-        @include flex(center, space-between, row, 25px);
+        @include flex(flex-start, space-between, row, 50px);
         width: 100%;
 
         .Settings__menu {

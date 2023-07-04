@@ -31,10 +31,10 @@
 }
 .Settings .Settings__content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-  gap: 25px;
+  gap: 50px;
   width: 100%;
 }
 .Settings .Settings__content .Settings__menu {

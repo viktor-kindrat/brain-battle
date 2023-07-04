@@ -1,0 +1,136 @@
+.AccountSettings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+.AccountSettings .AccountSettings__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(20px + 0.5vw);
+  line-height: 100%;
+  color: #333333;
+  text-align: center;
+}
+.AccountSettings .AccountSettings__headline_3 {
+  color: #6A0572;
+  font-size: calc(15px + 0.3vw);
+  font-weight: 400;
+}
+.AccountSettings .AccountSettings__section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  position: relative;
+  padding: 25px 0;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group::after {
+  content: "";
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  background: #141414;
+  opacity: 0.1;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group:first-child:before {
+  content: "";
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  background: #141414;
+  opacity: 0.1;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__avatar-preview {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(20, 20, 20, 0.1882352941);
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__file-field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__file-field .AccountSettings__file-inp {
+  display: none;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__file-field .AccountSettings__file-btn {
+  background: #FF8906;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: calc(13px + 0.3vw);
+  font-weight: 700;
+  line-height: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__file-field .AccountSettings__warning {
+  color: rgb(237, 47, 0);
+  font-size: calc(13px + 0.3vw);
+  font-weight: 500;
+  line-height: 100%;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__row .AccountSettings__file-field .AccountSettings__save-btn {
+  background: #82D173;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: calc(13px + 0.3vw);
+  font-weight: 700;
+  line-height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

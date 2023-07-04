@@ -1,0 +1,105 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.AccountSettings {
+    @include flex(center, center, column, 25px);
+    width: 100%;
+    .AccountSettings__headline {
+        font-family: "Harms", sans-serif;
+        font-weight: 900;
+        font-size: calc(20px + .5vw);
+        line-height: 100%;
+        color: #333333;
+        text-align: center;
+
+        &_3 {
+            color: $primary;
+            font-size: calc(15px + .3vw);
+            font-weight: 400;
+        }
+    }
+    
+    .AccountSettings__section {
+        @include flex(flex-start, center, column, 0);
+        width: 100%;
+
+        .AccountSettings__group {
+            @include flex(flex-start, flex-start, column, 25px); 
+            width: 100%;
+            position: relative;
+            padding: 25px 0;
+
+            &::after {
+                content: "";
+                @include transform(translate(-50%, 0));
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                height: 1px;
+                width: 100%;
+                background: $dark;
+                opacity: 0.1;
+            }
+
+            &:first-child:before {
+                content: "";
+                @include transform(translate(-50%, 0));
+                position: absolute;
+                top: 0;
+                left: 50%;
+                height: 1px;
+                width: 100%;
+                background: $dark;
+                opacity: 0.1;
+            }
+
+            .AccountSettings__row {
+                @include flex(center, flex-start, row, 25px);
+                width: 100%;
+                .AccountSettings__avatar-preview {
+                    @include borderRadius(50%);
+                    box-shadow: 0 5px 15px $shadowDark;
+                    height: 150px;
+                    width: 150px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                
+                .AccountSettings__file-field {
+                    @include flex(flex-start, flex-start, column, 15px);
+    
+                    .AccountSettings__file-inp {
+                        display: none;
+                    }
+    
+                    .AccountSettings__file-btn {
+                        @include block($secondary, 5px, #ffffff, 10px 25px);
+                        font-size: calc(13px + .3vw);
+                        font-weight: 700;
+                        line-height: 100%;
+                        text-transform: uppercase;
+                        cursor: pointer;
+                    }
+                    
+                    .AccountSettings__warning {
+                        color: $deleteColor;
+                        font-size: calc(13px + .3vw);
+                        font-weight: 500;
+                        line-height: 100%;
+                    }
+                    
+                    .AccountSettings__save-btn {
+                        @include block($accent, 5px, #ffffff, 10px 25px);
+                        font-size: calc(13px + .3vw);
+                        font-weight: 700;
+                        line-height: 100%;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+    }
+}

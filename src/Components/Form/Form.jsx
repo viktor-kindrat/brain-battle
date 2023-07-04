@@ -31,7 +31,7 @@ function Form({ type, logined, setLogined, setInvokeStatus, invokeStatus }) {
                 setWarning(e.target, "")
                 setImagePreview(url)
             } else {
-                setWarning(e.target, "Your image size is too big. Maximum size is 1.5MB Please compress image and try again!")
+                setWarning(e.target, "The size of your image is too large. The maximum allowed size is 1.5MB. Please compress the image and attempt the upload again.")
                 setImagePreview(avatarDef)
             }
         }

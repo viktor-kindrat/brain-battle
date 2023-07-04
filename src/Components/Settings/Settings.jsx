@@ -4,8 +4,10 @@ import { Routes, Route, Link } from "react-router-dom"
 
 import { useEffect, useCallback } from "react"
 import { gsap } from "gsap"
+import AccountSettings from "../AccountSettings/AccountSettings"
 
-function Settings({ userData, setUserData, logined, setInvokeStatus, invokeStatus }) {
+
+function Settings({ userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
     useEffect(()=>{
         let tl = gsap.timeline();
         tl.set(".Settings__menu-btn", {
@@ -29,12 +31,12 @@ function Settings({ userData, setUserData, logined, setInvokeStatus, invokeStatu
             <h2 className="Settings__headline">Settings</h2>
             <div className="Settings__content">
                 <div className="Settings__menu">
-                    <Link to="/settings/"><button onClick={handleActive} className="Settings__menu-btn Settings__menu-btn_active">Account</button></Link>
+                    <Link to="/settings/"><button onClick={handleActive} className="Settings__menu-btn">Account</button></Link>
                     <Link to="/settings/security"><button onClick={handleActive} className="Settings__menu-btn">Security</button></Link>
                 </div>
                 <div className="Settings__detail">
                     <Routes>
-                        <Route path="/" element={<div>Account Settings</div>} />
+                        <Route path="/" element={<AccountSettings {...{ userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }} />} />
                         <Route path="security" element={<div>Security settings</div>} />
                     </Routes>
                 </div>
