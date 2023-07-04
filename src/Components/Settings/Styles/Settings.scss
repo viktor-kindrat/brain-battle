@@ -60,7 +60,7 @@
             }
 
             .Settings__menu-btn {
-                @include transition(font-weight 0.3s);
+                @include transition((font-weight 0.3s, color 0.3s));
                 @include flex(center, flex-start, row, 15px);
                 @include block(#ffffff, auto, $dark, 5px 25px);
                 width: 100%;
@@ -68,11 +68,17 @@
                 border: none;
                 outline: none;
                 font-size: calc(13px + .3vw);
+                font-weight: 500;
                 border-top: 1px solid $shadowDark;
                 border-left: 1px solid $shadowDark;
                 border-right: 1px solid $shadowDark;
 
                 &:hover {
+                    font-weight: 700;
+                }
+
+                &_active {
+                    color: $secondary;
                     font-weight: 700;
                 }
             }
