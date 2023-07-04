@@ -7,6 +7,10 @@
     width: 100%;
     background: #ffffff;
 
+    * {
+        color: $dark;
+    }
+
     .Settings__headline {
         font-family: "Harms", sans-serif;
         font-weight: 900;

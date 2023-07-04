@@ -33,7 +33,7 @@ function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, s
                 <Route path="/join" element={<JoinTest />}></Route>
                 <Route path="/testing" element={<TestingArea />}></Route>
                 <Route path="/setPassword" element={<SetPassword {...{ setInvokeStatus, invokeStatus }} />}></Route>
-                <Route path="/settings" element={<Settings {...{ userData, logined, setInvokeStatus, invokeStatus }} />}></Route>
+                <Route path="/settings/*" element={<Settings {...{ userData, setUserData, logined, setInvokeStatus, invokeStatus }} />}></Route>
             </Routes>
         </main>
     )
