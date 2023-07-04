@@ -1,0 +1,23 @@
+@import "../../variable.scss";
+@import "../../mixin.scss";
+
+.Settings {
+    @include flex(center, center, column, 25px);
+    min-height: 100vh;
+    width: 100%;
+    background: #ffffff;
+
+    .Settings__headline {
+        font-family: "Harms", sans-serif;
+        font-weight: 900;
+        font-size: calc(20px + .5vw);
+        line-height: 100%;
+        color: #333333;
+        text-align: center;
+        &_3 {
+            color: $primary;
+            font-size: calc(15px + .3vw);
+            font-weight: 400;
+        }
+    }
+}

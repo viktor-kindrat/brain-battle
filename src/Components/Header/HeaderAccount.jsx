@@ -1,6 +1,7 @@
 import logoutIcon from "./Svg/logout.svg"
 import defAvatar from "../../Media/avatardef.svg"
 import dashboardIcon from "./Svg/dashboard.svg"
+import settingsIcon from "./Svg/settings.svg"
 
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -78,6 +79,9 @@ function HeaderAccount({ userData, setUserData, setInvokeStatus, logined, setLog
             <div className="Header__menu">
                 <Link to="/dashboard">
                     <button className="Header__account-btn"><img height={25} src={dashboardIcon} alt="dashboard" className="Header__account-icon" />Dashboard</button>
+                </Link>
+                <Link to="/settings">
+                    <button className="Header__account-btn"><img height={25} src={settingsIcon} alt="dashboard" className="Header__account-icon" />Settings</button>
                 </Link>
                 <button onClick={logoutHandler} className="Header__account-btn Header__account-btn_logout"><img height={25} src={logoutIcon} alt="logout" className="Header__account-icon" />Log out</button>
             </div>

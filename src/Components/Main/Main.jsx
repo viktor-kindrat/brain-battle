@@ -8,6 +8,7 @@ import StreamTest from "../StreamTest/StreamTest";
 import JoinTest from "../JoinTest/JoinTest";
 import TestingArea from "../TestingArea/TestingArea";
 import SetPassword from "../SetPassword/SetPassword";
+import Settings from "../Settings/Settings";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -32,6 +33,7 @@ function Main({ userData, setUserData, setInvokeStatus, invokeStatus, logined, s
                 <Route path="/join" element={<JoinTest />}></Route>
                 <Route path="/testing" element={<TestingArea />}></Route>
                 <Route path="/setPassword" element={<SetPassword {...{ setInvokeStatus, invokeStatus }} />}></Route>
+                <Route path="/settings" element={<Settings {...{ userData, logined, setInvokeStatus, invokeStatus }} />}></Route>
             </Routes>
         </main>
     )

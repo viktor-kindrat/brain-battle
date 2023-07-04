@@ -1,0 +1,23 @@
+.Settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+}
+.Settings .Settings__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(20px + 0.5vw);
+  line-height: 100%;
+  color: #333333;
+  text-align: center;
+}
+.Settings .Settings__headline_3 {
+  color: #6A0572;
+  font-size: calc(15px + 0.3vw);
+  font-weight: 400;
+}

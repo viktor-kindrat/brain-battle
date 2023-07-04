@@ -43,10 +43,10 @@ function Header({ userData, setUserData, setInvokeStatus, logined, setLogined })
         }
     }, [location])
     return (
-        <header className={(window.location.href.includes("/dashboard") || window.location.href.includes("/create-test") ? "Header Header_onlight" : "Header")}>
+        <header className={(window.location.href.includes("/dashboard") || window.location.href.includes("/create-test") || window.location.href.includes("/settings") ? "Header Header_onlight" : "Header")}>
             <Link to="/">
                 <div className="Header__logo-group">
-                    <img className="Header__logo-image" height={50} width={50} src={(window.location.href.includes("/dashboard") || window.location.href.includes("/create-test") ? brainIconDark : brainIcon)} alt="logo" />
+                    <img className="Header__logo-image" height={50} width={50} src={(window.location.href.includes("/dashboard") || window.location.href.includes("/create-test") || window.location.href.includes("/settings") ? brainIconDark : brainIcon)} alt="logo" />
                     <p className="Header__logo-text">
                         Brain <br /> Battle
                     </p>
