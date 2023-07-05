@@ -94,7 +94,16 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                     .then(res => res.json())
                     .then(data => {
                         if (data.status === "ok") {
+                            setUserData({});
+                            setInvokeStatus(!invokeStatus);
                             alert("New personal data set successfully");
+                        } else {
+                            alert("Your session expiered. Please re-login and try again");
+                            navigate("/logIn")
+                            setLogined(false)
+                            setUserData({});
+                            sessionStorage.clear();
+                            localStorage.clear();
                         }
                     })
                     .catch(e => console.log(e));
@@ -137,8 +146,8 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                         <div className="AccountSettings__warning"></div>
                     </div>
                     <div className="AccountSettings__row">
-                        <button onClick={personalInfoSaveHandler} className="AccountSettings__save-btn">Save</button>
-                        <button onClick={personalInfoResetHandler} className="AccountSettings__save-btn">Reset</button>
+                        <button onClick={personalInfoSaveHandler} className="AccountSettings__btn AccountSettings__btn_save">Save</button>
+                        <button onClick={personalInfoResetHandler} className="AccountSettings__btn AccountSettings__btn_reset">Reset</button>
                     </div>
                 </div>
             </div>

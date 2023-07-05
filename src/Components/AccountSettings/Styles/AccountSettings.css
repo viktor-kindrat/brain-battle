@@ -128,9 +128,59 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   font-size: calc(13px + 0.3vw);
-  font-weight: 700;
+  font-weight: 400;
+  line-height: 100%;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: min(750px, 100%);
+  box-shadow: 0 0 3px rgba(20, 20, 20, 0.1882352941);
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: calc(12px + 0.2vw);
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__btn {
+  transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  background: #FF8906;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: calc(13px + 0.3vw);
+  font-weight: 400;
   line-height: 100%;
   border: none;
   outline: none;
   cursor: pointer;
+  text-transform: uppercase;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__btn_reset {
+  background: rgb(237, 47, 0);
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__btn_save {
+  background: #82D173;
+}
+.AccountSettings .AccountSettings__section .AccountSettings__group .AccountSettings__btn:hover {
+  transform: translate(0, -2px);
+  -webkit-transform: translate(0, -2px);
+  -moz-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  -o-transform: translate(0, -2px);
 }
