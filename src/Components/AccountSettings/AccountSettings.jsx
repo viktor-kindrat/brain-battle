@@ -29,7 +29,7 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
         }
     }
 
-    let avatarSaveHandler = (e)=>{
+    let avatarSaveHandler = (e) => {
         let file = e.target.parentElement.querySelector(".AccountSettings__file-inp").files[0];
         if (file) {
             let data = new FormData();
@@ -41,23 +41,74 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                 },
                 body: data
             })
-            .then(res=>res.json())
-            .then(data=> {
-                if (data.status === "ok") {
-                    setUserData({});
-                    setInvokeStatus(!invokeStatus);
-                    alert("Successfully changed")
-                } else {
-                    alert("Your session expiered. Please re-login and try again");
-                    navigate("/logIn")
-                    setLogined(false)
-                    setUserData({});
-                    sessionStorage.clear();
-                    localStorage.clear();
-                }
-            })
-            .catch(e=>console.log(e))
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === "ok") {
+                        setUserData({});
+                        setInvokeStatus(!invokeStatus);
+                        alert("Successfully changed")
+                    } else {
+                        alert("Your session expiered. Please re-login and try again");
+                        navigate("/logIn")
+                        setLogined(false)
+                        setUserData({});
+                        sessionStorage.clear();
+                        localStorage.clear();
+                    }
+                })
+                .catch(e => console.log(e))
         }
+    }
+
+    let validate = (name, email) => {
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/gi;
+        return {
+            nameTest: name.length >= 2,
+            emailTest: emailRegex.test(email)
+        }
+    }
+
+    let personalInfoSaveHandler = (e) => {
+        setWarning(document.querySelector("#Account-settings-name"), "")
+        setWarning(document.querySelector("#Account-settings-email"), "")
+        let nameChanged = document.querySelector("#Account-settings-name").value.trim() !== userData.name;
+        let emailChanged = document.querySelector("#Account-settings-email").value.trim() !== userData.email;
+
+        let validation = validate(document.querySelector("#Account-settings-name").value.trim(), document.querySelector("#Account-settings-email").value.trim())
+
+        if (validation.nameTest && validation.emailTest) {
+            let data = {};
+            if (nameChanged) data.name = document.querySelector("#Account-settings-name").value.trim();
+            if (emailChanged) data.email = document.querySelector("#Account-settings-email").value.trim();
+
+            if (Object.keys(data).length !== 0) {
+                console.log(localStorage.getItem("userToken"))
+                fetch("https://brain-battle-server-wpcm.onrender.com/auth/changeData", {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.getItem("userToken")}`,
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.status === "ok") {
+                            alert("New personal data set successfully");
+                        }
+                    })
+                    .catch(e => console.log(e));
+            }
+        } else {
+            if (!validation.nameTest) setWarning(document.querySelector("#Account-settings-name"), "Name has less than 2 letters. It must contain 2 or more to set")
+            if (!validation.emailTest) setWarning(document.querySelector("#Account-settings-email"), "Email is invalid. Check again and retry.")
+        }
+    }
+
+
+    let personalInfoResetHandler = (e) => {
+        document.querySelector("#Account-settings-name").value = userData.name
+        document.querySelector("#Account-settings-email").value = userData.email
     }
     return (
         <section className="AccountSettings">
@@ -78,16 +129,17 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                 <div className="AccountSettings__group">
                     <h3 className="AccountSettings__headline AccountSettings__headline_3">Personal info</h3>
                     <div className="AccountSettings__row">
-                        <label className="AccountSettings__placeholder">Name</label>
-                        <input defaultValue={userData.name} type="text" className="AccountSettings__input" />
+                        <input defaultValue={userData.name} type="text" className="AccountSettings__input" id="Account-settings-name" placeholder="Name" />
                         <div className="AccountSettings__warning"></div>
                     </div>
                     <div className="AccountSettings__row">
-                        <label className="AccountSettings__placeholder">Email</label>
-                        <input defaultValue={userData.email} type="email" className="AccountSettings__input" />
+                        <input defaultValue={userData.email} type="email" className="AccountSettings__input" id="Account-settings-email" placeholder="Email" />
                         <div className="AccountSettings__warning"></div>
                     </div>
-                    <button className="AccountSettings__save-btn">Save</button>
+                    <div className="AccountSettings__row">
+                        <button onClick={personalInfoSaveHandler} className="AccountSettings__save-btn">Save</button>
+                        <button onClick={personalInfoResetHandler} className="AccountSettings__save-btn">Reset</button>
+                    </div>
                 </div>
             </div>
         </section>
