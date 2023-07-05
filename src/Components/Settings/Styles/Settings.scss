@@ -39,6 +39,7 @@
         .Settings__menu {
             @include flex(flex-start, center, column, 0);
             width: 30%;
+            margin-top: calc(45px + .5vw);
 
             a {
                 width: 100%;

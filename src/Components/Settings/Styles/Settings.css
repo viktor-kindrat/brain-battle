@@ -44,6 +44,7 @@
   flex-direction: column;
   gap: 0;
   width: 30%;
+  margin-top: calc(45px + 0.5vw);
 }
 .Settings .Settings__content .Settings__menu a {
   width: 100%;

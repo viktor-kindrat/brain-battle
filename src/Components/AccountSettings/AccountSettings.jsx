@@ -77,7 +77,17 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                 </div>
                 <div className="AccountSettings__group">
                     <h3 className="AccountSettings__headline AccountSettings__headline_3">Personal info</h3>
-                    <div className="AccountSettings__row">In development</div>
+                    <div className="AccountSettings__row">
+                        <label className="AccountSettings__placeholder">Name</label>
+                        <input defaultValue={userData.name} type="text" className="AccountSettings__input" />
+                        <div className="AccountSettings__warning"></div>
+                    </div>
+                    <div className="AccountSettings__row">
+                        <label className="AccountSettings__placeholder">Email</label>
+                        <input defaultValue={userData.email} type="email" className="AccountSettings__input" />
+                        <div className="AccountSettings__warning"></div>
+                    </div>
+                    <button className="AccountSettings__save-btn">Save</button>
                 </div>
             </div>
         </section>
