@@ -85,7 +85,7 @@ function SecuritySettings({ sessionExpired, userData, setUserData, logined, setL
             setWarning(confirmPassword, "Password does not match")
         }
 
-    }, [validatePassword])
+    }, [validatePassword, invokeStatus, setInvokeStatus, setUserData, sessionExpired, setWarning])
     return (
         <section className="SecuritySettings">
             <h2 className="SecuritySettings__headline SecuritySettings__animation">Security</h2>

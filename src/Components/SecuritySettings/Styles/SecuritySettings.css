@@ -70,10 +70,10 @@
 }
 .SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__row {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
   width: 100%;
   position: relative;
 }
