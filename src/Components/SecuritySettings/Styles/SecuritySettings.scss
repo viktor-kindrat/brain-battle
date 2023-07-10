@@ -56,15 +56,14 @@
             }
 
             .SecuritySettings__row {
-                @include flex(center, flex-start, row, 25px);
+                @include flex(center, flex-start, column, 25px);
                 width: 100%;
                 position: relative;
 
                 .SecuritySettings__label {
-                    @include transform(translate(0, -50%));
                     @include transition(0.3s);
                     position: absolute;
-                    top: 50%;
+                    top: 15px;
                     left: 15px;
                     pointer-events: none;
                     user-select: none
@@ -72,10 +71,9 @@
 
                 .SecuritySettings__show-password {
                     @include flex(center, center, row, 15px);
-                    @include transform(translate(0, -50%));
                     position: absolute;
                     right: 15px;
-                    top: 50%;
+                    top: 10px;
                     border: none;
                     outline: none;
                     background: transparent;
@@ -84,7 +82,12 @@
                         height: 25px;
                         aspect-ratio: 1/1;
                         cursor: pointer;
+                        pointer-events: none
                     }
+                }
+
+                .SecuritySettings__warning {
+                    color: $deleteColor
                 }
             }
 

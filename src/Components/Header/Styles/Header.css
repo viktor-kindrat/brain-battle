@@ -242,9 +242,15 @@
     -moz-border-radius: 5px 0 5px 5px;
     -ms-border-radius: 5px 0 5px 5px;
     -o-border-radius: 5px 0 5px 5px;
+    transform: translate(50%, 0);
+    -webkit-transform: translate(50%, 0);
+    -moz-transform: translate(50%, 0);
+    -ms-transform: translate(50%, 0);
+    -o-transform: translate(50%, 0);
     width: calc(100vw - 5px - 52px);
-    left: 25px;
-    top: calc(100% - 26px);
+    right: calc(50vw - 28px);
+    left: auto;
+    top: calc(100% - 2px);
     position: fixed;
     padding: 15px;
   }

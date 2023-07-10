@@ -175,9 +175,11 @@
 
                 .Header__menu {
                     @include borderRadius(5px 0 5px 5px);
+                    @include transform(translate(50%, 0));
                     width: calc(100vw - $scrollbarWidth - 52px);
-                    left: 25px;
-                    top:  calc(100% - 26px);
+                    right: calc(50vw - 28px);
+                    left: auto;
+                    top:  calc(100% - 2px);
                     position: fixed;
                     padding: 15px;
                 }
