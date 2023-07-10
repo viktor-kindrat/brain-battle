@@ -26,6 +26,10 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
     let [testPending, setTestPending] = useState(true)
 
     useEffect(()=>{
+        socket.connect();
+    }, [])
+
+    useEffect(()=>{
         gsap.fromTo(".StreamTest__user", {
             scale: 0,
         }, {
