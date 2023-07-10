@@ -1,8 +1,9 @@
 import "./Styles/AccountSettings.css"
 import defAvatar from "../../Media/avatardef.svg"
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
+import { gsap } from "gsap";
 
-function AccountSettings({sessionExpired, userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
+function AccountSettings({ sessionExpired, userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
     let [fileUpl, setFileUpl] = useState(false);
     const setWarning = useCallback((el, text) => {
         el.parentElement.querySelector(".AccountSettings__warning").innerText = ""
@@ -104,11 +105,17 @@ function AccountSettings({sessionExpired, userData, setUserData, logined, setLog
         document.querySelector("#Account-settings-name").value = userData.name
         document.querySelector("#Account-settings-email").value = userData.email
     }
+
+    useEffect(() => {
+        gsap.set(".AccountSettings__animation-block", { scale: 0 });
+        let tl = gsap.timeline();
+        tl.fromTo(".AccountSettings__animation-block", { scale: 0 }, { scale: 1, duration: 0.7, delay: 0.2, ease: "elastic.out", stagger: 0.1 })
+    }, [])
     return (
         <section className="AccountSettings">
-            <h2 className="AccountSettings__headline">Account settings</h2>
+            <h2 className="AccountSettings__headline AccountSettings__animation-block">Account settings</h2>
             <div className="AccountSettings__section">
-                <div className="AccountSettings__group">
+                <div className="AccountSettings__group AccountSettings__animation-block">
                     <h3 className="AccountSettings__headline AccountSettings__headline_3">Avatar</h3>
                     <div className="AccountSettings__row">
                         <img height={150} width={150} src={fileUpl ? fileUpl : (userData.photoFile?.contentType || userData.photo) ? (userData.photoFile?.contentType) ? `data:${userData.photoFile.contentType};base64,${userData.photoFile.data}` : userData.photo : defAvatar} alt="preview" className="AccountSettings__avatar-preview" />
@@ -120,7 +127,7 @@ function AccountSettings({sessionExpired, userData, setUserData, logined, setLog
                         </div>
                     </div>
                 </div>
-                <div className="AccountSettings__group">
+                <div className="AccountSettings__group AccountSettings__animation-block">
                     <h3 className="AccountSettings__headline AccountSettings__headline_3">Personal info</h3>
                     <div className="AccountSettings__row">
                         <input defaultValue={userData.name} type="text" className="AccountSettings__input" id="Account-settings-name" placeholder="Name" />
