@@ -1,0 +1,168 @@
+.SecuritySettings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+.SecuritySettings .SecuritySettings__headline {
+  font-family: "Harms", sans-serif;
+  font-weight: 900;
+  font-size: calc(20px + 0.5vw);
+  line-height: 100%;
+  color: #333333;
+  text-align: center;
+  text-transform: uppercase;
+}
+.SecuritySettings .SecuritySettings__headline_3 {
+  color: #6A0572;
+  font-size: calc(15px + 0.3vw);
+  font-weight: 400;
+}
+.SecuritySettings .SecuritySettings__section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  position: relative;
+  padding: 25px 0;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group::after {
+  content: "";
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  background: #141414;
+  opacity: 0.1;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group:first-child:before {
+  content: "";
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  background: #141414;
+  opacity: 0.1;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 25px;
+  width: 100%;
+  position: relative;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__row .SecuritySettings__label {
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  pointer-events: none;
+  user-select: none;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__row .SecuritySettings__show-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__row .SecuritySettings__show-password img {
+  height: 25px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: min(750px, 100%);
+  box-shadow: 0 0 3px rgba(20, 20, 20, 0.1882352941);
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: calc(12px + 0.2vw);
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__btn {
+  transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  background: #FF8906;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 10px 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-size: calc(13px + 0.3vw);
+  font-weight: 400;
+  line-height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__btn_reset {
+  background: rgb(237, 47, 0);
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__btn_save {
+  background: #82D173;
+}
+.SecuritySettings .SecuritySettings__section .SecuritySettings__group .SecuritySettings__btn:hover {
+  transform: translate(0, -2px);
+  -webkit-transform: translate(0, -2px);
+  -moz-transform: translate(0, -2px);
+  -ms-transform: translate(0, -2px);
+  -o-transform: translate(0, -2px);
+}
