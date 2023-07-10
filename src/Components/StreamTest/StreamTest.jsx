@@ -9,7 +9,7 @@ import socket from "../../Socket"
 
 import { gsap } from "gsap"
 
-function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus }) {
+function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus }) {
     let navigate = useNavigate();
 
     let [pending, setPending] = useState(true);
@@ -40,13 +40,17 @@ function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, 
         fetch("https://brain-battle-server-wpcm.onrender.com/tester/getFullTestingData", { method: "POST", headers: { "Content-type": "application/json", "Authorization": `Baerer ${localStorage.getItem("userToken")}` }, body: JSON.stringify({ code: testingCode }) })
             .then(res => res.json())
             .then(data => {
-                console.log("recieved data", data.data)
-                setTestData(data.data);
-                setLeaderboardPending(false)
-                setTestPending(false)
+                if (data.status === "ok") {
+                    setTestData(data.data);
+                    setLeaderboardPending(false)
+                    setTestPending(false)
+                } else {
+                    sessionExpiered()
+                    socket.disconnect()
+                }
             })
             .catch(e => console.log(e))
-    }, [])
+    }, [sessionExpiered])
 
     let startTesting = useCallback((testingCode, id) => {
         setPending(true)
@@ -73,11 +77,14 @@ function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, 
                                 })
                                 .catch(e => console.log(e))
                         })
+                    } else {
+                        sessionExpiered()
+                        socket.disconnect()
                     }
                 })
                 .catch(e => console.log(e))
         }
-    }, [getFullTestingInfo]);
+    }, [getFullTestingInfo, sessionExpiered]);
 
     socket.on("answer-setted", () => {
         setAnswers(answers + 1)
@@ -93,13 +100,16 @@ function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, 
                         getFullTestingInfo(testingCode)
                         setAnswers(0)
                         socket.emit("switch-question", testingCode)
+                    } else {
+                        sessionExpiered()
+                        socket.disconnect()
                     }
                 })
                 .catch(e => console.log(e))
         } else {
             getFullTestingInfo(testingCode)
         }
-    }, [getFullTestingInfo, testData, setAnswers])
+    }, [getFullTestingInfo, testData, setAnswers, sessionExpiered])
 
     let setFirstQuestionHandler = useCallback((e) => {
         if (testData.respondents.length > 0) {
@@ -137,12 +147,15 @@ function StreamTest({ logined, setLogined, invokeStatus, userData, setUserData, 
                         if (data.status === "ok") {
                             navigate("/dashboard")
                             setInvokeStatus(!invokeStatus)
+                        } else {
+                            sessionExpiered()
+                            socket.disconnect()
                         }
                     })
                     .catch(e => console.log(e))
             }, 5000);
         }
-    }, [roomId, setShowLeaderboard, switchQuestionHandler, setTestPending, setInvokeStatus, invokeStatus, navigate, testData])
+    }, [roomId, setShowLeaderboard, switchQuestionHandler, setTestPending, setInvokeStatus, invokeStatus, navigate, testData, sessionExpiered])
 
     return (
         <section className="StreamTest">

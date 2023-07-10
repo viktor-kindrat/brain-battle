@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import { useCallback } from "react"
 
-function SetPassword({ setInvokeStatus, invokeStatus }) {
+function SetPassword({ sessionExpiered, setInvokeStatus, invokeStatus }) {
     let navigate = useNavigate()
 
     const setWarning = useCallback((el, text) => {
@@ -49,11 +49,13 @@ function SetPassword({ setInvokeStatus, invokeStatus }) {
             .then(data=>{
                 if (data.status === "ok") {
                     navigate("/dashboard")
+                } else {
+                    sessionExpiered()
                 }
             })
             .catch(e=>console.log(e))
         }
-    }, [navigate, validatePassword])
+    }, [navigate, validatePassword, sessionExpiered])
     return (
         <section className="SetPassword">
             <h2 className="SetPassword__headline">Your account is without password. Let's setup it</h2>

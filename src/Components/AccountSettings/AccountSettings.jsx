@@ -1,13 +1,8 @@
 import "./Styles/AccountSettings.css"
-
 import defAvatar from "../../Media/avatardef.svg"
-
 import { useState, useCallback } from "react"
 
-import { useNavigate } from "react-router-dom";
-
-function AccountSettings({ userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
-    let navigate = useNavigate();
+function AccountSettings({sessionExpired, userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
     let [fileUpl, setFileUpl] = useState(false);
     const setWarning = useCallback((el, text) => {
         el.parentElement.querySelector(".AccountSettings__warning").innerText = ""
@@ -48,12 +43,7 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                         setInvokeStatus(!invokeStatus);
                         alert("Successfully changed")
                     } else {
-                        alert("Your session expiered. Please re-login and try again");
-                        navigate("/logIn")
-                        setLogined(false)
-                        setUserData({});
-                        sessionStorage.clear();
-                        localStorage.clear();
+                        sessionExpired()
                     }
                 })
                 .catch(e => console.log(e))
@@ -98,12 +88,7 @@ function AccountSettings({ userData, setUserData, logined, setLogined, setInvoke
                             setInvokeStatus(!invokeStatus);
                             alert("New personal data set successfully");
                         } else {
-                            alert("Your session expiered. Please re-login and try again");
-                            navigate("/logIn")
-                            setLogined(false)
-                            setUserData({});
-                            sessionStorage.clear();
-                            localStorage.clear();
+                            sessionExpired()
                         }
                     })
                     .catch(e => console.log(e));

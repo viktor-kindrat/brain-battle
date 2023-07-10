@@ -11,7 +11,7 @@ import { gsap } from "gsap";
 import QuestionField from "../QuestionField/QuestionField";
 
 
-function CreateTest({ logined, setLogined, setInvokeStatus, setUserData, invokeStatus }) {
+function CreateTest({ sessionExpired, logined, setLogined, setInvokeStatus, setUserData, invokeStatus }) {
     let navigate = useNavigate()
 
     let [questions, questionsDispatch] = useReducer(quesReducer, JSON.parse(sessionStorage.getItem("questions")) || [{
@@ -68,11 +68,7 @@ function CreateTest({ logined, setLogined, setInvokeStatus, setUserData, invokeS
                                 navigate("/dashboard");
                             }
                             if (data.message === "Invalid token") {
-                                localStorage.clear();
-                                sessionStorage.removeItem("userInfo");
-                                setLogined(false);
-                                alert("There is error on the server. It looks like your login session expiered! Relogin and try again. Your test will be saved while you are on this tab.")
-                                navigate("/logIn");
+                                sessionExpired()
                             }
                         })
                         .catch(e => {

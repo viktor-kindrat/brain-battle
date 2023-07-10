@@ -7,7 +7,7 @@ import { gsap } from "gsap"
 import AccountSettings from "../AccountSettings/AccountSettings"
 
 
-function Settings({ userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
+function Settings({ sessionExpired, userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }) {
     useEffect(()=>{
         let tl = gsap.timeline();
         tl.set(".Settings__menu-btn", {
@@ -36,7 +36,7 @@ function Settings({ userData, setUserData, logined, setLogined, setInvokeStatus,
                 </div>
                 <div className="Settings__detail">
                     <Routes>
-                        <Route path="/" element={<AccountSettings {...{ userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }} />} />
+                        <Route path="/" element={<AccountSettings {...{sessionExpired, userData, setUserData, logined, setLogined, setInvokeStatus, invokeStatus }} />} />
                         <Route path="security" element={<div>Security settings</div>} />
                     </Routes>
                 </div>
