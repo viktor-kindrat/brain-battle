@@ -77,8 +77,18 @@
                 font-weight: 900;
                 cursor: pointer;
             }
+            .TestingArea__timer {
+                @include flex(center, center, row, 5px);
+                @include borderRadius(50%);
+                width: 75px;
+                height: 75px;
+                font-weight: 900;
+                font-size: calc(25px + .3vw);
+                background: #14141450;
+            }
         }
     }
+    
 
     .TestingArea__broken {
         @include flex(center, center, column, 25px);

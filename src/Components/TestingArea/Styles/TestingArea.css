@@ -92,6 +92,23 @@
   font-weight: 900;
   cursor: pointer;
 }
+.TestingArea .TestingArea__variants .TestingArea__variants-container .TestingArea__timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  font-weight: 900;
+  font-size: calc(25px + 0.3vw);
+  background: rgba(20, 20, 20, 0.3137254902);
+}
 .TestingArea .TestingArea__broken {
   display: flex;
   align-items: center;

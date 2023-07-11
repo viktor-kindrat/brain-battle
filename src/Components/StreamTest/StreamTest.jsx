@@ -3,13 +3,13 @@ import playIcon from "./Svg/play.svg"
 import nextIcon from "./Svg/next.svg"
 
 import { useNavigate } from "react-router-dom"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, useRef } from "react"
 
 import socket from "../../Socket"
 
 import { gsap } from "gsap"
 
-function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus }) {
+function StreamTest({ sessionExpiered, logined, setLogined, invokeStatus, userData, setUserData, setInvokeStatus }) {
     let navigate = useNavigate();
 
     let [pending, setPending] = useState(true);
@@ -23,22 +23,39 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
     let [answers, setAnswers] = useState(0);
     let [showLeaderboard, setShowLeaderboard] = useState(false);
     let [leaderboardPending, setLeaderboardPending] = useState(true);
-    let [testPending, setTestPending] = useState(true)
+    let [testPending, setTestPending] = useState(true);
+    let [timeFalled, setTimeFalled] = useState(true);
+    let [time, setTime] = useState(0);
+    let timer = useRef(0)
+    let x = useRef(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         socket.connect();
-    }, [])
+        return () => {
+            socket.disconnect();
+        };
+    }, []);
 
-    useEffect(()=>{
-        gsap.fromTo(".StreamTest__user", {
-            scale: 0,
-        }, {
-            scale: 1,
-            duration: 0.7,
-            stagger: 0.1,
-            ease: "elastic.out"
-        })
-    }, [testData.respondents])
+    useEffect(() => {
+        if (document.querySelector(".StreamTest__user")) {
+            gsap.fromTo(".StreamTest__user", {
+                scale: 0,
+            }, {
+                scale: 1,
+                duration: 0.7,
+                stagger: 0.1,
+                ease: "elastic.out"
+            })
+        }
+    }, [testData.respondents]);
+
+    useEffect(() => {
+        if (document.querySelector(".StreamTest__variant")) {
+            setTimeout(() => {
+                gsap.fromTo(".StreamTest__variant", { scale: 0 }, { scale: 1, duration: 0.7, ease: "elastic.out", stagger: 0.1 })
+            }, 0)
+        }
+    }, [timeFalled])
 
     let getFullTestingInfo = useCallback((testingCode) => {
         fetch("https://brain-battle-server-wpcm.onrender.com/tester/getFullTestingData", { method: "POST", headers: { "Content-type": "application/json", "Authorization": `Baerer ${localStorage.getItem("userToken")}` }, body: JSON.stringify({ code: testingCode }) })
@@ -94,15 +111,43 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
         setAnswers(answers + 1)
     })
 
+    let setupTimer = useCallback(() => {
+        x.current = setInterval(() => {
+            if (document.querySelector(".StreamTest__timer")) {
+                gsap.fromTo(".StreamTest__timer", { scale: 0 }, { scale: 1, duration: 0.2 });
+            }
+            setTimeout(() => {
+                if (document.querySelector(".StreamTest__timer")) {
+                    gsap.fromTo(".StreamTest__timer", { scale: 1 }, { scale: 0, duration: 0.2 });
+                }
+            }, 950)
+            if (timer.current === 0) {
+                setTime(timer.current - 1);
+                timer.current--
+                clearInterval(x.current)
+                setTimeFalled(true);
+            } else {
+                setTime(timer.current - 1)
+                timer.current--
+            }
+        }, 1000)
+    }, [setTime])
+
     let switchQuestionHandler = useCallback((testingCode) => {
+        clearInterval(x.current);
         if (parseInt(testData.questionId) + 1 < testData.questions[0].length) {
             fetch("https://brain-battle-server-wpcm.onrender.com/tester/switchQuestion", { method: "POST", headers: { "Content-type": "application/json", "Authorization": `Baerer ${localStorage.getItem("userToken")}` }, body: JSON.stringify({ code: testingCode }) })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     if (data.status === "ok") {
                         getFullTestingInfo(testingCode)
-                        setAnswers(0)
+                        setAnswers(0);
+
+                        setTimeFalled(false);
+                        setTime(6);
+                        timer.current = 6;
+                        setupTimer();
+
                         socket.emit("switch-question", testingCode)
                     } else {
                         sessionExpiered()
@@ -113,7 +158,7 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
         } else {
             getFullTestingInfo(testingCode)
         }
-    }, [getFullTestingInfo, testData, setAnswers, sessionExpiered])
+    }, [getFullTestingInfo, testData, setAnswers, sessionExpiered, setTime, setupTimer])
 
     let setFirstQuestionHandler = useCallback((e) => {
         if (testData.respondents.length > 0) {
@@ -174,8 +219,8 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
                         <button onClick={setFirstQuestionHandler} className="StreamTest__play-btn"><img height={35} src={playIcon} alt="play" className="StreamTest__play-btn-image" /></button>
                         <div className="StreamTest__users">
                             {
-                                testData && testData.respondents.length > 0 ? testData.respondents.map(item =>
-                                    <div className="StreamTest__user">{item.name}</div>
+                                testData && testData.respondents.length > 0 ? testData.respondents.map((item, index) =>
+                                    <div key={index} className="StreamTest__user">{item.name}</div>
                                 ) : "Anyone is connected"
                             }
                         </div>
@@ -213,9 +258,11 @@ function StreamTest({sessionExpiered, logined, setLogined, invokeStatus, userDat
                                 <h2 className="StreamTest__question">{testData.questions[0][testData.questionId].text}</h2>
                             </div>
                             <div className="StreamTest__variants">
-                                {testData.questions[0][testData.questionId].variants.map((item, index) =>
-                                    <div className="StreamTest__variant"><div className="StreamTest__variant-index">{index}</div> {item.text}</div>
-                                )}
+                                {
+                                    timeFalled ? testData.questions[0][testData.questionId].variants.map((item, index) =>
+                                        <div key={index} className="StreamTest__variant"><div className="StreamTest__variant-index">{index}</div> {item.text}</div>
+                                    ) : <div className="StreamTest__timer">{time}</div>
+                                }
                             </div>
                         </> : "Pending"
                     }
