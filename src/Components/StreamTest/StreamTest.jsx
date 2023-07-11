@@ -171,7 +171,7 @@ function StreamTest({ sessionExpiered, logined, setLogined, invokeStatus, userDa
             navigate("/dashboard")
         } else {
             let testId = window.location.hash.substring(1);
-            let testingCode = parseInt(parseInt(new Date().getTime()) + Math.floor(Math.random() * 10000)).toString("36");
+            let testingCode = parseInt(parseInt(new Date().getTime()) + Math.floor(Math.random() * 100000)).toString("32").substring(3);
             startTesting(testingCode, testId)
         }
     }, [navigate, logined, startTesting]);
