@@ -2,6 +2,8 @@
 
 [![wakatime](https://wakatime.com/badge/github/viktor-kindrat/brain-battle.svg)](https://wakatime.com/badge/github/viktor-kindrat/brain-battle)
 
+Backend: https://github.com/viktor-kindrat/brain-battle-server
+
 Welcome to **Brain Battle**, an exciting online platform that challenges your cognitive skills through tough battles with other participants. Put your mind to the test with challenging questions and quick responses, stimulating brain development and igniting the desire to win.
 
 ## Features
