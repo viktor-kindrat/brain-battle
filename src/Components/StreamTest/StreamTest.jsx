@@ -189,14 +189,17 @@ function StreamTest({ sessionExpiered, logined, setLogined, invokeStatus, userDa
             switchQuestionHandler(roomId)
         } else {
             socket.emit("test-ended", roomId);
+            alert("Test ended succesfully!")
             setTimeout(() => {
                 fetch("https://brain-battle-server-wpcm.onrender.com/tester/removeTest", { method: "POST", headers: { "Content-type": "application/json", "Authorization": `Baerer ${localStorage.getItem("userToken")}` }, body: JSON.stringify({ code: roomId }) })
                     .then(res => res.json())
                     .then(data => {
                         if (data.status === "ok") {
+                            setUserData({})
+                            setInvokeStatus(Date.now())
                             navigate("/dashboard")
-                            setInvokeStatus(!invokeStatus)
                         } else {
+                            setInvokeStatus(Date.now())
                             sessionExpiered()
                             socket.disconnect()
                         }
@@ -204,7 +207,7 @@ function StreamTest({ sessionExpiered, logined, setLogined, invokeStatus, userDa
                     .catch(e => console.log(e))
             }, 5000);
         }
-    }, [roomId, setShowLeaderboard, switchQuestionHandler, setTestPending, setInvokeStatus, invokeStatus, navigate, testData, sessionExpiered])
+    }, [roomId, setShowLeaderboard, setUserData, switchQuestionHandler, setTestPending, setInvokeStatus, navigate, testData, sessionExpiered])
 
     return (
         <section className="StreamTest">

@@ -17,16 +17,6 @@ function QuestionField({ id, questions, question, questionsDispatch }) {
     }
 
     const removeQuestionHandler = async(e) => {
-        await e.target.parentElement.parentElement.classList.add("QuestionField_anime-remove");
-        await gsap.fromTo(".QuestionField_anime-remove", {
-            opacity: 1,
-            x: 0
-        }, {
-            opacity: 0,
-            x: -50,
-            duration: 0.7,
-            ease: "elastic.out"
-        })
         questionsDispatch({
             type: "question/remove",
             id: e.target.parentElement.parentElement.dataset.id
